@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@use "primeflex/primeflex.css";
+@use 'assets/scss/index';
+@use 'assets/custom-primeng/index' as custom;
+
+@import url("https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css") layer(framework);
+
+@layer app-components {
+
+  html,
+  body {
+    height: 100%;
+    font-size: 12px;
+    margin: 0;
+    background-color: var(--surface-placa);
+  }
+}
