@@ -1,4 +1,6 @@
 @use "primeflex/primeflex.css";
+@use "primeicons/primeicons.css";
+
 @use 'assets/scss/index';
 @use 'assets/custom-primeng/index' as custom;
 
@@ -13,4 +15,5 @@
     margin: 0;
     background-color: var(--surface-placa);
   }
+
 }
