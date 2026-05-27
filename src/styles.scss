@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+@use "primeflex/primeflex.css";
+
+@layer app-components {
+  @use 'assets/scss/index';
+
+  :root {
+    --surface-ground: var(--surface-placa);
+  }
+
+  html,
+  body {
+    height: 100%;
+    font-size: 12px;
+    margin: 0;
+    background-color: var(--p-surface-100);
+  }
+}

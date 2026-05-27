@@ -32,6 +32,9 @@ importers:
       dayjs:
         specifier: ^1.11.20
         version: 1.11.20
+      primeflex:
+        specifier: ^4.0.0
+        version: 4.0.0
       primeng:
         specifier: ^21.1.8
         version: 21.1.8(65dbcd33abc180767482238712a335e6)
@@ -2264,6 +2267,9 @@ packages:
     resolution: {integrity: sha512-7igPTM53cGHMW8xWuVTydi2KO233VFiTNyF5hLJqpilHfmn8C8gPf+PS7dUT64YcXFbiMGZxS9pCSxL/Dxm/Jw==}
     engines: {node: '>=14'}
     hasBin: true
+
+  primeflex@4.0.0:
+    resolution: {integrity: sha512-UOEZCRjR36+sm5bUpDhS1xbA068l9VC6y1aTNVqQPtXuKIdPTqAWHRUxj3mKAoPrQ9W373ooJJMgNVXfiaw04g==}
 
   primeng@21.1.8:
     resolution: {integrity: sha512-LvbecXxfcjbHqINa9Z3GxGKwyeWAaBCKZIJHoxZsSSUVnaz+mzqVHhvz/GAT2CC5EQhKxqex+8tm/OubErDTRg==}
@@ -4882,6 +4888,8 @@ snapshots:
       source-map-js: 1.2.1
 
   prettier@3.8.3: {}
+
+  primeflex@4.0.0: {}
 
   primeng@21.1.8(65dbcd33abc180767482238712a335e6):
     dependencies:
