@@ -10,7 +10,30 @@
 
   <div class="sm:col-12 md:col-5 flex align-items-center justify-content-center h-screen">
     <p-card>
-      <h2>Inicio de Sesión</h2>
+      <form [formGroup]="loginForm">
+        <div class="flex justify-content-center">
+          <h2>Inicio de Sesión</h2>
+        </div>
+        <hr>
+        <div class="field">
+          <label for="matricula-login">Matrícula</label>
+          <input id="matricula-login" type="text" pInputText formControlName="matricula" pSize="large"
+                 placeholder="Ingresa Matrícula" class="w-full" />
+
+        </div>
+        <div class="field">
+          <label for="pass-login">Constraseña</label>
+          <input id="pass-login" type="password" pInputText formControlName="password" pSize="large"
+                 placeholder="Ingresa contraseña" class="w-full" />
+
+        </div>
+      </form>
+      <ng-template #footer>
+        <section class="flex justify-content-end">
+          <p-button type="submit" label="Ingresar" class="public-button" [styleClass]="'w-full'"
+                    [disabled]="loginForm.invalid"></p-button>
+        </section>
+      </ng-template>
     </p-card>
   </div>
 </div>

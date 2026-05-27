@@ -1,7 +1,8 @@
 @use "primeflex/primeflex.css";
+@use 'assets/scss/index';
+@use 'assets/custom-primeng/index' as custom;
 
 @layer app-components {
-  @use 'assets/scss/index';
 
   :root {
     --surface-ground: var(--surface-placa);
