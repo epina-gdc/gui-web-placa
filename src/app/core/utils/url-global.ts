@@ -1,6 +1,6 @@
 export const NAV_BASE_URL = {
-  publico: 'publico/',
-  privado: 'privado/',
+  publico: 'publico',
+  privado: 'privado',
 };
 
 export const NAV_PUBLICO_URL = {
