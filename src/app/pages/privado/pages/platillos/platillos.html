@@ -1,1 +1,132 @@
-<p>platillos works!</p>
+<div>
+    <span class="titulo-seccion">Platillos</span>
+</div>
+
+<div class="principal">
+
+    <!-- Header -->
+    <div class="div-header">
+        <span class="texto-campo font-semibold">
+            Búsqueda de Platillos
+        </span>
+    </div>
+
+    <!-- Formulario -->
+    <div class="divformulario">
+
+        <form [formGroup]="filtroForm">
+
+            <!-- Campos -->
+            <article class="grid">
+
+                <!-- Nombre o clave -->
+                <div class="lg:col-3 col-12">
+
+                    <div class="flex justify-content-between">
+                        <label class="field-label">
+                            Nombre o clave
+                        </label>
+                    </div>
+
+                    <div class="input-search-container">
+
+                        <input
+                            pInputText
+                            type="text"
+                            placeholder="Ingresar"
+                            class="input-search"
+                            formControlName="nombreClave"
+                        />
+
+                        <i class="pi pi-search icon-search"></i>
+
+                    </div>
+
+                </div>
+
+                <!-- Grupo -->
+                <div class="lg:col-3 col-12">
+
+                    <div class="flex justify-content-between">
+                        <label class="field-label">
+                            Grupo
+                        </label>
+                    </div>
+
+                    <p-select
+                        formControlName="grupo"
+                        [options]="gruposPlatillo"
+                        optionLabel="desGrupoPlatillo"
+                        optionValue="idGrupoPlatillo"
+                        placeholder="Selecciona una opción"
+                        class="w-full custom-dropdown ph-custom">
+                    </p-select>
+
+                </div>
+
+                <!-- Subgrupo -->
+                <div class="lg:col-3 col-12">
+
+                    <div class="flex justify-content-between">
+                        <label class="field-label">
+                            Subgrupo
+                        </label>
+                    </div>
+
+                    <p-select
+                        formControlName="subgrupo"
+                        [options]="subgruposPlatillo"
+                        optionLabel="desSubgrupoPlatillo"
+                        optionValue="idSubgrupoPlatillo"
+                        placeholder="Selecciona una opción"
+                        class="w-full custom-dropdown ph-custom">
+                    </p-select>
+
+                </div>
+
+                <!-- Estatus -->
+                <div class="lg:col-3 col-12">
+
+                    <div class="flex justify-content-between">
+                        <label class="field-label">
+                            Estatus
+                        </label>
+                    </div>
+
+                    <p-select
+                        formControlName="estatus"
+                        [options]="estatusPlatillo"
+                        optionLabel="desEstatusPlatillo"
+                        optionValue="idEstatusPlatillo"
+                        placeholder="Selecciona una opción"
+                        class="w-full custom-dropdown ph-custom">
+                    </p-select>
+
+                </div>
+
+            </article>
+
+            <!-- Botones -->
+            <div class="contenedor-botones">
+
+                <p-button
+                    type="button"
+                    label="Limpiar"
+                    styleClass="btn-limpiar"
+                    [style]="{'width':'110px'}">
+                </p-button>
+
+                <p-button
+                    type="button"
+                    label="Buscar"
+                    styleClass="btn-background"
+                    [style]="{'width':'110px'}">
+                </p-button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

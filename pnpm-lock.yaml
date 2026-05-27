@@ -35,6 +35,9 @@ importers:
       primeflex:
         specifier: ^4.0.0
         version: 4.0.0
+      primeicons:
+        specifier: ^7.0.0
+        version: 7.0.0
       primeng:
         specifier: ^21.1.8
         version: 21.1.8(65dbcd33abc180767482238712a335e6)
@@ -2270,6 +2273,9 @@ packages:
 
   primeflex@4.0.0:
     resolution: {integrity: sha512-UOEZCRjR36+sm5bUpDhS1xbA068l9VC6y1aTNVqQPtXuKIdPTqAWHRUxj3mKAoPrQ9W373ooJJMgNVXfiaw04g==}
+
+  primeicons@7.0.0:
+    resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
 
   primeng@21.1.8:
     resolution: {integrity: sha512-LvbecXxfcjbHqINa9Z3GxGKwyeWAaBCKZIJHoxZsSSUVnaz+mzqVHhvz/GAT2CC5EQhKxqex+8tm/OubErDTRg==}
@@ -4890,6 +4896,8 @@ snapshots:
   prettier@3.8.3: {}
 
   primeflex@4.0.0: {}
+
+  primeicons@7.0.0: {}
 
   primeng@21.1.8(65dbcd33abc180767482238712a335e6):
     dependencies:
