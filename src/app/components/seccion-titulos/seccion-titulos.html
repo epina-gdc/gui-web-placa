@@ -1,1 +1,9 @@
-<p>seccion-titulos works!</p>
+<div class="flex align-items-center">
+  @if (retorno) {
+    <a class="bg-white border-circle justify-content-center align-items-center flex return" (click)="btnRegresar()">
+      <img class="p-0" width="20" height="20"
+           src="temporal/flecha_atras.svg" alt="Flecha atrás">
+    </a>
+  }
+  <h2>{{ titulo }}</h2>
+</div>
