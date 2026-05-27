@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InicioSesion } from './pages/inicio-sesion/inicio-sesion';
+import { NAV_PUBLICO_URL } from '@core/utils/url-global';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'inicio-sesion',
+    redirectTo: NAV_PUBLICO_URL.inicioSesion,
     pathMatch: 'full',
   },
   {
-    path: 'inicio-sesion',
+    path: NAV_PUBLICO_URL.inicioSesion,
     component: InicioSesion,
   },
 ];
