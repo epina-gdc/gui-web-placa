@@ -10,6 +10,9 @@ import { StyleClass } from 'primeng/styleclass';
   imports: [Card, Button, ReactiveFormsModule, InputText, StyleClass],
   templateUrl: './inicio-sesion.html',
   styleUrl: './inicio-sesion.scss',
+  host: {
+    class: 'flex flex-column flex-1 w-full',
+  },
 })
 export class InicioSesion {
   constructor(private formBuilder: FormBuilder) {

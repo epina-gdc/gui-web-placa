@@ -2,17 +2,15 @@
 @use 'assets/scss/index';
 @use 'assets/custom-primeng/index' as custom;
 
-@layer app-components {
+@import url("https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css") layer(framework);
 
-  :root {
-    --surface-ground: var(--surface-placa);
-  }
+@layer app-components {
 
   html,
   body {
     height: 100%;
     font-size: 12px;
     margin: 0;
-    background-color: var(--p-surface-100);
+    background-color: var(--surface-placa);
   }
 }
