@@ -1,9 +1,15 @@
 @layer app-components {
+  .p-card {
+    min-width: 280px;
+    max-width: 550px;
+    width: 100%;
+    min-height: 400px;
+    box-sizing: border-box;
+  }
+
   .p-card-body {
     border-top: 18px solid var(--bs-primary-hex-green-color);
     border-radius: 10px 10px 0 0;
-    min-width: 600px;
-    min-height: 400px;
   }
 
   .card-padding-0 > .p-card-body {
