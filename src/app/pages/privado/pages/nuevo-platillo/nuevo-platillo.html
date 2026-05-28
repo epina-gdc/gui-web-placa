@@ -33,254 +33,270 @@
             Información del platillo
         </span>
     </div>
- <div class="divformulario background-white">
-     <form [formGroup]="filtroForm">
+    <div class="divformulario background-white">
+        <form [formGroup]="filtroForm">
 
-            <!-- Campos -->
-            <article class="grid">
+                <!-- Campos -->
+                <article class="grid">
 
-                <!-- Nombre o clave -->
-                <div class="lg:col-3 col-12">
+                    <!-- Nombre o clave -->
+                    <div class="lg:col-3 col-12">
 
-                    <div class="label-container">
+                        <div class="label-container">
 
-    <label class="field-label">
-        Nombre
-    </label>
+        <label class="field-label">
+            Nombre
+        </label>
 
-    <span class="required-text">
-        Obligatorio
-    </span>
-
-</div>
-
-               
-
-                        <input
-                            pInputText
-                            type="text"
-                            class="w-full"
-                            placeholder="Ingresar"
-                            
-                            formControlName="nombre"
-                        />
-
-               
-
-                </div>
-
-                <!-- Grupo -->
-                <div class="lg:col-3 col-12">
-
-                    <div class="label-container">
-
-    <label class="field-label">
-            Grupo
-    </label>
-
-    <span class="required-text">
-        Obligatorio
-    </span>
-
-</div>
-
-                    <p-select
-                        formControlName="grupo"
-                        [options]="gruposPlatillo"
-                        optionLabel="desGrupoPlatillo"
-                        optionValue="idGrupoPlatillo"
-                        placeholder="Selecciona una opción"
-                        class="w-full custom-dropdown ph-custom">
-                    </p-select>
-
-                </div>
-
-                <!-- Subgrupo -->
-                <div class="lg:col-3 col-12">
-
-                    <div class="label-container">
-
-    <label class="field-label">
-            Subgrupo
-    </label>
-
-    <span class="required-text">
-        Obligatorio
-    </span>
-
-</div>
-
-                    <p-select
-                        formControlName="subgrupo"
-                        [options]="subgruposPlatillo"
-                        optionLabel="desSubgrupoPlatillo"
-                        optionValue="idSubgrupoPlatillo"
-                        placeholder="Selecciona una opción"
-                        class="w-full custom-dropdown ph-custom">
-                    </p-select>
-
-                </div>
-
-                <!-- Estatus -->
-                <div class="lg:col-3 col-12">
-
-                    <div class="label-container">
-
-    <label class="field-label">
-        Estatus
-    </label>
-
-    <span class="required-text">
-        Obligatorio
-    </span>
-
-</div>
-
-                    <p-select
-                        formControlName="estatus"
-                        [options]="estatusPlatillo"
-                        optionLabel="desEstatusPlatillo"
-                        optionValue="idEstatusPlatillo"
-                        placeholder="Selecciona una opción"
-                        class="w-full custom-dropdown ph-custom">
-                    </p-select>
-
-                </div>
-
-            </article>
-
-                    <div class="section-title-container">
-
-            <span class="section-title">
-                Ingredientes del platillo
-            </span>
-
-        </div>
-<div>
-
-</div>
-
-      
-
-        </form>
-
-        <div>
-              <form [formGroup]="ingredienteForm">
-<article class="grid">
-      <div class="lg:col-3 col-12">
-
-                    <div class="flex justify-content-between">
-                        <label class="field-label">
-                            Ingrediente
-                        </label>
-                    </div>
-
-                    <div class="ingrediente-search-container">
-
-    <!-- INPUT -->
-
-    <div class="search-input-wrapper">
-
-        <input
-            pInputText
-            type="text"
-            class="input-ingrediente"
-            placeholder="Buscar"
-            formControlName="ingrediente"
-            (input)="filtrarIngredientes()"
-            (focus)="mostrarLista = true" />
-
-        <i class="pi pi-search icon-search"></i>
+        <span class="required-text">
+            Obligatorio
+        </span>
 
     </div>
 
-    <!-- LISTA -->
+                
 
-    @if (mostrarLista && ingredientesFiltrados.length > 0) {
+                            <input
+                                pInputText
+                                type="text"
+                                class="w-full"
+                                placeholder="Ingresar"
+                                
+                                formControlName="nombre"
+                            />
 
-        <div class="lista-ingredientes">
+                
 
-            @for (
-                ingrediente of ingredientesFiltrados;
-                track ingrediente.idIngrediente
-            ) {
+                    </div>
 
-                <div
-                    class="item-ingrediente"
-                    (click)="seleccionarIngrediente(ingrediente)">
+                    <!-- Grupo -->
+                    <div class="lg:col-3 col-12">
 
-                    {{ ingrediente.desIngrediente }}
+                        <div class="label-container">
 
-                </div>
+        <label class="field-label">
+                Grupo
+        </label>
 
-            }
+        <span class="required-text">
+            Obligatorio
+        </span>
+
+    </div>
+
+                        <p-select
+                            formControlName="grupo"
+                            [options]="gruposPlatillo"
+                            optionLabel="desGrupoPlatillo"
+                            optionValue="idGrupoPlatillo"
+                            placeholder="Selecciona una opción"
+                            class="w-full custom-dropdown ph-custom">
+                        </p-select>
+
+                    </div>
+
+                    <!-- Subgrupo -->
+                    <div class="lg:col-3 col-12">
+
+                        <div class="label-container">
+
+        <label class="field-label">
+                Subgrupo
+        </label>
+
+        <span class="required-text">
+            Obligatorio
+        </span>
+
+    </div>
+
+                        <p-select
+                            formControlName="subgrupo"
+                            [options]="subgruposPlatillo"
+                            optionLabel="desSubgrupoPlatillo"
+                            optionValue="idSubgrupoPlatillo"
+                            placeholder="Selecciona una opción"
+                            class="w-full custom-dropdown ph-custom">
+                        </p-select>
+
+                    </div>
+
+                    <!-- Estatus -->
+                    <div class="lg:col-3 col-12">
+
+                        <div class="label-container">
+
+        <label class="field-label">
+            Estatus
+        </label>
+
+        <span class="required-text">
+            Obligatorio
+        </span>
+
+    </div>
+
+                        <p-select
+                            formControlName="estatus"
+                            [options]="estatusPlatillo"
+                            optionLabel="desEstatusPlatillo"
+                            optionValue="idEstatusPlatillo"
+                            placeholder="Selecciona una opción"
+                            class="w-full custom-dropdown ph-custom">
+                        </p-select>
+
+                    </div>
+
+                </article>
+
+                        <div class="section-title-container">
+
+                <span class="section-title">
+                    Ingredientes del platillo
+                </span>
+
+            </div>
+    <div>
+
+    </div>
+
+        
+
+            </form>
+
+            <div>
+                <form [formGroup]="ingredienteForm">
+    <article class="grid">
+        <div class="lg:col-3 col-12">
+
+                        <div class="flex justify-content-between">
+                            <label class="field-label">
+                                Ingrediente
+                            </label>
+                        </div>
+
+                        <div class="ingrediente-search-container">
+
+        <!-- INPUT -->
+
+        <div class="search-input-wrapper">
+<input
+class="w-full"
+    pInputText
+    type="text"
+    formControlName="ingredienteTexto"
+    placeholder="Buscar"
+    (input)="filtrarIngredientes()"
+    (focus)="mostrarLista = true" />
+
+            <i class="pi pi-search icon-search"></i>
 
         </div>
 
-    }
+        <!-- LISTA -->
 
-</div>
+        @if (mostrarLista && ingredientesFiltrados.length > 0) {
 
-                </div>
-                <div class="lg:col-3 col-12">
+            <div class="lista-ingredientes">
 
-                    <div class="flex justify-content-between">
-                        <label class="field-label">
-                            Variedad
-                        </label>
+                @for (
+                    ingrediente of ingredientesFiltrados;
+                    track ingrediente.idIngrediente
+                ) {
+
+                    <div
+                        class="item-ingrediente"
+                        (click)="seleccionarIngrediente(ingrediente)">
+
+                        {{ ingrediente.desIngrediente }}
+
                     </div>
 
-                    <p-select
-                        formControlName="variedad"
-                        [options]="listaVariedades"
-                        optionLabel="desVariedad"
-                        optionValue="idVariedad"
-                        placeholder="Selecciona una opción"
-                        class="w-full custom-dropdown ph-custom">
-                    </p-select>
+                }
 
-                </div>
+            </div>
 
-                 <div class="lg:col-3 col-12">
+        }
 
-                    <div class="flex justify-content-between">
-                        <label class="field-label">
-                            Uso
-                        </label>
+    </div>
+
+                    </div>
+                    <div class="lg:col-3 col-12">
+
+                        <div class="flex justify-content-between">
+                            <label class="field-label">
+                                Variedad
+                            </label>
+                        </div>
+
+                        <p-select
+                            formControlName="variedad"
+                            [options]="listaVariedades"
+                            optionLabel="desVariedad"
+                            optionValue="idVariedad"
+                            placeholder="Selecciona una opción"
+                            class="w-full custom-dropdown ph-custom">
+                        </p-select>
+
                     </div>
 
-                    <p-select
-                        formControlName="uso"
-                        [options]="listaUsos"
-                        optionLabel="desUso"
-                        optionValue="idUso"
-                        placeholder="Selecciona una opción"
-                        class="w-full custom-dropdown ph-custom">
-                    </p-select>
+                    <div class="lg:col-3 col-12">
 
-                </div>
-                <div class="lg:col-3 col-12" style="display: flex; align-items: center; justify-content: center;">
-                    <button
-    pButton
-    type="button"
-    class="btn-agregar-ingrediente" [disabled]="ingredienteForm.invalid">
-     <i class="pi pi-plus"></i>
+                        <div class="flex justify-content-between">
+                            <label class="field-label">
+                                Uso
+                            </label>
+                        </div>
 
-    <i class="pi pi-plus"></i>
+                        <p-select
+                            formControlName="uso"
+                            [options]="listaUsos"
+                            optionLabel="desUso"
+                            optionValue="idUso"
+                            placeholder="Selecciona una opción"
+                            class="w-full custom-dropdown ph-custom">
+                        </p-select>
 
-    <span>Agregar ingrediente</span>
+                    </div>
+                    <div class="lg:col-3 col-12" style="display: flex; align-items: center; justify-content: center;">
+                        <button
+        pButton
+        type="button"
+        class="btn-agregar-ingrediente" [disabled]="ingredienteForm.invalid" (click)="agregarIngrediente()">
+        
 
-</button>
-                </div>
-</article>
-    </form>
-        </div>
- </div>
+        <i class="pi pi-plus"></i>
+
+        <span>Agregar ingrediente</span>
+
+    </button>
+                    </div>
+    </article>
+        </form>
+            </div>
+    </div>
+
 <div>
-
-  
-
+    <app-tabla-nuevos-ingredientes [data]="ingredientesPlatillo"></app-tabla-nuevos-ingredientes>
 </div>
+ <div class="contenedor-botones">
+
+              <p-button
+    type="button"
+    label="Cancelar"
+    styleClass="boton-cancelar">
+</p-button>
+
+
+                <p-button
+                    type="button"
+                    label="Gurdar platillo"
+                    styleClass="btn-background"
+                    [style]="{'width':'150px'}" >
+                </p-button>
+
+            </div>
+
 
 
 </div>

@@ -208,5 +208,60 @@
   color: #9CA3AF;
 }
 
+.contenedor-botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.boton-cancelar {
+
+  width: 80px !important;
+
+  height: 40px !important;
+
+  background: #FFFFFF !important;
+
+  border: 1px solid #EF4444 !important;
+
+  border-radius: 8px !important;
+
+  color: #EF4444 !important;
+
+  font-size: 14px !important;
+
+  font-weight: 500 !important;
+
+  box-shadow: none !important;
+
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+
+.boton-cancelar:hover {
+
+  background: #FEF2F2 !important;
+
+  border-color: #DC2626 !important;
+
+  color: #DC2626 !important;
+}
+
+/* Focus */
+
+.boton-cancelar:focus {
+
+  box-shadow: none !important;
+}
+
+.empty-table{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;}
+
 
 }

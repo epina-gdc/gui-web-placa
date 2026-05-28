@@ -1,20 +1,23 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TablaNuevosIngredientes } from '@components/tablas/tabla-nuevos-ingredientes/tabla-nuevos-ingredientes';
 import { EstatusPlatillo } from '@core/models/estatusPlatillo.interface';
 import { GrupoPlatillo } from '@core/models/grupoPlatillo.interface';
 import { Ingrediente } from '@core/models/ingredientes.interface';
+import { IngredientesPlatillo } from '@core/models/platillo-ingediente.interface';
 import { SubgrupoPlatillo } from '@core/models/subgrupoPlatillo.interface';
 import { Uso } from '@core/models/uso.interface';
 import { Variedad } from '@core/models/variedad.interface';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { SelectModule } from 'primeng/select';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-nuevo-platillo',
   imports: [ReactiveFormsModule,
     SelectModule,
-    InputTextModule,ButtonModule],
+    InputTextModule,ButtonModule,TablaNuevosIngredientes],
   templateUrl: './nuevo-platillo.html',
   styleUrl: './nuevo-platillo.scss',
 })
@@ -34,6 +37,8 @@ export class NuevoPlatillo {
 
      ingredientesFiltrados: Ingrediente[] = [];
       mostrarLista: boolean = false;
+      ingredientesPlatillo: IngredientesPlatillo[] = [];
+      ingredienteSeleccionado = '';
 constructor() {
        this.filtroForm = this.fb.group({
         nombre: ['', Validators.required],
@@ -44,7 +49,8 @@ constructor() {
 
     });
     this.ingredienteForm = this.fb.group({
-      ingrediente: [null, Validators.required],
+      ingrediente: [null, Validators.required],      // objeto seleccionado
+  ingredienteTexto: [''],                  
       variedad: [null, Validators.required],
       uso: [null, Validators.required],
     });
@@ -59,50 +65,109 @@ constructor() {
      FILTRAR
      ========================================================= */
 
-  filtrarIngredientes(): void {
+ filtrarIngredientes(): void {
 
-    const texto = this.ingredienteForm
-      .get('ingrediente')
-      ?.value
-      ?.toLowerCase()
-      ?.trim();
+  const texto = this.ingredienteForm
+    .get('ingredienteTexto')
+    ?.value
+    ?.toLowerCase()
+    ?.trim();
 
-    if (!texto) {
+  if (!texto) {
 
-      this.ingredientesFiltrados =
-        this.ingredientes;
+    this.ingredientesFiltrados = [
+      ...this.ingredientes
+    ];
 
-      return;
-
-    }
-
-    this.ingredientesFiltrados =
-      this.ingredientes.filter(
-        ingrediente =>
-          ingrediente.desIngrediente
-            .toLowerCase()
-            .includes(texto)
-      );
-
+    return;
   }
 
+  this.ingredientesFiltrados =
+    this.ingredientes.filter(x =>
+      x.desIngrediente
+        .toLowerCase()
+        .includes(texto)
+    );
+
+}
   /* =========================================================
      SELECCIONAR
      ========================================================= */
 
-  seleccionarIngrediente(
-    ingrediente: Ingrediente
-  ): void {
+seleccionarIngrediente(
+  ingrediente: Ingrediente
+): void {
 
-    this.ingredienteForm.patchValue({
+  this.ingredienteForm.patchValue({
+    ingrediente: ingrediente,
+    ingredienteTexto: ingrediente.desIngrediente
+  });
 
-      ingrediente:
-        ingrediente.desIngrediente
+  this.mostrarLista = false;
 
-    });
+}
+  /* =========================================================
+   AGREGAR INGREDIENTE
+   ========================================================= */
 
-    this.mostrarLista = false;
+agregarIngrediente(): void {
 
+  const idIngrediente =
+    this.ingredienteForm.value.ingrediente;
+
+  const idVariedad =
+    this.ingredienteForm.value.variedad;
+
+  const idUso =
+    this.ingredienteForm.value.uso;
+
+  const ingrediente =
+  this.ingredienteForm.value.ingrediente;
+
+ingrediente.idIngrediente
+ingrediente.desIngrediente
+
+  const variedad = this.listaVariedades.find(
+    x => x.idVariedad === idVariedad
+  );
+
+  const uso = this.listaUsos.find(
+    x => x.idUso === idUso
+  );
+
+  if (!ingrediente || !variedad || !uso) {
+    return;
   }
+
+  const existe =
+    this.ingredientesPlatillo.some(x =>
+      x.idIngrediente === idIngrediente &&
+      x.idVariedad === idVariedad &&
+      x.idUso === idUso
+    );
+
+  if (existe) {
+    return;
+  }
+
+  this.ingredientesPlatillo.push({
+
+    idIngrediente: ingrediente.idIngrediente,
+    ingrediente: ingrediente.desIngrediente,
+
+    idVariedad: variedad.idVariedad,
+    variedad: variedad.desVariedad,
+
+    idUso: uso.idUso,
+    uso: uso.desUso,
+
+    porcion: 0.25
+
+  });
+
+  console.log(this.ingredientesPlatillo);
+
+  this.ingredienteForm.reset();
+}
 
 }
