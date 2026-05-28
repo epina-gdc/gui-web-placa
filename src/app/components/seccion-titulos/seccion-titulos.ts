@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 
 @Component({
   selector: 'app-seccion-titulos',
@@ -7,12 +7,12 @@ import { Component, Input } from '@angular/core';
   styleUrl: './seccion-titulos.scss',
 })
 export class SeccionTitulos {
-  @Input() ruta: string = '';
-  @Input() titulo: string = '';
-  @Input() retorno: boolean = false;
+  titulo = input.required<string>();
+  ruta = input<string>();
+  retorno = input<boolean>(false);
 
   public btnRegresar(): void {
-    if (this.ruta) {
+    if (this.ruta()) {
       // void this._router.navigate([this.ruta]);
     } else {
       // this._alertServices.informacion('No se ha ingresado la ruta de retorno');
