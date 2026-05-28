@@ -1,6 +1,6 @@
 @forward "card";
-@use 'select';
-@use 'table';
-@use 'button';
-@use 'input';
+@forward 'select';
+@forward 'table';
+@forward 'button';
+@forward 'input';
 

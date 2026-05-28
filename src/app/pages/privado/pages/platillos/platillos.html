@@ -110,23 +110,27 @@
             <div class="contenedor-botones">
 
                 <p-button
-                    type="button"
-                    label="Limpiar"
-                    styleClass="btn-limpiar"
-                    [style]="{'width':'110px'}">
-                </p-button>
+    type="button"
+    label="Limpiar"
+    styleClass="btn-limpiar"
+    [style]="{'width':'110px'}">
+</p-button>
+
 
                 <p-button
                     type="button"
                     label="Buscar"
                     styleClass="btn-background"
-                    [style]="{'width':'110px'}">
+                    [style]="{'width':'110px'}" (click)="consultarPlatillos()">
                 </p-button>
 
             </div>
 
         </form>
 
+    </div>
+    <div>
+        <app-tabla-platillos [data]="platillos"/>
     </div>
 
 </div>
