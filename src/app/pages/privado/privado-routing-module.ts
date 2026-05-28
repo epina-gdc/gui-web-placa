@@ -22,6 +22,21 @@ const routes: Routes = [
       {
         path: NAV_PRIVADO_URL.nuevoPlatillo,
         component: NuevoPlatillo
+      },
+      {
+        path: NAV_PRIVADO_URL.minutaSintetica,
+      },
+      {
+        path: NAV_PRIVADO_URL.ordenes
+      },
+      {
+        path: NAV_PRIVADO_URL.reportes
+      },
+      {
+        path: NAV_PRIVADO_URL.solicitudExtraordinariaProveedor
+      },
+      {
+        path: NAV_PRIVADO_URL.nuevaSolicitudExtraordinaria
       }
     ]
   },
