@@ -9,28 +9,29 @@
   </div>
 
   <div class="col-12 md:col-6 flex align-items-center justify-content-center px-4 md:px-2">
-    <p-card>
+    <p-card class="inicio-sesion-form">
       <form [formGroup]="loginForm">
-        <div class="flex justify-content-center">
-          <h2>Inicio de Sesión</h2>
-        </div>
-        <hr>
-        <div class="field">
-          <label for="matricula-login">Matrícula</label>
-          <input id="matricula-login" type="text" pInputText formControlName="matricula" pSize="large"
-                 placeholder="Ingresa Matrícula" class="w-full" />
+        <div class="inicio-sesion-form-body">
+          <div class="flex justify-content-center inicio-sesion-form-header">
+            <h2 class="inicio-sesion-form-titulo">Inicio de Sesión</h2>
+          </div>
+          <div class="field">
+            <label for="matricula-login" class="label-input">Matrícula</label>
+            <input id="matricula-login" type="text" pInputText formControlName="matricula" pSize="large"
+                   placeholder="Ingresar matrícula" class="w-full" />
 
-        </div>
-        <div class="field">
-          <label for="pass-login">Constraseña</label>
-          <input id="pass-login" type="password" pInputText formControlName="password" pSize="large"
-                 placeholder="Ingresa contraseña" class="w-full" />
+          </div>
+          <div class="field">
+            <label for="pass-login" class="label-input">Constraseña</label>
+            <input id="pass-login" type="password" pInputText formControlName="password" pSize="large"
+                   placeholder="Ingresar contraseña" class="w-full"  />
 
+          </div>
         </div>
       </form>
       <ng-template #footer>
-        <section class="flex justify-content-end">
-          <p-button type="submit" label="Ingresar" class="public-button" [styleClass]="'w-full'"
+        <section class="flex justify-content-end inicio-sesion-form-footer">
+          <p-button type="submit" label="Ingresar" class="inicio-sesion-button" [styleClass]="'w-full'"
                     [disabled]="loginForm.invalid"></p-button>
         </section>
       </ng-template>

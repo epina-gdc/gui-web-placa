@@ -8,6 +8,10 @@
 
 @layer app-components {
 
+  :host {
+
+  }
+
   html,
   body {
     height: 100%;
@@ -162,6 +166,21 @@
     border: none !important;
   }
 
+  .inicio-sesion-button .p-button-label {
+    padding: 8px 20px;
+    min-height: 40px;
+    border-radius: 8px;
+    min-width: 135px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: 0;
+    color: #FFF;
+  }
 
+
+  .inicio-sesion-form .p-card-body {
+    padding: 0;
+  }
 
 }
