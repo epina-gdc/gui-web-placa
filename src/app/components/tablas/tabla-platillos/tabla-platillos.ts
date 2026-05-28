@@ -1,28 +1,34 @@
-import { Component, computed, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
-import {IconFieldModule} from 'primeng/iconfield';
-import {InputIconModule} from 'primeng/inputicon';
-import {InputTextModule} from 'primeng/inputtext';
-import {ButtonModule} from 'primeng/button';
-import {Ripple} from 'primeng/ripple';
+import { Component, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
-import {PaginatorModule} from 'primeng/paginator';
-import {TableModule} from 'primeng/table';
+import { PaginatorModule } from 'primeng/paginator';
+import { TableModule } from 'primeng/table';
 import { Platillo } from '@core/models/platillo.interface';
 import { ColumnDefinition } from '@core/models/columna-tabla';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
 import { FormsModule } from '@angular/forms';
 
-
-
 @Component({
   selector: 'app-tabla-platillos',
-  imports: [TableModule, PaginatorModule, CommonModule, IconFieldModule, InputIconModule, InputTextModule, ButtonModule, Ripple,ToggleSwitchModule,FormsModule,],
+  imports: [
+    TableModule,
+    PaginatorModule,
+    CommonModule,
+    IconFieldModule,
+    InputIconModule,
+    InputTextModule,
+    ButtonModule,
+    ToggleSwitchModule,
+    FormsModule,
+  ],
   templateUrl: './tabla-platillos.html',
   styleUrl: './tabla-platillos.scss',
   standalone: true,
 })
 export class TablaPlatillos {
-
   @Input() data: Platillo[] = [];
 
   first: WritableSignal<number> = signal(0);
@@ -39,28 +45,28 @@ export class TablaPlatillos {
     {
       field: 'clave',
       header: 'Clave',
-      width: '80px'
+      width: '80px',
     },
     {
       field: 'nombre',
       header: 'Nombre del platillo',
-      width: '150px'
+      width: '150px',
     },
     {
       field: 'grupo',
       header: 'Grupo',
-      width: '200px'
+      width: '200px',
     },
     {
       field: 'subgrupo',
       header: 'Subgrupo',
-      width: '200px'
+      width: '200px',
     },
     {
       field: 'fechaRegistro',
       header: 'Fecha de registro',
-      width: '200px'
-    }
+      width: '200px',
+    },
   ];
 
   /* =========================================================
@@ -76,11 +82,8 @@ export class TablaPlatillos {
      ========================================================= */
 
   ngOnChanges(changes: SimpleChanges): void {
-
     if (changes['columns']) {
-
     }
-
   }
 
   /* =========================================================
@@ -88,11 +91,9 @@ export class TablaPlatillos {
      ========================================================= */
 
   onPageChange(event: any): void {
-
     this.first.set(event.first ?? 0);
 
     this.rows.set(event.rows ?? 10);
-
   }
 
   /* =========================================================
@@ -100,9 +101,7 @@ export class TablaPlatillos {
      ========================================================= */
 
   buscar(busqueda: any): string {
-
     return busqueda.target.value;
-
   }
 
   /* =========================================================
@@ -110,17 +109,9 @@ export class TablaPlatillos {
      ========================================================= */
 
   next(): void {
-
-    if (
-      this.first() + this.rows() < this.totalRecords
-    ) {
-
-      this.first.set(
-        this.first() + this.rows()
-      );
-
+    if (this.first() + this.rows() < this.totalRecords) {
+      this.first.set(this.first() + this.rows());
     }
-
   }
 
   /* =========================================================
@@ -128,15 +119,9 @@ export class TablaPlatillos {
      ========================================================= */
 
   prev(): void {
-
     if (this.first() > 0) {
-
-      this.first.set(
-        this.first() - this.rows()
-      );
-
+      this.first.set(this.first() - this.rows());
     }
-
   }
 
   /* =========================================================
@@ -144,11 +129,7 @@ export class TablaPlatillos {
      ========================================================= */
 
   currentPage(): number {
-
-    return Math.floor(
-      this.first() / this.rows()
-    ) + 1;
-
+    return Math.floor(this.first() / this.rows()) + 1;
   }
 
   /* =========================================================
@@ -156,16 +137,9 @@ export class TablaPlatillos {
      ========================================================= */
 
   totalPagesArray(): number[] {
+    const totalPages = Math.ceil(this.totalRecords / this.rows());
 
-    const totalPages = Math.ceil(
-      this.totalRecords / this.rows()
-    );
-
-    return Array.from(
-      { length: totalPages },
-      (_, i) => i + 1
-    );
-
+    return Array.from({ length: totalPages }, (_, i) => i + 1);
   }
 
   /* =========================================================
@@ -173,11 +147,6 @@ export class TablaPlatillos {
      ========================================================= */
 
   goToPage(page: number): void {
-
-    this.first.set(
-      (page - 1) * this.rows()
-    );
-
+    this.first.set((page - 1) * this.rows());
   }
-
 }

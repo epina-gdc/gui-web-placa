@@ -1,8 +1,8 @@
 @layer app-components {
   .p-card-body {
-    border-top: 18px solid var(--bs-primary-hex-color);
+    border-top: 16px solid var(--bs-primary-hex-color);
     border-radius: 10px 10px 0 0;
-    padding: 0px !important;
+    padding: 0 !important;
   }
 
   .card-padding-0 > .p-card-body {
@@ -35,7 +35,7 @@
   .no-padding-card .p-card-content {
     /* La doble clase le da mayor especificidad que solo .empty-border */
     padding: 0 !important; /* Usar !important si es necesario, pero intenta evitarlo */
-    padding: 0; 
+    padding: 0;
 }
 
   .bg-blue-oferta-laboral > .p-card {
