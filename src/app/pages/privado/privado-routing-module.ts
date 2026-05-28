@@ -4,6 +4,15 @@ import { Privado } from '@pages/privado/privado';
 import { NAV_PRIVADO_URL } from '@core/utils/url-global';
 import { Platillos } from '@pages/privado/pages/platillos/platillos';
 import { NuevoPlatillo } from '@pages/privado/pages/nuevo-platillo/nuevo-platillo';
+import { MinutaSintetica } from '@pages/privado/pages/minuta-sintetica/minuta-sintetica';
+import { Ordenes } from '@pages/privado/pages/ordenes/ordenes';
+import { Reportes } from '@pages/privado/pages/reportes/reportes';
+import {
+  SolicitudExtraordinariaProveedor
+} from '@pages/privado/pages/solicitud-extraordinaria-proveedor/solicitud-extraordinaria-proveedor';
+import {
+  NuevaSolicitudExtraordinaria
+} from '@pages/privado/pages/nueva-solicitud-extraordinaria/nueva-solicitud-extraordinaria';
 
 const routes: Routes = [
   {
@@ -22,6 +31,26 @@ const routes: Routes = [
       {
         path: NAV_PRIVADO_URL.nuevoPlatillo,
         component: NuevoPlatillo
+      },
+      {
+        path: NAV_PRIVADO_URL.minutaSintetica,
+        component: MinutaSintetica
+      },
+      {
+        path: NAV_PRIVADO_URL.ordenes,
+        component: Ordenes
+      },
+      {
+        path: NAV_PRIVADO_URL.reportes,
+        component: Reportes
+      },
+      {
+        path: NAV_PRIVADO_URL.solicitudExtraordinariaProveedor,
+        component: SolicitudExtraordinariaProveedor
+      },
+      {
+        path: NAV_PRIVADO_URL.nuevaSolicitudExtraordinaria,
+        component: NuevaSolicitudExtraordinaria
       }
     ]
   },

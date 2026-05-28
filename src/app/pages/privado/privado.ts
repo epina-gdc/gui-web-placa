@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Menu } from '@components/menu/menu';
 import { RouterOutlet } from '@angular/router';
+import { Navbar } from '@components/navbar/navbar';
 
 @Component({
   selector: 'app-privado',
-  imports: [Menu, RouterOutlet],
+  imports: [RouterOutlet, Navbar],
   templateUrl: './privado.html',
   styleUrl: './privado.scss',
 })
