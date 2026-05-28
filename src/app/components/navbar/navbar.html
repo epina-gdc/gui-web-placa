@@ -1,29 +1,35 @@
-<div class="flex justify-content-between align-items-center px-4 py-3 mb-2 lg:mb-0">
+<div class="flex justify-content-between align-items-center px-6 py-3 mb-2 lg:mb-0 navbar-bg">
 
-  <div class="flex align-items-center">
-    <p-button variant="text" icon="pi pi-bars" />
-    <img src="temporal/logo_imss2.png" alt="Logo IMSS" class="mr-3" />
+  <div class="flex align-items-center gap-4">
+    <div class="navbar-menu-btn flex justify-content-center align-items-center">
+      <i class="pi pi-bars" style="font-size: 26px;"></i>
+    </div>
+    <div class="flex justify-content-center align-items-center">
+      <p class="mb-0 nombre-institucion">IMMS</p>
+    </div>
     <div class="hr-vertical mx-0 me-3"></div>
-    <span class="border-circle bg-green mr-2">PC</span>
-    <span>Planeación y Control de Alimento</span>
+    <span class="navbar-abreviatura">PC</span>
+    <span class="navbar-titulo-proyecto">Planeación y Control de Alimento</span>
   </div>
 
   <div class="flex align-items-center gap-3">
-    <div class="text-center">
-      <span class="text-overflow-ellipsis block font-medium">
+    <div class="flex flex-column gap-2 justify-content-center align-items-center">
+      <span class="text-overflow-ellipsis font-medium navbar-usuario">
         Adrian Reyes Torres
       </span>
-      <span class="text-overflow-ellipsis text-sm text-600 block">
+      <span class="text-overflow-ellipsis navbar-unidad">
         HGZ 27
       </span>
     </div>
-    <img [src]="'temporal/User_info.svg'" style="margin-top: 16px;"
-         (click)="op.toggle($event)" />
+    <div class="flex justify-content-center align-items-center">
+      <img [src]="'temporal/User_info.svg'" alt="Icono para acceder a opciones de sesión del usuario"
+           (click)="op.toggle($event)" />
+    </div>
     <p-popover #op styleClass="nav-popover">
       <div class="bg-menu-btn p-3 border-round-top">
         <div class="flex justify-content-between align-items-start">
           <div class="flex gap-2">
-            <img  [src]="'temporal/User_info.svg'" />
+            <img [src]="'temporal/User_info.svg'" />
             <div class="ml-1">
               <p class="font-bold text-lg mb-0">
                 Mariana Abigail Leon Vargas

@@ -11,7 +11,6 @@ import { ColumnDefinition } from '@core/models/columna-tabla';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
 import { FormsModule } from '@angular/forms';
 
-
 @Component({
   selector: 'app-tabla-platillos',
   imports: [
