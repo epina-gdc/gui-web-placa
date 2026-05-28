@@ -153,9 +153,13 @@
     cursor: not-allowed !important;
   }
 
-
   .nav-popover .p-popover-content {
     padding: 0 !important;
+    min-width: 318px;
+  }
+
+  .p-popover:before {
+    border: none !important;
   }
 
 

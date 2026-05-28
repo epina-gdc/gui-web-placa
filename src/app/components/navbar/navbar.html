@@ -26,41 +26,50 @@
            (click)="op.toggle($event)" />
     </div>
     <p-popover #op styleClass="nav-popover">
-      <div class="bg-menu-btn p-3 border-round-top">
-        <div class="flex justify-content-between align-items-start">
-          <div class="flex gap-2">
-            <img [src]="'temporal/User_info.svg'" />
-            <div class="ml-1">
-              <p class="font-bold text-lg mb-0">
+      <div class="border-round-top relative">
+        <div class="absolute text-white" style="top: 10px; right: 10px; left: auto;">
+          <i class="pi pi-times cursor-pointer text-xl" (click)="op.hide()"></i>
+        </div>
+        <div class="popover-header border-round-top">
+          <div class="flex align-items-start gap-2">
+            <div class="flex justify-content-start">
+              <img [src]="'temporal/User_info.svg'" alt="Imagen informativa de icono de usuario generico" />
+            </div>
+            <div class="ml-1 flex flex-column gap-2">
+              <p class="mb-0 popover-usuario">
                 Mariana Abigail Leon Vargas
               </p>
-              <p class="font-bold text-lg mb-0">
+              <p class="mb-0 popover-matricula">
                 Matrícula 3311002784
               </p>
-              <p class="font-bold text-lg mb-0">
+              <p class="mb-0 popover-puesto">
                 Nutricionista
               </p>
             </div>
           </div>
-          <i class="pi pi-times cursor-pointer" style="font-size: 1.2rem;"></i>
         </div>
       </div>
-      <div style="min-width: 400px" class="p-3">
-        <div class="flex flex-column gap-3">
-          <div class="flex flex-column gap-1">
-            <small>OOAD</small>
-            <span>Prueba</span>
+      <div class="popover-body">
+        <div class="flex align-items-start gap-2">
+          <div class="flex justify-content-start">
+            <img [src]="'temporal/User_info.svg'" />
           </div>
-          <div class="flex align-items-center gap-2">
-            <div class="flex flex-column gap-1">
-              <small>Unidad</small>
-              <span>Prueba</span>
+          <div class="flex flex-column">
+            <div class="flex flex-column">
+              <p class="popover-label">OOAD</p>
+              <p class="popover-valor">Aguascalientes</p>
+            </div>
+            <div class="flex align-items-center">
+              <div class="flex flex-column">
+                <p class="popover-label">Unidad</p>
+                <p class="popover-valor">umf 1 Las Margaritas</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div
-        class="flex justify-content-start align-items-center gap-2 border-round-bottom card py-3 px-2 flex-row cursor-pointer hover:surface-200"
+        class="flex justify-content-start align-items-center gap-2 border-round-bottom card flex-row cursor-pointer hover:surface-200 popover-footer"
         style="background-color: #FFFBFF;">
         <i class="pi pi-sign-out" style="font-size: 1.2rem;"></i>
         <span class="text-xl">Cerrar Sesión</span>

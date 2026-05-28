@@ -61,3 +61,50 @@
   font-weight: 400;
   letter-spacing: 0;
 }
+
+.popover-header {
+  color: #EBEFFB;
+  background-color: #08865C;
+  padding: 32px 24px 32px 16px;
+}
+
+.popover-usuario {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 120%;
+}
+
+.popover-matricula, .popover-puesto {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 120%;
+}
+
+.popover-label {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 130%;
+  color: #404041;
+  margin-bottom: 0;
+}
+
+.popover-valor {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 130%;
+  color: #404041;
+  margin-bottom: 16px;
+}
+
+.popover-body {
+  padding: 16px 24px 16px 16px;
+}
+
+.popover-footer {
+  padding: 20px 24px 20px 24px;
+  color: #7781A5;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
+  border-color: rgba(240, 240, 240, 0.75);
+}
