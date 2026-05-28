@@ -1,7 +1,8 @@
 @use "primeflex/primeflex.css";
+@use "primeicons/primeicons.css";
+
 @use 'assets/scss/index';
 @use 'assets/custom-primeng/index' as custom;
-@use 'primeicons/primeicons.css';
 
 @import url("https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css") layer(framework);
 
@@ -14,7 +15,8 @@
     margin: 0;
     background-color: var(--surface-placa);
   }
-.p-button {
+
+  .p-button {
     appearance: none !important;
     -webkit-appearance: none !important;
 
@@ -43,16 +45,14 @@
 
     overflow: hidden !important;
 
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      color 0.2s ease !important;
+    transition: background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease !important;
   }
 
   /* =========================================================
      LABEL DEL BOTON
      ========================================================= */
-
   .p-button .p-button-label {
     font-size: 14px !important;
     font-weight: 500 !important;
@@ -62,7 +62,6 @@
   /* =========================================================
      BOTON BUSCAR
      ========================================================= */
-
   .p-button.btn-background {
     background: #08865C !important;
     border: 1px solid #08865C !important;
@@ -82,45 +81,43 @@
   /* =========================================================
      BOTON LIMPIAR
      ========================================================= */
+  .p-button.btn-limpiar {
+    background: transparent !important;
+    border: none !important;
+    color: #9CCDBA !important;
 
- .p-button.btn-limpiar {
-  background: transparent !important;
-  border: none !important;
-  color: #9CCDBA !important;
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: normal !important;
 
-  font-family: "Noto Sans", sans-serif !important;
-  font-size: 14px !important;
-  font-weight: 400 !important;
-  line-height: normal !important;
+    box-shadow: none !important;
+    outline: none !important;
 
-  box-shadow: none !important;
-  outline: none !important;
+    padding: 0.75rem 1rem !important;
+    min-height: 42px !important;
 
-  padding: 0.75rem 1rem !important;
-  min-height: 42px !important;
+    transition: color 0.2s ease !important;
+  }
 
-  transition: color 0.2s ease !important;
-}
+  .p-button.btn-limpiar:hover:not(:disabled) {
+    background: transparent !important;
+    border: none !important;
+    color: #6BAA92 !important;
+  }
 
-.p-button.btn-limpiar:hover:not(:disabled) {
-  background: transparent !important;
-  border: none !important;
-  color: #6BAA92 !important;
-}
+  .p-button.btn-limpiar:focus {
+    box-shadow: none !important;
+  }
 
-.p-button.btn-limpiar:focus {
-  box-shadow: none !important;
-}
-
-.p-button.btn-limpiar .p-button-label {
-  font-size: 14px !important;
-  font-weight: 400 !important;
-}
+  .p-button.btn-limpiar .p-button-label {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+  }
 
   /* =========================================================
      BOTON CANCELAR
      ========================================================= */
-
   .p-button.btn-cancelar {
     background: #611232 !important;
     border: 1px solid #611232 !important;
@@ -135,7 +132,6 @@
   /* =========================================================
      BOTON ACTUALIZAR
      ========================================================= */
-
   .p-button.btn-actualizar {
     background: #31708F !important;
     border: 1px solid #31708F !important;
@@ -150,7 +146,6 @@
   /* =========================================================
      BOTON DISABLED
      ========================================================= */
-
   .p-button:disabled,
   .p-button.p-disabled {
     opacity: 0.65 !important;
