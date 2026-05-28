@@ -1,4 +1,4 @@
-import { Component, computed, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
+import { Component, computed, inject, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
 import {IconFieldModule} from 'primeng/iconfield';
 import {InputIconModule} from 'primeng/inputicon';
 import {InputTextModule} from 'primeng/inputtext';
@@ -11,7 +11,8 @@ import { Platillo } from '@core/models/platillo.interface';
 import { ColumnDefinition } from '@core/models/columna-tabla';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
 import { FormsModule } from '@angular/forms';
-
+import { Router } from '@angular/router';
+import{ NAV_PRIVADO_URL } from '@core/utils/url-global';
 
 
 @Component({
@@ -62,7 +63,11 @@ export class TablaPlatillos {
       width: '200px'
     }
   ];
+protected _router: Router;
 
+constructor() {
+     this._router = inject(Router);
+   }
   /* =========================================================
      TOTAL RECORDS
      ========================================================= */
@@ -178,6 +183,10 @@ export class TablaPlatillos {
       (page - 1) * this.rows()
     );
 
+  }
+
+  nuevoPlatillo() {
+this._router.navigate(['/privado', NAV_PRIVADO_URL.nuevoPlatillo]);
   }
 
 }

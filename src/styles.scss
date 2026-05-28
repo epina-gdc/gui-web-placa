@@ -13,7 +13,7 @@
     height: 100%;
     font-size: 12px;
     margin: 0;
-    background-color: var(--surface-placa);
+    background-color: var(--surface-placa) !important;
   }
 
   .p-button {
@@ -151,6 +151,62 @@
     opacity: 0.65 !important;
     cursor: not-allowed !important;
   }
+
+  .titulo {
+  color: #374957;
+  font-feature-settings: 'liga' off, 'clig' off;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 24px */
+}
+
+ hr.vertical {
+    border: 10px;
+    margin: 10px;
+    border-left: 1px solid #ccc;
+    height: 20px;
+    width: 0;
+    float: left;
+  }
+  .background-white{
+    background-color: white;
+  }
+
+  .divformulario {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+   border-radius: 0 0 12px 12px;
+
+  /* Sombra */
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.label-container {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 0.5rem;
+}
+.required-text {
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  color: #9CA3AF;
+}
 
 
 }
