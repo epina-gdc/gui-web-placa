@@ -7,12 +7,8 @@ import { NuevoPlatillo } from '@pages/privado/pages/nuevo-platillo/nuevo-platill
 import { MinutaSintetica } from '@pages/privado/pages/minuta-sintetica/minuta-sintetica';
 import { Ordenes } from '@pages/privado/pages/ordenes/ordenes';
 import { Reportes } from '@pages/privado/pages/reportes/reportes';
-import {
-  SolicitudExtraordinariaProveedor
-} from '@pages/privado/pages/solicitud-extraordinaria-proveedor/solicitud-extraordinaria-proveedor';
-import {
-  NuevaSolicitudExtraordinaria
-} from '@pages/privado/pages/nueva-solicitud-extraordinaria/nueva-solicitud-extraordinaria';
+import { SolicitudExtraordinariaProveedor } from '@pages/privado/pages/solicitud-extraordinaria-proveedor/solicitud-extraordinaria-proveedor';
+import { NuevaSolicitudExtraordinaria } from '@pages/privado/pages/nueva-solicitud-extraordinaria/nueva-solicitud-extraordinaria';
 
 const routes: Routes = [
   {
@@ -26,33 +22,33 @@ const routes: Routes = [
       },
       {
         path: NAV_PRIVADO_URL.platillos,
-        component: Platillos
+        component: Platillos,
       },
       {
         path: NAV_PRIVADO_URL.nuevoPlatillo,
-        component: NuevoPlatillo
+        component: NuevoPlatillo,
       },
       {
         path: NAV_PRIVADO_URL.minutaSintetica,
-        component: MinutaSintetica
+        component: MinutaSintetica,
       },
       {
         path: NAV_PRIVADO_URL.ordenes,
-        component: Ordenes
+        component: Ordenes,
       },
       {
         path: NAV_PRIVADO_URL.reportes,
-        component: Reportes
+        component: Reportes,
       },
       {
         path: NAV_PRIVADO_URL.solicitudExtraordinariaProveedor,
-        component: SolicitudExtraordinariaProveedor
+        component: SolicitudExtraordinariaProveedor,
       },
       {
         path: NAV_PRIVADO_URL.nuevaSolicitudExtraordinaria,
-        component: NuevaSolicitudExtraordinaria
-      }
-    ]
+        component: NuevaSolicitudExtraordinaria,
+      },
+    ],
   },
 ];
 
