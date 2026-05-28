@@ -1,0 +1,63 @@
+.principal {
+  display: flex;
+  flex-direction: column;
+}
+
+.divformulario {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.div-header {
+  background-color: #F4F7FC;
+  border-radius: 12px 12px 0 0;
+  padding-left: 15px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contenedor-botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.input-search-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-search {
+  width: 100%;
+  height: 39px;
+  border: 1px solid #dfe3ea;
+  border-radius: 8px;
+  padding: 0 40px 0 14px;
+  font-size: 12px;
+  color: #4b5563;
+  outline: none;
+}
+
+.input-search::placeholder {
+  color: #b8c1cc;
+}
+
+.input-search:focus {
+  border-color: #94a3b8;
+}
+
+.icon-search {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #b8c1cc;
+  font-size: 16px;
+}

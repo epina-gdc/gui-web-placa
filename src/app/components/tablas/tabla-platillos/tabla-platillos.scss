@@ -1,0 +1,337 @@
+.tabla-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.div-header {
+
+  background-color: #F4F7FC;
+
+  border-radius: 12px 12px 0 0;
+
+  min-height: 54px;
+
+  padding-top: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   TITULO
+   ========================================================= */
+
+.texto-header {
+
+  font-size: 16px;
+  font-weight: 600;
+
+  color: #4B5563;
+}
+
+/* =========================================================
+   BOTON
+   ========================================================= */
+
+.btn-nuevo-platillo {
+
+  height: 38px !important;
+
+  padding: 0 16px !important;
+
+  border-radius: 8px !important;
+
+  background: #138A5B !important;
+
+  border: none !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+
+  font-size: 14px !important;
+  font-weight: 500 !important;
+
+  color: white !important;
+
+  box-shadow: none !important;
+}
+
+/* Hover */
+
+.btn-nuevo-platillo:hover {
+
+  background: #0F6E49 !important;
+}
+
+/* Icono */
+
+.btn-nuevo-platillo .pi {
+
+  font-size: 14px !important;
+}
+
+/* =========================================================
+   TABLA
+   ========================================================= */
+
+:host ::ng-deep .p-datatable,
+:host ::ng-deep .p-datatable-wrapper,
+:host ::ng-deep .p-datatable-table {
+  width: 100% !important;
+}
+
+:host ::ng-deep .p-datatable-table {
+  border-collapse: collapse !important;
+  table-layout: auto !important;
+}
+
+/* =========================================================
+   HEADER TABLA
+   ========================================================= */
+
+:host ::ng-deep .p-datatable-thead > tr > th {
+
+  background: #F4F7FC !important;
+
+  height: 58px !important;
+
+  font-size: 14px !important;
+  font-weight: 600 !important;
+
+  color: #374151 !important;
+
+  border: none !important;
+
+  padding: 0 1rem !important;
+}
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+:host ::ng-deep .p-datatable-tbody > tr {
+  height: 64px !important;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr > td {
+
+  border: none !important;
+
+  border-bottom: 1px solid #E5E7EB !important;
+
+  padding: 1rem !important;
+
+  font-size: 14px !important;
+
+  color: #4B5563 !important;
+}
+
+/* =========================================================
+   SORT ICON PRIME
+   ========================================================= */
+
+:host ::ng-deep p-sorticon,
+:host ::ng-deep .p-datatable-sort-icon,
+:host ::ng-deep .p-datatable-sort-icon svg {
+  display: none !important;
+}
+
+/* =========================================================
+   CUSTOM SORT
+   ========================================================= */
+
+:host ::ng-deep .p-datatable-sortable-column {
+  position: relative;
+  padding-right: 18px !important;
+}
+
+:host ::ng-deep .p-datatable-sortable-column::after {
+
+  content: '';
+
+  width: 10px;
+  height: 10px;
+
+  position: absolute;
+
+  right: 6px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  background: url('/assets/Images/arrows.png') no-repeat center;
+
+  background-size: 10px 10px;
+
+  opacity: 0.6;
+}
+
+:host ::ng-deep .p-datatable-sortable-column[aria-sort="ascending"]::after {
+  background-image: url('/assets/Images/arrow_up.png');
+}
+
+:host ::ng-deep .p-datatable-sortable-column[aria-sort="descending"]::after {
+  background-image: url('/assets/Images/arrowdown.png');
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer-tabla {
+
+  width: 100%;
+
+  background: #F4F7FC;
+
+  border-top: 1px solid #E5E7EB;
+
+  min-height: 56px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding: 0 1.5rem;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   PAGINADOR
+   ========================================================= */
+
+.custom-paginator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* =========================================================
+   PAGINAS
+   ========================================================= */
+
+.pages-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* =========================================================
+   ITEM PAGINA
+   ========================================================= */
+
+.pagina-item {
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  color: #6B7280;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition: all 0.2s ease;
+}
+
+.pagina-item:hover {
+  background: #E5E7EB;
+}
+
+.pagina-item.active {
+  background: #38A37B;
+  color: white;
+}
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+:host ::ng-deep .custom-paginator .p-button {
+
+  background: transparent !important;
+
+  border: none !important;
+
+  box-shadow: none !important;
+
+  color: #6B7280 !important;
+
+  font-size: 14px !important;
+
+  font-weight: 500 !important;
+}
+
+:host ::ng-deep .custom-paginator .p-button:hover {
+
+  background: #E5E7EB !important;
+
+  border-radius: 8px !important;
+}
+
+.btn-paginador {
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+
+  background: transparent !important;
+  border: none !important;
+
+  color: #9CA3AF !important;
+
+  font-size: 14px !important;
+  font-weight: 500 !important;
+
+  padding: 0.5rem 0.75rem !important;
+
+  border-radius: 8px !important;
+
+  box-shadow: none !important;
+
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+
+.btn-paginador:hover {
+
+  background: #E5E7EB !important;
+
+  color: #6B7280 !important;
+}
+
+/* Icono */
+
+.btn-paginador .pi {
+
+  font-size: 12px !important;
+}
+
+/* Disabled */
+
+.btn-paginador:disabled {
+
+  opacity: 0.5;
+
+  cursor: default;
+}
