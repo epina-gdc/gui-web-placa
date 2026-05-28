@@ -17,9 +17,48 @@
         HGZ 27
       </span>
     </div>
-    <img [src]="'temporal/User_info.svg'" style="margin-left: 50px;margin-top: 16px;"
+    <img [src]="'temporal/User_info.svg'" style="margin-top: 16px;"
          (click)="op.toggle($event)" />
-    <p-popover #op>
+    <p-popover #op styleClass="nav-popover">
+      <div class="bg-menu-btn p-3 border-round-top">
+        <div class="flex justify-content-between align-items-start">
+          <div class="flex gap-2">
+            <img  [src]="'temporal/User_info.svg'" />
+            <div class="ml-1">
+              <p class="font-bold text-lg mb-0">
+                Mariana Abigail Leon Vargas
+              </p>
+              <p class="font-bold text-lg mb-0">
+                Matrícula 3311002784
+              </p>
+              <p class="font-bold text-lg mb-0">
+                Nutricionista
+              </p>
+            </div>
+          </div>
+          <i class="pi pi-times cursor-pointer" style="font-size: 1.2rem;"></i>
+        </div>
+      </div>
+      <div style="min-width: 400px" class="p-3">
+        <div class="flex flex-column gap-3">
+          <div class="flex flex-column gap-1">
+            <small>OOAD</small>
+            <span>Prueba</span>
+          </div>
+          <div class="flex align-items-center gap-2">
+            <div class="flex flex-column gap-1">
+              <small>Unidad</small>
+              <span>Prueba</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex justify-content-start align-items-center gap-2 border-round-bottom card py-3 px-2 flex-row cursor-pointer hover:surface-200"
+        style="background-color: #FFFBFF;">
+        <i class="pi pi-sign-out" style="font-size: 1.2rem;"></i>
+        <span class="text-xl">Cerrar Sesión</span>
+      </div>
     </p-popover>
   </div>
 </div>
