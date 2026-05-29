@@ -1,39 +1,25 @@
-import { Component, computed, inject, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
-import {IconFieldModule} from 'primeng/iconfield';
-import {InputIconModule} from 'primeng/inputicon';
-import {InputTextModule} from 'primeng/inputtext';
-import {ButtonModule} from 'primeng/button';
-import {Ripple} from 'primeng/ripple';
 import { CommonModule } from '@angular/common';
-import { PaginatorModule } from 'primeng/paginator';
-import { TableModule } from 'primeng/table';
-import { Platillo } from '@core/models/platillo.interface';
-import { ColumnDefinition } from '@core/models/columna-tabla';
-import { ToggleSwitchModule } from 'primeng/toggleswitch';
+import { Component, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import{ NAV_PRIVADO_URL } from '@core/utils/url-global';
-
+import { ColumnDefinition } from '@core/models/columna-tabla';
+import { IngredientesPlatillo } from '@core/models/platillo-ingediente.interface';
+import { ButtonModule } from 'primeng/button';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { InputTextModule } from 'primeng/inputtext';
+import { PaginatorModule } from 'primeng/paginator';
+import { Ripple } from 'primeng/ripple';
+import { TableModule } from 'primeng/table';
 
 @Component({
-  selector: 'app-tabla-platillos',
-  imports: [
-    TableModule,
-    PaginatorModule,
-    CommonModule,
-    IconFieldModule,
-    InputIconModule,
-    InputTextModule,
-    ButtonModule,
-    ToggleSwitchModule,
-    FormsModule,
-  ],
-  templateUrl: './tabla-platillos.html',
-  styleUrl: './tabla-platillos.scss',
-  standalone: true,
+  selector: 'app-tabla-nuevos-ingredientes',
+  imports: [TableModule, PaginatorModule, CommonModule, IconFieldModule, InputIconModule, InputTextModule, ButtonModule, Ripple,FormsModule,],
+  templateUrl: './tabla-nuevos-ingredientes.html',
+  styleUrl: './tabla-nuevos-ingredientes.scss',
 })
-export class TablaPlatillos {
-  @Input() data: Platillo[] = [];
+export class TablaNuevosIngredientes {
+
+  @Input() data: IngredientesPlatillo[] = [];
 
   first: WritableSignal<number> = signal(0);
 
@@ -47,36 +33,27 @@ export class TablaPlatillos {
 
   columns: ColumnDefinition[] = [
     {
-      field: 'clave',
-      header: 'Clave',
-      width: '80px',
+      field: 'ingrediente',
+      header: 'Ingrediente',
+      width: '80px'
     },
     {
-      field: 'nombre',
-      header: 'Nombre del platillo',
-      width: '150px',
+      field: 'variedad',
+      header: 'Variedad',
+      width: '150px'
     },
     {
-      field: 'grupo',
-      header: 'Grupo',
-      width: '200px',
+      field: 'uso',
+      header: 'Uso',
+      width: '200px'
     },
     {
-      field: 'subgrupo',
-      header: 'Subgrupo',
-      width: '200px',
-    },
-    {
-      field: 'fechaRegistro',
-      header: 'Fecha de registro',
-      width: '200px',
-    },
+      field: 'porcion',
+      header: 'Porción',
+      width: '200px'
+    }
   ];
-protected _router: Router;
 
-constructor() {
-     this._router = inject(Router);
-   }
   /* =========================================================
      TOTAL RECORDS
      ========================================================= */
@@ -90,8 +67,11 @@ constructor() {
      ========================================================= */
 
   ngOnChanges(changes: SimpleChanges): void {
+
     if (changes['columns']) {
+
     }
+
   }
 
   /* =========================================================
@@ -99,9 +79,11 @@ constructor() {
      ========================================================= */
 
   onPageChange(event: any): void {
+
     this.first.set(event.first ?? 0);
 
     this.rows.set(event.rows ?? 10);
+
   }
 
   /* =========================================================
@@ -109,7 +91,9 @@ constructor() {
      ========================================================= */
 
   buscar(busqueda: any): string {
+
     return busqueda.target.value;
+
   }
 
   /* =========================================================
@@ -117,9 +101,17 @@ constructor() {
      ========================================================= */
 
   next(): void {
-    if (this.first() + this.rows() < this.totalRecords) {
-      this.first.set(this.first() + this.rows());
+
+    if (
+      this.first() + this.rows() < this.totalRecords
+    ) {
+
+      this.first.set(
+        this.first() + this.rows()
+      );
+
     }
+
   }
 
   /* =========================================================
@@ -127,9 +119,15 @@ constructor() {
      ========================================================= */
 
   prev(): void {
+
     if (this.first() > 0) {
-      this.first.set(this.first() - this.rows());
+
+      this.first.set(
+        this.first() - this.rows()
+      );
+
     }
+
   }
 
   /* =========================================================
@@ -137,7 +135,11 @@ constructor() {
      ========================================================= */
 
   currentPage(): number {
-    return Math.floor(this.first() / this.rows()) + 1;
+
+    return Math.floor(
+      this.first() / this.rows()
+    ) + 1;
+
   }
 
   /* =========================================================
@@ -145,9 +147,16 @@ constructor() {
      ========================================================= */
 
   totalPagesArray(): number[] {
-    const totalPages = Math.ceil(this.totalRecords / this.rows());
 
-    return Array.from({ length: totalPages }, (_, i) => i + 1);
+    const totalPages = Math.ceil(
+      this.totalRecords / this.rows()
+    );
+
+    return Array.from(
+      { length: totalPages },
+      (_, i) => i + 1
+    );
+
   }
 
   /* =========================================================
@@ -155,11 +164,10 @@ constructor() {
      ========================================================= */
 
   goToPage(page: number): void {
-    this.first.set((page - 1) * this.rows());
-  }
 
-  nuevoPlatillo() {
-this._router.navigate(['/privado', NAV_PRIVADO_URL.nuevoPlatillo]);
-  }
+    this.first.set(
+      (page - 1) * this.rows()
+    );
 
+  }
 }

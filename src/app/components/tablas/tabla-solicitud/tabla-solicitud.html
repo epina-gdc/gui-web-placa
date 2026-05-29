@@ -10,16 +10,15 @@
         Resultado de la búsqueda
     </span>
 
-    <button
-        pButton
-        type="button"
-        class="btn-nuevo-platillo" (click)="nuevoPlatillo()">
+    <p-button
+    type="button"
+    styleClass="btn-nueva-solicitud" (click)="nuevaSolicitud()">
 
-        <i class="pi pi-pencil"></i>
+    <i class="pi pi-pencil"></i>
 
-        <span>Nuevo platillo</span>
+    <span>Nueva solicitud</span>
 
-    </button>
+</p-button>
 
 </div>
 
@@ -28,12 +27,14 @@
          ===================================================== -->
 
     <p-table
-        #dt2
-        [value]="data.slice(first(), first() + rows())"
-        responsiveLayout="scroll"
-        styleClass="tabla-custom"
-        [tableStyle]="{'min-width':'100%'}"
-        [ngClass]="{ 'sin-header': !data.length }">
+    #dt2
+    [value]="datosPaginados"
+    [customSort]="true"
+    (sortFunction)="customSort($event)"
+    responsiveLayout="scroll"
+    styleClass="tabla-custom"
+    [tableStyle]="{'min-width':'100%'}"
+    [ngClass]="{ 'sin-header': !data.length }">
 
         <!-- =====================================================
              HEADER
@@ -43,72 +44,58 @@
 
             <tr>
 
-                <th pSortableColumn="clave">
+                <th pSortableColumn="folio">
 
                     <div class="header-column">
 
-                        <span>Clave</span>
+                        <span>Folio</span>
 
-                        <p-sortIcon field="clave"></p-sortIcon>
+                        <p-sortIcon field="folio"></p-sortIcon>
 
                     </div>
 
                 </th>
 
-                <th pSortableColumn="nombre">
-
-                    <div class="header-column">
-
-                        <span>Nombre del platillo</span>
-
-                        <p-sortIcon field="nombre"></p-sortIcon>
-
-                    </div>
-
-                </th>
-
-                <th pSortableColumn="grupo">
-
-                    <div class="header-column">
-
-                        <span>Grupo</span>
-
-                        <p-sortIcon field="grupo"></p-sortIcon>
-
-                    </div>
-
-                </th>
-
-                <th pSortableColumn="subgrupo">
-
-                    <div class="header-column">
-
-                        <span>Subgrupo</span>
-
-                        <p-sortIcon field="subgrupo"></p-sortIcon>
-
-                    </div>
-
-                </th>
-
-                <th pSortableColumn="fechaRegistro">
+                <th pSortableColumn="fecha">
 
                     <div class="header-column">
 
                         <span>Fecha de registro</span>
 
-                        <p-sortIcon field="fechaRegistro"></p-sortIcon>
+                        <p-sortIcon field="fecha"></p-sortIcon>
 
                     </div>
 
                 </th>
 
-                <th class="text-center">
-                    Habilitar/Inhabilitar
+                <th pSortableColumn="estatus">
+
+                    <div class="header-column">
+
+                        <span>Estatus</span>
+
+                        <p-sortIcon field="estatus"></p-sortIcon>
+
+                    </div>
+
                 </th>
 
+                <th pSortableColumn="fechaActualizacion">
+
+                    <div class="header-column">
+
+                        <span>Última actualización</span>
+
+                        <p-sortIcon field="fechaActualizacion"></p-sortIcon>
+
+                    </div>
+
+                </th>
+
+
+              
                 <th class="text-center">
-                    Eliminar
+                    Acciones
                 </th>
 
             </tr>
@@ -126,38 +113,35 @@
             <tr>
 
                 <td>
-                   <a href="#">{{ rowData.clave }}</a> 
+                   <a href="#">{{ rowData.folio }}</a> 
                 </td>
 
                 <td>
-                    {{ rowData.nombre | titlecase }}
+                    {{ rowData.fecha | date:'dd/MM/yyyy'}}
                 </td>
 
                 <td>
-                    {{ rowData.grupo }}
+                    
+                
+                 <span *ngIf="rowData.estatus === 'Aprobada'" class="badge-estatus badge-aprobada">
+                    Aprobada
+                </span>
+                 <span *ngIf="rowData.estatus === 'Pendiente'" class="badge-estatus badge-pendiente">
+                    Pendiente
+                </span>
+                 <span *ngIf="rowData.estatus === 'Rechazada'" class="badge-estatus badge-rechazada">
+                    Rechazada
+                </span>
                 </td>
 
                 <td>
-                    {{ rowData.subgrupo }}
+                    {{ rowData.fechaActualizacion | date:'dd/MM/yyyy'}}
                 </td>
 
-                <td>
-                    {{ rowData.fechaRegistro | date:'dd/MM/yyyy' }}
-                </td>
+              
 
                 <!-- TOGGLE -->
 
-                <td class="text-center">
-
-                    <div class="flex justify-content-center">
-
-                        <p-toggleswitch
-                            [(ngModel)]="rowData.estatus">
-                        </p-toggleswitch>
-
-                    </div>
-
-                </td>
 
                 <!-- ELIMINAR -->
 
@@ -165,13 +149,33 @@
 
                     <div class="flex justify-content-center">
 
-                        <button
-                            pButton
-                            type="button"
-                            icon="pi pi-trash"
-                            class="p-button-text p-button-danger">
-                        </button>
+                        <img *ngIf="rowData.estatus === 'Aprobada'" src="/assets/Images/aprovado.png" alt="Aprobada">
+                        <img *ngIf="rowData.estatus === 'Rechazada'" src="/assets/Images/rechazado.png" alt="Rechazada">
 
+                        <div class="acciones-solicitud" *ngIf="rowData.estatus === 'Pendiente'">
+
+    <button
+        type="button"
+        class="btn-aprobar" (click)="abrirModal()">
+
+        <i class="pi pi-check"></i>
+
+        <span>Aprobar</span>
+
+    </button>
+
+    <button
+        type="button"
+        class="btn-rechazar">
+
+        <i class="pi pi-times"></i>
+
+        <span>Rechazar</span>
+
+    </button>
+
+</div>
+                        
                     </div>
 
                 </td>
