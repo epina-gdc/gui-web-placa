@@ -1,1 +1,95 @@
-<p>solicitud-extraordinaria-proveedor works!</p>
+<div>
+    <span class="titulo">Solicitud extraordianaria al proveedor</span>
+</div>
+
+<div class="principal">
+<div class="div-header">
+        <span class="texto-campo font-semibold">
+            Búsqueda de solicitudes
+        </span>
+    </div>
+
+    <div class="divformulario background-white">
+         <form [formGroup]="filtroForm">
+
+            <article class="grid">
+
+                <div class="lg:col-3 col-12">
+        <div class="flex justify-content-between">
+          <label class="field-label" for="fecha">Fecha de registro</label>
+
+        </div>
+        <p-datepicker
+          formControlName="fecha"
+          placeholder="Selecciona"
+          [style]="{ width: '100%' }"
+          [iconDisplay]="'input'"
+          [showIcon]="true"
+          appendTo="body"
+          inputId="icondisplay">
+        </p-datepicker>
+
+      </div>
+                 <div class="lg:col-3 col-12">
+
+                    <div class="flex justify-content-between">
+                        <label class="field-label">
+                            Folio
+                        </label>
+                    </div>
+
+                      <input
+                                pInputText
+                                type="text"
+                                class="w-full"
+                                placeholder="Ingresar"
+                                
+                                formControlName="folio"
+                            />
+
+
+                </div>
+                <div class="lg:col-3 col-12">
+
+                    <div class="flex justify-content-between">
+                        <label class="field-label">
+                            Estatus
+                        </label>
+                    </div>
+
+                    <p-select
+                        formControlName="estatus"
+                        [options]="listaEstatus"
+                        optionLabel="desEstatus"
+                        optionValue="idEstatus"
+                        placeholder="Selecciona una opción"
+                        class="w-full custom-dropdown ph-custom">
+                    </p-select>
+
+                </div>
+                <div class="lg:col-3 col-12 contenedor-botones-solicitud">
+                    <p-button
+    type="button"
+    label="Limpiar"
+    styleClass="btn-limpiar"
+    [style]="{'width':'110px'}">
+</p-button>
+
+
+                <p-button
+                    type="button"
+                    label="Buscar"
+                    styleClass="btn-background"
+                    [style]="{'width':'110px'}" >
+                </p-button>
+
+        
+                </div>
+            </article>
+         </form>
+    </div>
+    <div>
+        <app-tabla-solicitud [data]="solicitudes"/>
+    </div>
+
+</div>
