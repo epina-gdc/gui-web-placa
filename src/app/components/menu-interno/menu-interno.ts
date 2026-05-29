@@ -2,10 +2,12 @@ import { Component, ElementRef, HostListener, input, output, ViewChild } from '@
 import { MenuItem } from 'primeng/api';
 import { Menu } from 'primeng/menu';
 import { Ripple } from 'primeng/ripple';
+import { NAV_BASE_URL, NAV_PRIVADO_URL } from '@core/utils/url-global';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu-interno',
-  imports: [Menu, Ripple],
+  imports: [Menu, Ripple, RouterLink],
   templateUrl: './menu-interno.html',
   styleUrl: './menu-interno.scss',
 })
@@ -20,7 +22,7 @@ export class MenuInterno {
         {
           label: 'Cerrar menú',
           icon: 'pi pi-question-circle',
-          command: (() => this.onClose.emit())
+          command: () => this.onClose.emit(),
         },
       ],
     },
@@ -30,10 +32,12 @@ export class MenuInterno {
         {
           label: 'Platillos',
           icon: 'pi pi-question-circle',
+          routerLink: `/${NAV_BASE_URL.privado}/${NAV_PRIVADO_URL.platillos}`,
         },
         {
           label: 'Minuta sintética',
           icon: 'pi pi-question-circle',
+          routerLink: `/${NAV_BASE_URL.privado}/${NAV_PRIVADO_URL.minutaSintetica}`,
         },
       ],
     },
@@ -43,14 +47,17 @@ export class MenuInterno {
         {
           label: 'Órdenes',
           icon: 'pi pi-question-circle',
+          routerLink: `/${NAV_BASE_URL.privado}/${NAV_PRIVADO_URL.ordenes}`,
         },
         {
           label: 'Reportes',
           icon: 'pi pi-question-circle',
+          routerLink: `/${NAV_BASE_URL.privado}/${NAV_PRIVADO_URL.reportes}`,
         },
         {
           label: 'Solicitud extraordinaria al proveedor',
           icon: 'pi pi-question-circle',
+          routerLink: `/${NAV_BASE_URL.privado}/${NAV_PRIVADO_URL.solicitudExtraordinariaProveedor}`,
         },
       ],
     },
