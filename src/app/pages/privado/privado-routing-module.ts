@@ -9,6 +9,8 @@ import { Ordenes } from '@pages/privado/pages/ordenes/ordenes';
 import { Reportes } from '@pages/privado/pages/reportes/reportes';
 import { SolicitudExtraordinariaProveedor } from '@pages/privado/pages/solicitud-extraordinaria-proveedor/solicitud-extraordinaria-proveedor';
 import { NuevaSolicitudExtraordinaria } from '@pages/privado/pages/nueva-solicitud-extraordinaria/nueva-solicitud-extraordinaria';
+import { Abasto } from '@pages/privado/pages/abasto/abasto';
+import { ModuloMedico } from '@pages/privado/pages/modulo-medico/modulo-medico';
 
 const routes: Routes = [
   {
@@ -48,6 +50,14 @@ const routes: Routes = [
         path: NAV_PRIVADO_URL.nuevaSolicitudExtraordinaria,
         component: NuevaSolicitudExtraordinaria,
       },
+      {
+        path: NAV_PRIVADO_URL.abasto,
+        component: Abasto,
+      },
+      {
+        path: NAV_PRIVADO_URL.moduloMedico,
+        component: ModuloMedico,
+      }
     ],
   },
 ];

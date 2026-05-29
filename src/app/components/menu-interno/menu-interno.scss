@@ -1,0 +1,43 @@
+.wrapper-menu-pantalla {
+  position: fixed !important;
+  top: 90px !important;
+  left: 3px !important;
+  z-index: 1002;
+  width: 250px;
+
+  animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sub-menu-interno {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #626262;
+  padding: 16px;
+}
+
+.item-interno {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #7B91B0;
+  text-decoration: unset;
+}
+
+.icon-interno {
+  font-size: 18px;
+  padding: 10px;
+  color: #5C6381;
+}
+
+.anchor-interno {
+  border: 12px solid transparent;
+  border-radius: 12px;
+}
