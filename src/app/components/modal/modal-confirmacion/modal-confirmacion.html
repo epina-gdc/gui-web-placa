@@ -1,0 +1,38 @@
+<div class="modal-confirmacion">
+
+    <!-- MENSAJE -->
+
+    <div class="contenido-modal">
+
+        <p class="mensaje">
+
+            {{ mensaje }}
+
+        </p>
+
+    </div>
+
+    <!-- BOTONES -->
+
+  
+
+    <div class="contenedor-botones">
+
+              <p-button
+    type="button"
+    label="Cancelar"
+    styleClass="boton-cancelar" (click)="cancelar()">
+</p-button>
+
+
+                <p-button
+                    type="button"
+                    [label]="textoBoton"
+                    styleClass="btn-background"
+                    [style]="{'width':'150px'}" (click)="aceptar()" >
+                </p-button>
+
+            </div>
+
+
+</div>

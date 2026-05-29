@@ -315,3 +315,79 @@
   gap: 8px;
 }
 
+
+.p-dialog {
+
+  border-radius: 8px !important;
+
+  overflow: hidden !important;
+}
+
+/* =========================================================
+   DIALOG HEADER
+   ========================================================= */
+
+.p-dialog .p-dialog-header {
+
+  background: #F4F7FC !important;
+
+  border-top: 9px solid #14B8A6 !important;
+
+  border-bottom: 1px solid #D9DEE8 !important;
+
+  padding: 1rem !important;
+  height: 60px !important;
+}
+
+/* =========================================================
+   TITULO
+   ========================================================= */
+
+.p-dialog .p-dialog-title {
+
+  color: #374151 !important;
+
+  font-size: 18px !important;
+
+  font-weight: 700 !important;
+}
+
+/* =========================================================
+   BOTON CERRAR
+   ========================================================= */
+
+.p-dialog .p-dialog-header-actions {
+
+  display: flex !important;
+}
+
+.p-dialog .p-dialog-close-button {
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  width: 32px !important;
+
+  height: 32px !important;
+
+  border-radius: 50% !important;
+
+  background: transparent !important;
+
+  color: #6B7280 !important;
+}
+
+/* =========================================================
+   ICONO X
+   ========================================================= */
+
+.p-dialog .p-dialog-close-button .pi,
+.p-dialog .p-dialog-close-button svg {
+
+  display: block !important;
+
+  font-size: 14px !important;
+}

@@ -2,10 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalConfirmacion } from '@components/modal/modal-confirmacion/modal-confirmacion';
 import { ColumnDefinition } from '@core/models/columna-tabla';
 import { Solicitud } from '@core/models/solicitud.interface';
 import { NAV_PRIVADO_URL } from '@core/utils/url-global';
 import { ButtonModule } from 'primeng/button';
+import { DialogService } from 'primeng/dynamicdialog';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
@@ -65,7 +67,7 @@ export class TablaSolicitud {
 
   protected _router: Router;
 
-constructor() {
+constructor( private dialogService: DialogService) {
      this._router = inject(Router);
    }
   /* =========================================================
@@ -206,6 +208,25 @@ get datosPaginados(): Solicitud[] {
     this.first() + this.rows()
   );
 
+}
+
+
+abrirModal(): void {
+const ref = this.dialogService.open(
+  ModalConfirmacion,
+  {
+    header: 'Aprobar solicitud extraordinaria',
+    width: '800px',
+    modal: true,
+    closable: true,
+    showHeader: true,
+    dismissableMask: false,
+    data: {
+      mensaje: 'Confirme la aprobación de la solicitud',
+      textoBoton: 'Aprobar solicitud'
+    }
+  }
+);
 }
 
 

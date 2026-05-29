@@ -5,9 +5,10 @@ import { routes } from './app.routes';
 import { providePrimeNG } from 'primeng/config';
 
 import Aura from '@primeuix/themes/aura';
+import { DialogService } from 'primeng/dynamicdialog';
 
 export const appConfig: ApplicationConfig = {
-  providers: [
+  providers: [DialogService,
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     providePrimeNG({
