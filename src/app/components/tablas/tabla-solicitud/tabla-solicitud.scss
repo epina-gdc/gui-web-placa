@@ -1,39 +1,4 @@
-.badge-estatus {
 
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  min-width: 105px;
-
-  height: 20px;
-
-  padding: 0 12px;
-
-  border-radius: 999px;
-
-  font-size: 12px;
-
-  font-weight: 600;
-}
-
-.badge-aprobada {
-
-  background: #A7E0C6;
-
-  color: #2E9B70;
-}
-
-.badge-pendiente {
-  background: #FDE7A3;
-  color: #B78103;
-}
-
-.badge-rechazada {
-  background: #FFD6D6;
-  color: #D64545;
-}
 
 .tabla-container {
   width: 100%;
@@ -501,4 +466,90 @@
 .btn-rechazar:hover {
 
   opacity: .8;
+}
+
+.tooltip-container {
+
+  position: relative;
+
+  display: inline-block;
+
+  cursor: pointer;
+}
+
+/* Tooltip oculto */
+
+.tooltip-custom {
+
+  position: absolute;
+
+  top: 50%;
+
+  right: 120%;
+
+  transform: translateY(-50%);
+
+  min-width: 220px;
+
+  background: #6B6B6B;
+
+  color: white;
+
+  border-radius: 4px;
+
+  padding: 12px;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition: all 0.2s ease;
+
+  z-index: 1000;
+}
+
+/* Flecha */
+
+.tooltip-custom::after {
+
+  content: '';
+
+  position: absolute;
+
+  top: 50%;
+
+  right: -6px;
+
+  transform: translateY(-50%);
+
+  border-top: 6px solid transparent;
+
+  border-bottom: 6px solid transparent;
+
+  border-left: 6px solid #6B6B6B;
+}
+
+/* Mostrar al pasar el mouse */
+
+.tooltip-container:hover .tooltip-custom {
+
+  opacity: 1;
+
+  visibility: visible;
+}
+
+.tooltip-titulo {
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  margin-bottom: 6px;
+}
+
+.tooltip-texto {
+
+  font-size: 14px;
+
+  font-weight: 400;
 }
