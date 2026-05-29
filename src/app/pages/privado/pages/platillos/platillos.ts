@@ -8,10 +8,20 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { Platillo } from '@core/models/platillo.interface';
 import { TablaPlatillos } from '@components/tablas/tabla-platillos/tabla-platillos';
+import { SeccionTitulos } from '@components/seccion-titulos/seccion-titulos';
+import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
 
 @Component({
   selector: 'app-platillos',
-  imports: [ReactiveFormsModule, SelectModule, InputTextModule, ButtonModule, TablaPlatillos],
+  imports: [
+    ReactiveFormsModule,
+    SelectModule,
+    InputTextModule,
+    ButtonModule,
+    TablaPlatillos,
+    SeccionTitulos,
+    SeccionBusqueda,
+  ],
   templateUrl: './platillos.html',
   styleUrl: './platillos.scss',
 })

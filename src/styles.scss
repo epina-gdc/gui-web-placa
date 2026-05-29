@@ -8,17 +8,13 @@
 
 @layer app-components {
 
-  :host {
-
-  }
-
   html,
   body {
     height: 100%;
     font-size: 12px;
     margin: 0;
     background-color: var(--surface-placa) !important;
-    font-family: Noto Sans, serif;
+    font-family: Noto Sans, serif !important;
   }
 
   .p-button {
