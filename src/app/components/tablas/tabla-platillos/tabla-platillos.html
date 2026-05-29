@@ -1,277 +1,275 @@
-<div class="tabla-container">
+<div class="tabla-container surface-card shadow-1 border-round surface-border border-1">
 
-    <!-- =====================================================
-         HEADER
-         ===================================================== -->
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
 
-    <div class="div-header">
+  <div class="div-header">
 
     <span class="texto-header">
         Resultado de la búsqueda
     </span>
 
     <button
-        pButton
-        type="button"
-        class="btn-nuevo-platillo" (click)="nuevoPlatillo()">
+      pButton
+      type="button"
+      class="btn-nuevo-platillo" (click)="nuevoPlatillo()">
 
-        <i class="pi pi-pencil"></i>
+      <i class="pi pi-pencil"></i>
 
-        <span>Nuevo platillo</span>
+      <span>Nuevo platillo</span>
 
     </button>
 
-</div>
+  </div>
+
+  <!-- =====================================================
+       TABLA
+       ===================================================== -->
+
+  <p-table
+    #dt2
+    [value]="data.slice(first(), first() + rows())"
+    responsiveLayout="scroll"
+    styleClass="tabla-custom"
+    [tableStyle]="{'min-width':'100%'}"
+    [ngClass]="{ 'sin-header': !data.length }">
 
     <!-- =====================================================
-         TABLA
+         HEADER
          ===================================================== -->
 
-    <p-table
-        #dt2
-        [value]="data.slice(first(), first() + rows())"
-        responsiveLayout="scroll"
-        styleClass="tabla-custom"
-        [tableStyle]="{'min-width':'100%'}"
-        [ngClass]="{ 'sin-header': !data.length }">
+    <ng-template pTemplate="header">
 
-        <!-- =====================================================
-             HEADER
-             ===================================================== -->
+      <tr>
 
-        <ng-template pTemplate="header">
+        <th pSortableColumn="clave">
 
-            <tr>
+          <div class="header-column">
 
-                <th pSortableColumn="clave">
+            <span>Clave</span>
 
-                    <div class="header-column">
+            <p-sortIcon field="clave"></p-sortIcon>
 
-                        <span>Clave</span>
+          </div>
 
-                        <p-sortIcon field="clave"></p-sortIcon>
+        </th>
 
-                    </div>
+        <th pSortableColumn="nombre">
 
-                </th>
+          <div class="header-column">
 
-                <th pSortableColumn="nombre">
+            <span>Nombre del platillo</span>
 
-                    <div class="header-column">
+            <p-sortIcon field="nombre"></p-sortIcon>
 
-                        <span>Nombre del platillo</span>
+          </div>
 
-                        <p-sortIcon field="nombre"></p-sortIcon>
+        </th>
 
-                    </div>
+        <th pSortableColumn="grupo">
 
-                </th>
+          <div class="header-column">
 
-                <th pSortableColumn="grupo">
+            <span>Grupo</span>
 
-                    <div class="header-column">
+            <p-sortIcon field="grupo"></p-sortIcon>
 
-                        <span>Grupo</span>
+          </div>
 
-                        <p-sortIcon field="grupo"></p-sortIcon>
+        </th>
 
-                    </div>
+        <th pSortableColumn="subgrupo">
 
-                </th>
+          <div class="header-column">
 
-                <th pSortableColumn="subgrupo">
+            <span>Subgrupo</span>
 
-                    <div class="header-column">
+            <p-sortIcon field="subgrupo"></p-sortIcon>
 
-                        <span>Subgrupo</span>
+          </div>
 
-                        <p-sortIcon field="subgrupo"></p-sortIcon>
+        </th>
 
-                    </div>
+        <th pSortableColumn="fechaRegistro">
 
-                </th>
+          <div class="header-column">
 
-                <th pSortableColumn="fechaRegistro">
+            <span>Fecha de registro</span>
 
-                    <div class="header-column">
+            <p-sortIcon field="fechaRegistro"></p-sortIcon>
 
-                        <span>Fecha de registro</span>
+          </div>
 
-                        <p-sortIcon field="fechaRegistro"></p-sortIcon>
+        </th>
 
-                    </div>
+        <th class="text-center">
+          Habilitar/Inhabilitar
+        </th>
 
-                </th>
+        <th class="text-center">
+          Eliminar
+        </th>
 
-                <th class="text-center">
-                    Habilitar/Inhabilitar
-                </th>
+      </tr>
 
-                <th class="text-center">
-                    Eliminar
-                </th>
-
-            </tr>
-
-        </ng-template>
-
-        <!-- =====================================================
-             BODY
-             ===================================================== -->
-
-        <ng-template
-            pTemplate="body"
-            let-rowData>
-
-            <tr>
-
-                <td>
-                   <a href="#">{{ rowData.clave }}</a> 
-                </td>
-
-                <td>
-                    {{ rowData.nombre | titlecase }}
-                </td>
-
-                <td>
-                    {{ rowData.grupo }}
-                </td>
-
-                <td>
-                    {{ rowData.subgrupo }}
-                </td>
-
-                <td>
-                    {{ rowData.fechaRegistro | date:'dd/MM/yyyy' }}
-                </td>
-
-                <!-- TOGGLE -->
-
-                <td class="text-center">
-
-                    <div class="flex justify-content-center">
-
-                        <p-toggleswitch
-                            [(ngModel)]="rowData.estatus">
-                        </p-toggleswitch>
-
-                    </div>
-
-                </td>
-
-                <!-- ELIMINAR -->
-
-                <td class="text-center">
-
-                    <div class="flex justify-content-center">
-
-                        <button
-                            pButton
-                            type="button"
-                            icon="pi pi-trash"
-                            class="p-button-text p-button-danger">
-                        </button>
-
-                    </div>
-
-                </td>
-
-            </tr>
-
-        </ng-template>
-
-        <!-- =====================================================
-             EMPTY
-             ===================================================== -->
-
-        <ng-template pTemplate="emptymessage">
-
-            <tr>
-
-                <td colspan="7">
-
-                    <div class="empty-table">
-
-                        <p class="sinResultados">
-                            No hay resultados que coincidan con tu búsqueda
-                        </p>
-
-                    </div>
-
-                </td>
-
-            </tr>
-
-        </ng-template>
-
-    </p-table>
+    </ng-template>
 
     <!-- =====================================================
-         FOOTER PAGINADOR
+         BODY
          ===================================================== -->
 
-    @if (totalPagesArray().length > 1) {
+    <ng-template
+      pTemplate="body"
+      let-rowData>
 
-        <div class="footer-tabla">
+      <tr>
 
-            <div class="custom-paginator">
+        <td>
+          <a href="#">{{ rowData.clave }}</a>
+        </td>
 
-                <!-- ANTERIOR -->
+        <td>
+          {{ rowData.nombre | titlecase }}
+        </td>
 
-                <button
-    pButton
-    type="button"
-    class="btn-paginador"
-    [disabled]="first() === 0"
-    (click)="prev()">
+        <td>
+          {{ rowData.grupo }}
+        </td>
 
-    <i class="pi pi-chevron-left"></i>
+        <td>
+          {{ rowData.subgrupo }}
+        </td>
 
-    <span>Anterior</span>
+        <td>
+          {{ rowData.fechaRegistro | date:'dd/MM/yyyy' }}
+        </td>
 
-</button>
+        <!-- TOGGLE -->
 
-                <!-- PAGINAS -->
+        <td class="text-center">
 
-                <div class="pages-container">
+          <div class="flex justify-content-center">
 
-                    @for (
-                        page of totalPagesArray();
-                        track page
-                    ) {
+            <p-toggleswitch
+              [(ngModel)]="rowData.estatus">
+            </p-toggleswitch>
 
-                        <div
-                            class="pagina-item"
-                            [class.active]="page === currentPage()"
-                            (click)="goToPage(page)">
+          </div>
 
-                            {{ page }}
+        </td>
 
-                        </div>
+        <!-- ELIMINAR -->
 
-                    }
+        <td class="text-center">
 
-                </div>
+          <div class="flex justify-content-center">
 
-                <!-- SIGUIENTE -->
+            <button
+              pButton
+              type="button"
+              icon="pi pi-trash"
+              class="p-button-text p-button-danger">
+            </button>
 
-                <button
-    pButton
-    type="button"
-    class="btn-paginador"
-    [disabled]="first() + rows() >= totalRecords"
-    (click)="next()">
+          </div>
 
-    <span>Siguiente</span>
+        </td>
 
-    <i class="pi pi-chevron-right"></i>
+      </tr>
 
-</button>
+    </ng-template>
+
+    <!-- =====================================================
+         EMPTY
+         ===================================================== -->
+
+    <ng-template pTemplate="emptymessage">
+
+      <tr>
+
+        <td colspan="7">
+
+          <div class="empty-table">
+
+            <p class="sinResultados">
+              No hay resultados que coincidan con tu búsqueda
+            </p>
+
+          </div>
+
+        </td>
+
+      </tr>
+
+    </ng-template>
+
+  </p-table>
+
+  <!-- =====================================================
+       FOOTER PAGINADOR
+       ===================================================== -->
+
+  @if (totalPagesArray().length > 1) {
+
+    <div class="footer-tabla">
+
+      <div class="custom-paginator">
+
+        <!-- ANTERIOR -->
+
+        <button
+          pButton
+          type="button"
+          class="btn-paginador"
+          [disabled]="first() === 0"
+          (click)="prev()">
+
+          <i class="pi pi-chevron-left"></i>
+
+          <span>Anterior</span>
+
+        </button>
+
+        <!-- PAGINAS -->
+
+        <div class="pages-container">
+
+          @for (page of totalPagesArray();
+            track page) {
+
+            <div
+              class="pagina-item"
+              [class.active]="page === currentPage()"
+              (click)="goToPage(page)">
+
+              {{ page }}
 
             </div>
 
+          }
+
         </div>
 
-    }
+        <!-- SIGUIENTE -->
+
+        <button
+          pButton
+          type="button"
+          class="btn-paginador"
+          [disabled]="first() + rows() >= totalRecords"
+          (click)="next()">
+
+          <span>Siguiente</span>
+
+          <i class="pi pi-chevron-right"></i>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  }
 
 </div>

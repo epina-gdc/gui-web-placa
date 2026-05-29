@@ -268,36 +268,40 @@
     transition: all 0.2s ease;
   }
 
-/* Hover */
+  /* Hover */
+  .boton-cancelar:hover {
 
-.boton-cancelar:hover {
+    background: #FEF2F2 !important;
 
-  background: #FEF2F2 !important;
+    border-color: #DC2626 !important;
 
-  border-color: #DC2626 !important;
+    color: #DC2626 !important;
+  }
 
-  color: #DC2626 !important;
-}
+  /* Focus */
+  .boton-cancelar:focus {
 
-/* Focus */
+    box-shadow: none !important;
+  }
 
-.boton-cancelar:focus {
+  .empty-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
 
-  box-shadow: none !important;
-}
-
-.empty-table{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;}
+  .p-datatable-thead > tr > th {
+    background: #F1F4FD !important;
+  }
 
 }
 
 .principal {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
 
 
