@@ -92,26 +92,6 @@
 }
 
 /* =========================================================
-   HEADER TABLA
-   ========================================================= */
-
-:host ::ng-deep .p-datatable-thead > tr > th {
-
-  background: #F4F7FC !important;
-
-  height: 58px !important;
-
-  font-size: 14px !important;
-  font-weight: 600 !important;
-
-  color: #374151 !important;
-
-  border: none !important;
-
-  padding: 0 1rem !important;
-}
-
-/* =========================================================
    BODY
    ========================================================= */
 
@@ -119,18 +99,6 @@
   height: 64px !important;
 }
 
-:host ::ng-deep .p-datatable-tbody > tr > td {
-
-  border: none !important;
-
-  border-bottom: 1px solid #E5E7EB !important;
-
-  padding: 1rem !important;
-
-  font-size: 14px !important;
-
-  color: #4B5563 !important;
-}
 
 /* =========================================================
    SORT ICON PRIME
