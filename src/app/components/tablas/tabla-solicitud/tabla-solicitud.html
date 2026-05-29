@@ -150,7 +150,26 @@
                     <div class="flex justify-content-center">
 
                         <img *ngIf="rowData.estatus === 'Aprobada'" src="/assets/Images/aprovado.png" alt="Aprobada">
-                        <img *ngIf="rowData.estatus === 'Rechazada'" src="/assets/Images/rechazado.png" alt="Rechazada">
+                        
+                        <div class="tooltip-container" *ngIf="rowData.estatus === 'Rechazada'">
+
+                        <img
+                            src="/assets/Images/rechazado.png"
+                            alt="Rechazar">
+
+                        <div class="tooltip-custom">
+
+                            <div class="tooltip-titulo">
+                                Motivo de rechazo
+                            </div>
+
+                            <div class="tooltip-texto">
+                                {{ rowData.motivoRechazo }}
+                            </div>
+
+                        </div>
+
+                    </div>
 
                         <div class="acciones-solicitud" *ngIf="rowData.estatus === 'Pendiente'">
 

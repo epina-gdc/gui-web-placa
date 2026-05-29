@@ -4,4 +4,5 @@ export interface Solicitud {
   fecha: Date;
   estatus: string;
   fechaActualizacion?: Date;
+  motivoRechazo?: string;
 }

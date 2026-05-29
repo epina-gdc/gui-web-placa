@@ -1,1 +1,195 @@
-<p>nueva-solicitud-extraordinaria works!</p>
+<div class="header-platillo">
+
+    <!-- BOTON REGRESAR -->
+
+    <button
+        pButton
+        type="button"
+        class="btn-regresar"
+        (click)="regresar()">
+
+        <img
+            src="assets/Images/regresar.png"
+            alt="Regresar"
+            class="icon-regresar" />
+
+    </button>
+
+    <!-- LINEA -->
+
+    <div class="divider-vertical"></div>
+
+    <!-- TITULO -->
+
+    <span class="titulo">
+        Nueva solicitud extraordinaria al proveedor
+    </span>
+
+</div>
+<div class="principal">
+    <div class="div-header">
+        <span class="texto-campo font-semibold">
+            Ingredientes a solicitar
+        </span>
+    </div>
+      <div class="divformulario background-white">
+        <form [formGroup]="filtroForm">
+
+                <!-- Campos -->
+                <article class="grid">
+
+                    <div class="lg:col-3 col-12">
+
+                        <div class="flex justify-content-between">
+                            <label class="field-label">
+                                Ingrediente
+                            </label>
+                        </div>
+
+                        <div class="ingrediente-search-container">
+
+        <!-- INPUT -->
+
+        <div class="search-input-wrapper">
+<input
+class="w-full"
+    pInputText
+    type="text"
+    formControlName="ingredienteTexto"
+    placeholder="Buscar"
+    (input)="filtrarIngredientes()"
+    (focus)="mostrarLista = true" />
+
+            <i class="pi pi-search icon-search"></i>
+
+        </div>
+
+        <!-- LISTA -->
+
+        @if (mostrarLista && ingredientesFiltrados.length > 0) {
+
+            <div class="lista-ingredientes">
+
+                @for (
+                    ingrediente of ingredientesFiltrados;
+                    track ingrediente.idIngrediente
+                ) {
+
+                    <div
+                        class="item-ingrediente"
+                        (click)="seleccionarIngrediente(ingrediente)">
+
+                        {{ ingrediente.desIngrediente }}
+
+                    </div>
+
+                }
+
+            </div>
+
+        }
+
+    </div>
+
+                    </div>
+
+                
+                    <div class="lg:col-3 col-12">
+
+                        <div class="label-container">
+
+        <label class="field-label">
+                Presentación
+        </label>
+
+        
+
+    </div>
+
+                        <p-select
+                            formControlName="presentacion"
+                            [options]="presentaciones"
+                            optionLabel="desPresentacion"
+                            optionValue="idPresentacion"
+                            placeholder="Selecciona una opción"
+                            class="w-full custom-dropdown ph-custom">
+                        </p-select>
+
+                    </div>
+
+                        <div class="lg:col-3 col-12">
+
+                        <div class="label-container">
+
+        <label class="field-label">
+            Cantidad
+        </label>
+
+       
+    </div>
+
+                
+
+                            <input
+                                pInputText
+                                type="number"
+                                 min="0"
+                                class="w-full"
+                                placeholder="Ingresar"
+                                
+                                formControlName="cantidad"
+                            />
+
+                
+
+                    </div>
+
+                     <div class="lg:col-3 col-12" style="display: flex; align-items: center; justify-content: center;">
+                        <button
+        pButton
+        type="button"
+        class="btn-agregar-ingrediente" [disabled]="filtroForm.invalid" (click)="agregarIngrediente()">
+        
+
+        <i class="pi pi-plus"></i>
+
+        <span>Agregar ingrediente</span>
+
+    </button>
+                    </div>
+
+                
+
+                </article>
+
+               
+   
+
+        
+
+            </form>
+      </div>
+      <div>
+    <app-tabla-nueva-solicitud [data]="listIngredientes"></app-tabla-nueva-solicitud>
+</div>
+<div class="contenedor-botones">
+
+              <p-button
+    type="button"
+    label="Cancelar"
+    styleClass="boton-cancelar">
+</p-button>
+
+
+                <p-button
+                    type="button"
+                    label="Guardar platillo"
+                    styleClass="btn-background"
+                    [style]="{'width':'150px'}" >
+                </p-button>
+
+            </div>
+
+
+      
+</div>
