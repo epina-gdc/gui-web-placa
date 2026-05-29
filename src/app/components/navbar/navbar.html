@@ -2,7 +2,7 @@
 
   <div class="flex align-items-center gap-4">
     <div class="navbar-menu-btn flex justify-content-center align-items-center">
-      <i class="pi pi-bars" style="font-size: 26px;"></i>
+      <i class="pi pi-bars cursor-pointer" style="font-size: 26px;" (click)="$event.stopPropagation(); menuVisible.set(!menuVisible())"></i>
     </div>
     <div class="flex justify-content-center align-items-center">
       <p class="mb-0 nombre-institucion">IMMS</p>
@@ -77,3 +77,8 @@
     </p-popover>
   </div>
 </div>
+
+<app-menu-interno
+  [visible]="menuVisible()"
+  (onClose)="menuVisible.set(false)">
+</app-menu-interno>
