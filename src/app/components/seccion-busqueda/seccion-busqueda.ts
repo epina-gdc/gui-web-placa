@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-seccion-busqueda',
@@ -15,6 +15,7 @@ import { Component, input } from '@angular/core';
     </div>
   `,
   styleUrl: './seccion-busqueda.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class SeccionBusqueda {
   titulo = input.required<string>();
