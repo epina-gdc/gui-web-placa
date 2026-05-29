@@ -1,8 +1,110 @@
 .hr-vertical {
   border: 10px;
   margin: 10px;
-  border-left: 1px solid #000;
+  border-left: 1px solid #b1b1b1;
   height: 20px;
   width: 0;
   float: left;
+}
+
+.navbar-menu-btn {
+  height: 26px;
+  width: 26px;
+  padding: 5px;
+  color: #0AA16E;
+}
+
+.nombre-institucion {
+  color: #006455;
+  font-size: 20px;
+  line-height: 120%;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.navbar-abreviatura {
+  background-color: #0AA16E;
+  border: solid 1px #9CE2C2;
+  color: #FFF;
+  border-radius: 20px;
+  padding: 6px 6px;
+  font-size: 11px;
+  line-height: 120%;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.navbar-titulo-proyecto {
+  font-size: 18px;
+  color: #374957;
+  line-height: 120%;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.navbar-bg {
+  background-color: #FFF;
+}
+
+.navbar-usuario {
+  font-size: 14px;
+  line-height: 120%;
+  color: #374060;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.navbar-unidad {
+  font-size: 14px;
+  line-height: 120%;
+  color: #374060;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.popover-header {
+  color: #EBEFFB;
+  background-color: #08865C;
+  padding: 32px 24px 32px 16px;
+}
+
+.popover-usuario {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 120%;
+}
+
+.popover-matricula, .popover-puesto {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 120%;
+}
+
+.popover-label {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 130%;
+  color: #404041;
+  margin-bottom: 0;
+}
+
+.popover-valor {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 130%;
+  color: #404041;
+  margin-bottom: 16px;
+}
+
+.popover-body {
+  padding: 16px 24px 16px 16px;
+}
+
+.popover-footer {
+  padding: 20px 24px 20px 24px;
+  color: #7781A5;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
+  border-color: rgba(240, 240, 240, 0.75);
 }
