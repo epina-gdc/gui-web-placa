@@ -67,6 +67,7 @@ export class MenuInterno {
         {
           label: 'Módulo médico',
           icon: 'pi pi-question-circle',
+          routerLink: `/${NAV_BASE_URL.privado}/${NAV_PRIVADO_URL.moduloMedico}`,
         },
       ],
     },
@@ -76,6 +77,7 @@ export class MenuInterno {
         {
           label: 'Abasto',
           icon: 'pi pi-question-circle',
+          routerLink: `/${NAV_BASE_URL.privado}/${NAV_PRIVADO_URL.abasto}`,
         },
       ],
     },
