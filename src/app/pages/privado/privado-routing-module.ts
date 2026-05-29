@@ -12,6 +12,7 @@ import { NuevaSolicitudExtraordinaria } from '@pages/privado/pages/nueva-solicit
 import { Abasto } from '@pages/privado/pages/abasto/abasto';
 import { ModuloMedico } from '@pages/privado/pages/modulo-medico/modulo-medico';
 import { SolicitudExtraordinaria } from './pages/solicitud-extraordinaria/solicitud-extraordinaria';
+import { DetallePlatillo } from '@pages/privado/pages/detalle-platillo/detalle-platillo';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path: NAV_PRIVADO_URL.nuevoPlatillo,
         component: NuevoPlatillo,
+      },
+      {
+        path: NAV_PRIVADO_URL.detallePlatillo,
+        component: DetallePlatillo,
       },
       {
         path: NAV_PRIVADO_URL.minutaSintetica,
@@ -52,9 +57,9 @@ const routes: Routes = [
         component: NuevaSolicitudExtraordinaria,
       },
       {
-  path: `${NAV_PRIVADO_URL.solicitudExtraordinaria}/:idSolicitud`,
-  component: SolicitudExtraordinaria,
-},
+        path: `${NAV_PRIVADO_URL.solicitudExtraordinaria}/:idSolicitud`,
+        component: SolicitudExtraordinaria,
+      },
       {
         path: NAV_PRIVADO_URL.abasto,
         component: Abasto,
@@ -62,7 +67,7 @@ const routes: Routes = [
       {
         path: NAV_PRIVADO_URL.moduloMedico,
         component: ModuloMedico,
-      }
+      },
     ],
   },
 ];
