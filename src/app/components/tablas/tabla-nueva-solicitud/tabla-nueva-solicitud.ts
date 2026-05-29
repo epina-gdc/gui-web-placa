@@ -18,6 +18,7 @@ import { TableModule } from 'primeng/table';
 })
 export class TablaNuevaSolicitud {
   @Input() data: IngredienteSolicitud[] = [];
+  @Input() edicion: boolean = false;
 
   first: WritableSignal<number> = signal(0);
 

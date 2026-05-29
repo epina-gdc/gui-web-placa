@@ -1,0 +1,352 @@
+.tabla-container {
+
+  width: 100%;
+
+  background: #FFFFFF;
+
+  border: 1px solid #E5E7EB;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.div-header {
+
+  width: 100%;
+
+  height: 26px;
+
+  background: #F4F7FC;
+
+  padding: 0 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  border-bottom: 1px solid #E5E7EB;
+
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
+
+.texto-header {
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  color: #374151;
+}
+
+/* =========================================================
+   WRAPPER TABLA 90%
+   ========================================================= */
+
+.div-tabla-wrapper {
+
+  width: 97%;
+
+ margin: 0 auto 16px auto;
+
+
+}
+
+/* =========================================================
+   TABLA
+   ========================================================= */
+
+.div-tabla {
+
+  width: 100%;
+}
+
+:host ::ng-deep .p-datatable,
+:host ::ng-deep .p-datatable-wrapper,
+:host ::ng-deep .p-datatable-table {
+
+  width: 100% !important;
+}
+
+:host ::ng-deep .p-datatable-table {
+
+  table-layout: fixed !important;
+
+  border-collapse: collapse !important;
+}
+
+/* =========================================================
+   HEADER TABLA
+   ========================================================= */
+
+:host ::ng-deep .p-datatable-thead > tr > th {
+
+  background: #F4F7FC !important;
+
+  height: 36px !important;
+
+  padding: 0 12px !important;
+
+  border: none !important;
+
+  color: #4B5563 !important;
+
+  font-size: 14px !important;
+
+  font-weight: 600 !important;
+
+  text-align: left !important;
+
+  vertical-align: middle !important;
+}
+
+/* =========================================================
+   FILAS
+   ========================================================= */
+
+:host ::ng-deep .p-datatable-tbody > tr {
+
+  height: 42px !important;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr > td {
+
+  height: 42px !important;
+
+  padding: 0 12px !important;
+
+  border: none !important;
+
+  border-bottom: 1px solid #E5E7EB !important;
+
+  vertical-align: middle !important;
+
+  color: #6B7280 !important;
+
+  font-size: 14px !important;
+
+  font-weight: 400 !important;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr:last-child > td {
+
+  border-bottom: none !important;
+}
+
+/* =========================================================
+   COLUMNAS
+   ========================================================= */
+
+.col-no {
+
+  width: 4%;
+}
+
+.col-ingrediente {
+
+  width: 34%;
+}
+
+.col-variedad {
+
+  width: 22%;
+}
+
+.col-uso {
+
+  width: 24%;
+}
+
+.col-porcion {
+
+  width: 8%;
+
+  text-align: left;
+}
+
+.col-eliminar {
+
+  width: 8%;
+
+  text-align: center;
+}
+
+/* =========================================================
+   EMPTY
+   ========================================================= */
+
+.empty-table {
+
+  min-height: 160px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.sinResultados {
+
+  color: #6B7280;
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer-tabla {
+
+  width: 100%;
+
+  height: 48px;
+
+  background: #F4F7FC;
+
+  border-top: 1px solid #E5E7EB;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  align-items: center;
+
+  padding: 0 16px;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   PAGINADOR
+   ========================================================= */
+
+.custom-paginator {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.pages-container {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+.pagina-item {
+
+  width: 28px;
+
+  height: 28px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  color: #6B7280;
+
+  transition: all 0.2s ease;
+}
+
+.pagina-item:hover {
+
+  background: #E5E7EB;
+}
+
+.pagina-item.active {
+
+  background: #38A37B;
+
+  color: #FFFFFF;
+}
+
+/* =========================================================
+   BOTONES PAGINADOR
+   ========================================================= */
+
+.btn-paginador {
+
+  background: transparent !important;
+
+  border: none !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  gap: .5rem !important;
+
+  color: #9CA3AF !important;
+
+  box-shadow: none !important;
+
+  padding: 0.5rem !important;
+}
+
+.btn-paginador:hover {
+
+  background: #F3F4F6 !important;
+}
+
+.btn-paginador:disabled {
+
+  opacity: .5;
+}
+
+/* =========================================================
+   BOTON ELIMINAR
+   ========================================================= */
+
+:host ::ng-deep .p-button-danger {
+
+  background: transparent !important;
+
+  border: none !important;
+
+  color: #FF6B6B !important;
+
+  box-shadow: none !important;
+}
+
+:host ::ng-deep .p-button-danger:hover {
+
+  background: transparent !important;
+}
+ /* bordes de la tabla */
+
+:host ::ng-deep .p-datatable-thead > tr > th:first-child {
+
+  border-top-left-radius: 12px;
+}
+
+:host ::ng-deep .p-datatable-thead > tr > th:last-child {
+
+  border-top-right-radius: 12px;
+}
+
+.footer-tabla {
+
+  border-bottom-left-radius: 12px;
+
+  border-bottom-right-radius: 12px;
+}

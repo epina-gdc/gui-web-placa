@@ -3,6 +3,7 @@ import { Component, inject, Input, signal, SimpleChanges, WritableSignal } from 
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalConfirmacion } from '@components/modal/modal-confirmacion/modal-confirmacion';
+import { ModalRechazo } from '@components/modal/modal-rechazo/modal-rechazo';
 import { ColumnDefinition } from '@core/models/columna-tabla';
 import { Solicitud } from '@core/models/solicitud.interface';
 import { NAV_PRIVADO_URL } from '@core/utils/url-global';
@@ -228,6 +229,29 @@ const ref = this.dialogService.open(
   }
 );
 }
+
+rechazar(): void {
+const ref = this.dialogService.open(
+  ModalRechazo,
+  {
+    header: 'Rechazar solicitud extraordinaria',
+    width: '800px',
+    modal: true,
+    closable: true,
+    showHeader: true,
+    dismissableMask: false,
+    data: {
+      mensaje: 'Rechazar solicitud',
+      textoBoton: 'Rechazar solicitud'
+    }
+  }
+);
+}
+
+verDetalles(solicitud: Solicitud): void {
+  console.log('Detalles de la solicitud');
+  console.log('Solicitud seleccionada:', solicitud);
+  this._router.navigate(['/privado', NAV_PRIVADO_URL.solicitudExtraordinaria, solicitud.idSolicitud]); }
 
 
 }

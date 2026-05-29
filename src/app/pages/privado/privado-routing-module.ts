@@ -11,6 +11,7 @@ import { SolicitudExtraordinariaProveedor } from '@pages/privado/pages/solicitud
 import { NuevaSolicitudExtraordinaria } from '@pages/privado/pages/nueva-solicitud-extraordinaria/nueva-solicitud-extraordinaria';
 import { Abasto } from '@pages/privado/pages/abasto/abasto';
 import { ModuloMedico } from '@pages/privado/pages/modulo-medico/modulo-medico';
+import { SolicitudExtraordinaria } from './pages/solicitud-extraordinaria/solicitud-extraordinaria';
 
 const routes: Routes = [
   {
@@ -50,6 +51,10 @@ const routes: Routes = [
         path: NAV_PRIVADO_URL.nuevaSolicitudExtraordinaria,
         component: NuevaSolicitudExtraordinaria,
       },
+      {
+  path: `${NAV_PRIVADO_URL.solicitudExtraordinaria}/:idSolicitud`,
+  component: SolicitudExtraordinaria,
+},
       {
         path: NAV_PRIVADO_URL.abasto,
         component: Abasto,

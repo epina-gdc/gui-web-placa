@@ -113,7 +113,13 @@
             <tr>
 
                 <td>
-                   <a href="#">{{ rowData.folio }}</a> 
+                   <a
+                    class="link-folio"
+                    (click)="verDetalles(rowData)">
+
+                    {{ rowData.folio }}
+
+                    </a>
                 </td>
 
                 <td>
@@ -185,7 +191,7 @@
 
     <button
         type="button"
-        class="btn-rechazar">
+        class="btn-rechazar" (click)="rechazar()">
 
         <i class="pi pi-times"></i>
 
