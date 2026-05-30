@@ -33,7 +33,7 @@ const routes: Routes = [
         component: NuevoPlatillo,
       },
       {
-        path: NAV_PRIVADO_URL.detallePlatillo,
+        path: `${NAV_PRIVADO_URL.detallePlatillo}/:idSolicitud`,
         component: DetallePlatillo,
       },
       {
