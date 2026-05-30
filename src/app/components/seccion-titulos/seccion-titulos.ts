@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-seccion-titulos',
@@ -11,9 +12,11 @@ export class SeccionTitulos {
   ruta = input<string>();
   retorno = input<boolean>(false);
 
+  _router =  inject(Router);
+
   public btnRegresar(): void {
     if (this.ruta()) {
-      // void this._router.navigate([this.ruta]);
+      void this._router.navigate([this.ruta]);
     } else {
       // this._alertServices.informacion('No se ha ingresado la ruta de retorno');
     }

@@ -1,31 +1,5 @@
-<div class="header-platillo">
+<app-seccion-titulos [titulo]="'Nuevo platillo'" [retorno]="true" [ruta]="'privado/platillos'"></app-seccion-titulos>
 
-    <!-- BOTON REGRESAR -->
-
-    <button
-        pButton
-        type="button"
-        class="btn-regresar"
-        (click)="regresar()">
-
-        <img
-            src="assets/Images/regresar.png"
-            alt="Regresar"
-            class="icon-regresar" />
-
-    </button>
-
-    <!-- LINEA -->
-
-    <div class="divider-vertical"></div>
-
-    <!-- TITULO -->
-
-    <span class="titulo">
-        Nuevo platillo
-    </span>
-
-</div>
 <div class="principal">
      <!-- Header -->
     <div class="div-header">
@@ -54,18 +28,18 @@
 
     </div>
 
-                
+
 
                             <input
                                 pInputText
                                 type="text"
                                 class="w-full"
                                 placeholder="Ingresar"
-                                
+
                                 formControlName="nombre"
                             />
 
-                
+
 
                     </div>
 
@@ -160,7 +134,7 @@
 
     </div>
 
-        
+
 
             </form>
 
@@ -263,7 +237,7 @@ class="w-full"
         pButton
         type="button"
         class="btn-agregar-ingrediente" [disabled]="filtroForm.invalid" (click)="agregarIngrediente()">
-        
+
 
         <i class="pi pi-plus"></i>
 

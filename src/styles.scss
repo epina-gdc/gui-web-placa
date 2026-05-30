@@ -17,6 +17,16 @@
     font-family: Noto Sans, serif !important;
   }
 
+  .hr-vertical {
+    border: 10px;
+    margin: 10px;
+    border-left: 1px solid #b1b1b1;
+    height: 20px;
+    width: 0;
+    float: left;
+  }
+
+
   .p-button {
     appearance: none !important;
     -webkit-appearance: none !important;

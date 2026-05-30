@@ -1,9 +1,12 @@
-<div class="flex align-items-center">
+<div class="flex align-items-center gap-2 seccion-titulos">
   @if (retorno()) {
     <a class="bg-white border-circle justify-content-center align-items-center flex return" (click)="btnRegresar()">
-      <img class="p-0" width="20" height="20"
-           src="temporal/flecha_atras.svg" alt="Flecha atrás">
+      <img
+        src="assets/Images/regresar.png"
+        alt="Regresar"
+        class="icon-regresar" />
     </a>
+    <div class="hr-vertical"></div>
   }
-  <h2 class="titulo-seccion">{{ titulo() }}</h2>
+  <h2 class="titulo-seccion m-0">{{ titulo() }}</h2>
 </div>
