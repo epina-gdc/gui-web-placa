@@ -2,7 +2,7 @@
   @if (retorno()) {
     <a class="bg-white border-circle justify-content-center align-items-center flex return" (click)="btnRegresar($event)">
       <img
-        src="assets/Images/regresar.png"
+        [src]="'temporal/flecha_atras.svg'"
         alt="Regresar"
         class="icon-regresar" />
     </a>

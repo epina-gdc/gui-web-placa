@@ -13,6 +13,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { SelectModule } from 'primeng/select';
 import { take } from 'rxjs';
 import { SeccionTitulos } from '@components/seccion-titulos/seccion-titulos';
+import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
 
 @Component({
   selector: 'app-nuevo-platillo',
@@ -23,6 +24,7 @@ import { SeccionTitulos } from '@components/seccion-titulos/seccion-titulos';
     ButtonModule,
     TablaNuevosIngredientes,
     SeccionTitulos,
+    SeccionBusqueda,
   ],
   templateUrl: './nuevo-platillo.html',
   styleUrl: './nuevo-platillo.scss',
