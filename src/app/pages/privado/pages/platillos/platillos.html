@@ -1,6 +1,6 @@
 <app-seccion-titulos [titulo]="'Platillos'"></app-seccion-titulos>
 
-<div class="principal">
+<div class="principal pb-4">
 
   <app-seccion-busqueda [titulo]="'Búsqueda de Platillos'">
     <section class="divformulario">
@@ -104,15 +104,14 @@
             type="button"
             label="Limpiar"
             styleClass="btn-limpiar"
-            [style]="{'width':'110px'}">
+            [style]="{'width':'90px'}">
           </p-button>
 
 
           <p-button
             type="button"
             label="Buscar"
-            styleClass="btn-background"
-            [style]="{'width':'110px'}" (click)="consultarPlatillos()">
+            [style]="{'width':'125px'}" (click)="consultarPlatillos()">
           </p-button>
 
         </div>
