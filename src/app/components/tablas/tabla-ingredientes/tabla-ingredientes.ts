@@ -12,12 +12,12 @@ import { Ripple } from 'primeng/ripple';
 import { TableModule } from 'primeng/table';
 
 @Component({
-  selector: 'app-tabla-nuevos-ingredientes',
+  selector: 'app-tabla-ingredientes',
   imports: [TableModule, PaginatorModule, CommonModule, IconFieldModule, InputIconModule, InputTextModule, ButtonModule, Ripple,FormsModule,],
-  templateUrl: './tabla-nuevos-ingredientes.html',
-  styleUrl: './tabla-nuevos-ingredientes.scss',
+  templateUrl: './tabla-ingredientes.html',
+  styleUrl: './tabla-ingredientes.scss',
 })
-export class TablaNuevosIngredientes {
+export class TablaIngredientes {
 
   @Input() data: IngredientesPlatillo[] = [];
 

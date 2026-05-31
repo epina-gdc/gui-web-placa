@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { TablaNuevosIngredientes } from '@components/tablas/tabla-nuevos-ingredientes/tabla-nuevos-ingredientes';
+import { TablaIngredientes } from '@components/tablas/tabla-ingredientes/tabla-ingredientes';
 import { EstatusPlatillo } from '@core/models/estatusPlatillo.interface';
 import { GrupoPlatillo } from '@core/models/grupoPlatillo.interface';
 import { Ingrediente } from '@core/models/ingredientes.interface';
@@ -22,7 +22,7 @@ import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
     SelectModule,
     InputTextModule,
     ButtonModule,
-    TablaNuevosIngredientes,
+    TablaIngredientes,
     SeccionTitulos,
     SeccionBusqueda,
   ],

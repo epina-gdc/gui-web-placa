@@ -11,7 +11,7 @@ import {
 import { InputText } from 'primeng/inputtext';
 import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
 import { Select } from 'primeng/select';
-import { TablaNuevosIngredientes } from '@components/tablas/tabla-nuevos-ingredientes/tabla-nuevos-ingredientes';
+import { TablaIngredientes } from '@components/tablas/tabla-ingredientes/tabla-ingredientes';
 import { GrupoPlatillo } from '@core/models/grupoPlatillo.interface';
 import { SubgrupoPlatillo } from '@core/models/subgrupoPlatillo.interface';
 import { EstatusPlatillo } from '@core/models/estatusPlatillo.interface';
@@ -31,7 +31,7 @@ import { IngredientesPlatillo } from '@core/models/platillo-ingediente.interface
     ReactiveFormsModule,
     SeccionBusqueda,
     Select,
-    TablaNuevosIngredientes,
+    TablaIngredientes,
   ],
   templateUrl: './detalle-platillo.html',
   styleUrl: './detalle-platillo.scss',
