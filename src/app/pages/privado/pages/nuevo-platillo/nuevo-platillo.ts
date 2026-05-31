@@ -70,6 +70,7 @@ export class NuevoPlatillo {
   mostrarLista: boolean = false;
   ingredientesPlatillo: IngredientesPlatillo[] = [];
   ingredienteSeleccionado = '';
+
   constructor() {
     this.filtroForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -85,6 +86,7 @@ export class NuevoPlatillo {
     });
 
     this.ingredientesFiltrados = this.ingredientes;
+    this.insertarDummiesIngredientes();
   }
   regresar() {
     window.history.back();
@@ -167,5 +169,100 @@ export class NuevoPlatillo {
     console.log(this.ingredientesPlatillo);
 
     this.ingredienteForm.reset();
+  }
+
+  insertarDummiesIngredientes(): void {
+    this.ingredientesPlatillo = [
+      {
+        idIngrediente: 1,
+        ingrediente: 'Aceite de cartamo',
+        idVariedad: 1,
+        variedad: 'Normal A',
+        idUso: 1,
+        uso: 'Para guisar plato fuerte',
+        porcion: 0.18,
+      },
+      {
+        idIngrediente: 2,
+        ingrediente: 'Ajo en bulbo',
+        idVariedad: 1,
+        variedad: 'Normal A',
+        idUso: 2,
+        uso: 'Para guisar salsa',
+        porcion: 0.24,
+      },
+      {
+        idIngrediente: 3,
+        ingrediente: 'Cebolla blanca',
+        idVariedad: 1,
+        variedad: 'Normal A',
+        idUso: 2,
+        uso: 'Para guisar salsa',
+        porcion: 0.56,
+      },
+      {
+        idIngrediente: 4,
+        ingrediente: 'Chile seco chipotle',
+        idVariedad: 2,
+        variedad: 'Normal B',
+        idUso: 2,
+        uso: 'Para guisar salsa',
+        porcion: 0.89,
+      },
+      {
+        idIngrediente: 5,
+        ingrediente: 'Consome pollo desh. polvo',
+        idVariedad: 1,
+        variedad: 'Normal A',
+        idUso: 1,
+        uso: 'Para guisar plato fuerte',
+        porcion: 0.13,
+      },
+      {
+        idIngrediente: 6,
+        ingrediente: 'Crema entera leche de vaca',
+        idVariedad: 1,
+        variedad: 'Normal A',
+        idUso: 1,
+        uso: 'Para guisar plato fuerte',
+        porcion: 0.77,
+      },
+      {
+        idIngrediente: 7,
+        ingrediente: 'Harina de trigo',
+        idVariedad: 1,
+        variedad: 'Normal A',
+        idUso: 1,
+        uso: 'Para guisar plato fuerte',
+        porcion: 0.45,
+      },
+      {
+        idIngrediente: 8,
+        ingrediente: 'Margarina sin sal',
+        idVariedad: 2,
+        variedad: 'Normal B',
+        idUso: 1,
+        uso: 'Para guisar plato fuerte',
+        porcion: 0.32,
+      },
+      {
+        idIngrediente: 9,
+        ingrediente: 'Pierna cerdo entera, sin hueso',
+        idVariedad: 2,
+        variedad: 'Normal B',
+        idUso: 1,
+        uso: 'Para guisar plato fuerte',
+        porcion: 0.91,
+      },
+      {
+        idIngrediente: 10,
+        ingrediente: 'Sal refinada yodatada',
+        idVariedad: 2,
+        variedad: 'Normal B',
+        idUso: 1,
+        uso: 'Para guisar plato fuerte',
+        porcion: 0.68,
+      },
+    ];
   }
 }
