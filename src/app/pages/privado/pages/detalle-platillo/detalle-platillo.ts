@@ -178,5 +178,89 @@ export class DetallePlatillo {
     this.ingredienteForm.reset();
   }
 
-  insertarDummiesIngredientes(): void {}
+  insertarDummiesIngredientes(): void {
+    this.ingredientesPlatillo = [
+      {
+        idIngrediente: 1,
+        ingrediente: 'Ajo en bulbo',
+        idVariedad: 1,
+        variedad: 'Normal A',
+        idUso: 2,
+        uso: 'Para guisar salsa',
+        porcion: 0.24,
+      },
+      {
+        idIngrediente: 2,
+        ingrediente: 'Cebolla blanca',
+        idVariedad: 1,
+        variedad: 'Normal A',
+        idUso: 2,
+        uso: 'Para guisar salsa',
+        porcion: 0.56,
+      },
+      {
+        idIngrediente: 3,
+        ingrediente: 'Chile seco chipotle',
+        idVariedad: 2,
+        variedad: 'Normal B',
+        idUso: 2,
+        uso: 'Para guisar salsa',
+        porcion: 0.89,
+      },
+      {
+        idIngrediente: 4,
+        ingrediente: 'Consome pollo desh. polvo',
+        idVariedad: 1,
+        variedad: 'Normal A',
+        idUso: 1,
+        uso: 'Para guisar plato fuerte',
+        porcion: 0.13,
+      },
+      {
+        idIngrediente: 5,
+        ingrediente: 'Crema entera leche de vaca',
+        idVariedad: 1,
+        variedad: 'Normal A',
+        idUso: 1,
+        uso: 'Para guisar plato fuerte',
+        porcion: 0.77,
+      },
+      {
+        idIngrediente: 6,
+        ingrediente: 'Harina de trigo',
+        idVariedad: 1,
+        variedad: 'Normal A',
+        idUso: 1,
+        uso: 'Para guisar plato fuerte',
+        porcion: 0.45,
+      },
+      {
+        idIngrediente: 7,
+        ingrediente: 'Margarina sin sal',
+        idVariedad: 2,
+        variedad: 'Normal B',
+        idUso: 1,
+        uso: 'Para guisar plato fuerte',
+        porcion: 0.32,
+      },
+      {
+        idIngrediente: 8,
+        ingrediente: 'Pierna cerdo entera, sin hueso',
+        idVariedad: 2,
+        variedad: 'Normal B',
+        idUso: 1,
+        uso: 'Para guisar plato fuerte',
+        porcion: 0.91,
+      },
+      {
+        idIngrediente: 9,
+        ingrediente: 'Sal refinada yodatada',
+        idVariedad: 2,
+        variedad: 'Normal B',
+        idUso: 1,
+        uso: 'Para guisar plato fuerte',
+        porcion: 0.68,
+      },
+    ];
+  }
 }
