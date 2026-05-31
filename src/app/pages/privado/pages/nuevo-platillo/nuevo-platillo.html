@@ -134,7 +134,7 @@
                 </label>
               </div>
 
-              <div class="ingrediente-search-container">
+              <div class="input-search-container">
 
                 <!-- INPUT -->
 
@@ -215,10 +215,11 @@
               </p-select>
 
             </div>
-            <div class="lg:col-3 col-12" style="display: flex; align-items: center; justify-content: center;">
+            <div class="lg:col-3 col-12 flex align-items-center justify-content-start">
               <button
                 pButton
                 type="button"
+                style="{width: 190px}"
                 class="btn-agregar-ingrediente" [disabled]="filtroForm.invalid" (click)="agregarIngrediente()">
 
 

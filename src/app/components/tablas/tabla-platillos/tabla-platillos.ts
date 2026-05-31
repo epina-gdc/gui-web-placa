@@ -11,7 +11,7 @@ import { Platillo } from '@core/models/platillo.interface';
 import { ColumnDefinition } from '@core/models/columna-tabla';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import{ NAV_PRIVADO_URL } from '@core/utils/url-global';
 
 
@@ -27,6 +27,7 @@ import{ NAV_PRIVADO_URL } from '@core/utils/url-global';
     ButtonModule,
     ToggleSwitchModule,
     FormsModule,
+    RouterLink,
   ],
   templateUrl: './tabla-platillos.html',
   styleUrl: './tabla-platillos.scss',
@@ -72,11 +73,11 @@ export class TablaPlatillos {
       width: '200px',
     },
   ];
-protected _router: Router;
+  protected _router: Router;
 
-constructor() {
-     this._router = inject(Router);
-   }
+  constructor() {
+    this._router = inject(Router);
+  }
   /* =========================================================
      TOTAL RECORDS
      ========================================================= */
@@ -159,7 +160,6 @@ constructor() {
   }
 
   nuevoPlatillo() {
-this._router.navigate(['/privado', NAV_PRIVADO_URL.nuevoPlatillo]);
+    this._router.navigate(['/privado', NAV_PRIVADO_URL.nuevoPlatillo]);
   }
-
 }
