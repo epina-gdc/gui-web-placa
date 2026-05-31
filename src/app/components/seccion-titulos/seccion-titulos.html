@@ -8,5 +8,9 @@
     </a>
     <div class="hr-vertical"></div>
   }
+  @if(detalle()) {
+    <h2 class="cve-seccion m-0">{{ cve() }}</h2>
+    <h2 class="titulo-seccion m-0">-</h2>
+  }
   <h2 class="titulo-seccion m-0">{{ titulo() }}</h2>
 </div>

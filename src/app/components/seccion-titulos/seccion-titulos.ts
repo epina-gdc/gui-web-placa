@@ -10,7 +10,9 @@ import {Router } from '@angular/router';
 export class SeccionTitulos {
   titulo = input.required<string>();
   ruta = input<string>();
+  cve = input<string>();
   retorno = input<boolean>(false);
+  detalle = input<boolean>(false);
 
   _router =  inject(Router);
 
