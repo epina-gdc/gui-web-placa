@@ -63,6 +63,14 @@
 
   p-datatable-table {
     border-collapse: collapse !important;
+    table-layout: fixed !important;
+  }
+
+
+  .p-datatable,
+  .p-datatable-wrapper,
+  .p-datatable-table {
+    width: 100% !important;
   }
 
 }
