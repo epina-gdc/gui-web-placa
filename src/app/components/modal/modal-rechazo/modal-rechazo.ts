@@ -7,25 +7,25 @@ import { SelectModule } from 'primeng/select';
 
 @Component({
   selector: 'app-modal-rechazo',
-  imports: [ButtonModule,ReactiveFormsModule,
-    SelectModule],
+  imports: [ButtonModule, ReactiveFormsModule, SelectModule],
   templateUrl: './modal-rechazo.html',
   styleUrl: './modal-rechazo.scss',
 })
 export class ModalRechazo {
-  motivos:Motivo[]=[{idMotivo: 1, descripcion: 'Ingredientes Incorrectos'},{idMotivo: 2, descripcion: 'Falta de Ingredientes'}
-    ,{idMotivo: 3, descripcion: 'Otros'}];
- filtroForm!: FormGroup;
-fb: FormBuilder = inject(FormBuilder);
-   constructor(
+  motivos: Motivo[] = [
+    { idMotivo: 1, descripcion: 'Ingredientes Incorrectos' },
+    { idMotivo: 2, descripcion: 'Falta de Ingredientes' },
+    { idMotivo: 3, descripcion: 'Otros' },
+  ];
+  filtroForm!: FormGroup;
+  fb: FormBuilder = inject(FormBuilder);
+  constructor(
     public config: DynamicDialogConfig,
-    public ref: DynamicDialogRef
+    public ref: DynamicDialogRef,
   ) {
-
     this.filtroForm = this.fb.group({
-
-    motivo: [null, Validators.required]
-  });
+      motivo: [null, Validators.required],
+    });
   }
 
   get mensaje(): string {

@@ -8,17 +8,24 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { PaginatorModule } from 'primeng/paginator';
-import { Ripple } from 'primeng/ripple';
 import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-tabla-ingredientes',
-  imports: [TableModule, PaginatorModule, CommonModule, IconFieldModule, InputIconModule, InputTextModule, ButtonModule, Ripple,FormsModule,],
+  imports: [
+    TableModule,
+    PaginatorModule,
+    CommonModule,
+    IconFieldModule,
+    InputIconModule,
+    InputTextModule,
+    ButtonModule,
+    FormsModule,
+  ],
   templateUrl: './tabla-ingredientes.html',
   styleUrl: './tabla-ingredientes.scss',
 })
 export class TablaIngredientes {
-
   @Input() data: IngredientesPlatillo[] = [];
 
   first: WritableSignal<number> = signal(0);
@@ -35,23 +42,23 @@ export class TablaIngredientes {
     {
       field: 'ingrediente',
       header: 'Ingrediente',
-      width: '80px'
+      width: '80px',
     },
     {
       field: 'variedad',
       header: 'Variedad',
-      width: '150px'
+      width: '150px',
     },
     {
       field: 'uso',
       header: 'Uso',
-      width: '200px'
+      width: '200px',
     },
     {
       field: 'porcion',
       header: 'Porción',
-      width: '200px'
-    }
+      width: '200px',
+    },
   ];
 
   /* =========================================================
@@ -67,11 +74,8 @@ export class TablaIngredientes {
      ========================================================= */
 
   ngOnChanges(changes: SimpleChanges): void {
-
     if (changes['columns']) {
-
     }
-
   }
 
   /* =========================================================
@@ -79,11 +83,9 @@ export class TablaIngredientes {
      ========================================================= */
 
   onPageChange(event: any): void {
-
     this.first.set(event.first ?? 0);
 
     this.rows.set(event.rows ?? 10);
-
   }
 
   /* =========================================================
@@ -91,9 +93,7 @@ export class TablaIngredientes {
      ========================================================= */
 
   buscar(busqueda: any): string {
-
     return busqueda.target.value;
-
   }
 
   /* =========================================================
@@ -101,17 +101,9 @@ export class TablaIngredientes {
      ========================================================= */
 
   next(): void {
-
-    if (
-      this.first() + this.rows() < this.totalRecords
-    ) {
-
-      this.first.set(
-        this.first() + this.rows()
-      );
-
+    if (this.first() + this.rows() < this.totalRecords) {
+      this.first.set(this.first() + this.rows());
     }
-
   }
 
   /* =========================================================
@@ -119,15 +111,9 @@ export class TablaIngredientes {
      ========================================================= */
 
   prev(): void {
-
     if (this.first() > 0) {
-
-      this.first.set(
-        this.first() - this.rows()
-      );
-
+      this.first.set(this.first() - this.rows());
     }
-
   }
 
   /* =========================================================
@@ -135,11 +121,7 @@ export class TablaIngredientes {
      ========================================================= */
 
   currentPage(): number {
-
-    return Math.floor(
-      this.first() / this.rows()
-    ) + 1;
-
+    return Math.floor(this.first() / this.rows()) + 1;
   }
 
   /* =========================================================
@@ -147,16 +129,9 @@ export class TablaIngredientes {
      ========================================================= */
 
   totalPagesArray(): number[] {
+    const totalPages = Math.ceil(this.totalRecords / this.rows());
 
-    const totalPages = Math.ceil(
-      this.totalRecords / this.rows()
-    );
-
-    return Array.from(
-      { length: totalPages },
-      (_, i) => i + 1
-    );
-
+    return Array.from({ length: totalPages }, (_, i) => i + 1);
   }
 
   /* =========================================================
@@ -164,10 +139,6 @@ export class TablaIngredientes {
      ========================================================= */
 
   goToPage(page: number): void {
-
-    this.first.set(
-      (page - 1) * this.rows()
-    );
-
+    this.first.set((page - 1) * this.rows());
   }
 }

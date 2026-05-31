@@ -1,9 +1,8 @@
-import { Component, computed, inject, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
-import {IconFieldModule} from 'primeng/iconfield';
-import {InputIconModule} from 'primeng/inputicon';
-import {InputTextModule} from 'primeng/inputtext';
-import {ButtonModule} from 'primeng/button';
-import {Ripple} from 'primeng/ripple';
+import { Component, inject, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { PaginatorModule } from 'primeng/paginator';
 import { TableModule } from 'primeng/table';
@@ -12,8 +11,7 @@ import { ColumnDefinition } from '@core/models/columna-tabla';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import{ NAV_PRIVADO_URL } from '@core/utils/url-global';
-
+import { NAV_PRIVADO_URL } from '@core/utils/url-global';
 
 @Component({
   selector: 'app-tabla-platillos',

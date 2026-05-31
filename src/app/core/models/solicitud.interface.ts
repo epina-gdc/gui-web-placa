@@ -1,4 +1,4 @@
-import { IngredienteSolicitud } from "./ingrediente-solicitud.interface";
+import { IngredienteSolicitud } from './ingrediente-solicitud.interface';
 
 export interface Solicitud {
   idSolicitud: number;

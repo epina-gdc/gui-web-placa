@@ -11,7 +11,6 @@ import { Variedad } from '@core/models/variedad.interface';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { SelectModule } from 'primeng/select';
-import { take } from 'rxjs';
 import { SeccionTitulos } from '@components/seccion-titulos/seccion-titulos';
 import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
 

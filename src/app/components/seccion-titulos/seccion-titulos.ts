@@ -1,5 +1,5 @@
 import { Component, inject, input } from '@angular/core';
-import {Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-seccion-titulos',
@@ -14,7 +14,7 @@ export class SeccionTitulos {
   retorno = input<boolean>(false);
   detalle = input<boolean>(false);
 
-  _router =  inject(Router);
+  _router = inject(Router);
 
   public btnRegresar(event: any): void {
     event.preventDefault();
