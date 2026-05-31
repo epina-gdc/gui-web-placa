@@ -1,68 +1,7 @@
-.btn-regresar {
-
-  background: transparent !important;
-
-  border: none !important;
-
-  padding: 0 !important;
-
-  box-shadow: none !important;
-}
-
-.header-platillo {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  height: 48px;
-  padding: 0 12px;
-}
-
-/* =========================================================
-   BOTON REGRESAR
-   ========================================================= */
-
-.btn-regresar {
-
- background: transparent;
-
-  border: none;
-
-  padding: 0;
-
-  margin: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-}
-
-/* Hover */
-
-.btn-regresar:hover {
-
-  background: #F9FAFB !important;
-}
-
-/* =========================================================
-   ICONO
-   ========================================================= */
-
-
 
 /* =========================================================
    DIVIDER
    ========================================================= */
-
-.divider-vertical {
-
-  width: 1px;
-
-  height: 19px;
-
-  background: #D1D5DB;
-}
 
 .contenedor-botones {
   display: flex;
@@ -73,15 +12,8 @@
 
 
 .section-title-container {
-
   width: 100%;
-
-  padding-bottom: 0.75rem;
-
   margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-
-  border-bottom: 1px solid #D1D5DB;
 }
 
 
