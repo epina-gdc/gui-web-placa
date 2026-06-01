@@ -1,6 +1,5 @@
-
-.link-ver {
-  color: #6EA8FE;
+.td-link {
+  color: #3F91D9;
   text-decoration: underline;
   cursor: pointer;
   font-size: 14px;
@@ -8,10 +7,10 @@
   transition: color 0.2s ease;
 }
 
-.link-ver:hover {
+.td-link:hover {
   color: #3B82F6;
 }
 
-.link-ver:visited {
+.td-link:visited {
   color: #6EA8FE;
 }
