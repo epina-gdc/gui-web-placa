@@ -1,0 +1,142 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('../../../../public/assets/fonts/icomoon.eot?zm4td');
+  src: url('../../../../public/assets/fonts/icomoon.eot?zm4td#iefix') format('embedded-opentype'),
+  url('../../../../public/assets/fonts/icomoon.ttf?zm4td') format('truetype'),
+  url('../../../../public/assets/fonts/icomoon.woff?zm4td') format('woff'),
+  url('../../../../public/assets/fonts/icomoon.svg?zm4td#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="placa-"], [class*=" placa-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon', sans-serif !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.placa-colacion:before {
+  content: "\e906";
+}
+
+.placa-alerta-check:before {
+  content: "\e907";
+}
+
+.placa-descarga:before {
+  content: "\e908";
+}
+
+.placa-busqueda:before {
+  content: "\e90a";
+}
+
+.placa-add:before {
+  content: "\e90b";
+}
+
+.placa-cena:before {
+  content: "\e90c";
+}
+
+.placa-comida:before {
+  content: "\e90d";
+}
+
+.placa-desayuno:before {
+  content: "\e90e";
+}
+
+.placa-pencil:before {
+  content: "\e90f";
+}
+
+.placa-flecha-der:before {
+  content: "\e910";
+}
+
+.placa-flecha-izq:before {
+  content: "\e911";
+}
+
+.placa-trash:before {
+  content: "\e912";
+}
+
+.placa-check:before {
+  content: "\e913";
+}
+
+.placa-cross:before {
+  content: "\e914";
+}
+
+.placa-solicitud:before {
+  content: "\e915";
+}
+
+.placa-solicitud-proveedor:before {
+  content: "\e916";
+}
+
+.placa-ordenes:before {
+  content: "\e917";
+}
+
+.placa-platillos:before {
+  content: "\e918";
+}
+
+.placa-regresar:before {
+  content: "\e919";
+}
+
+.placa-reportes:before {
+  content: "\e91a";
+}
+
+.placa-user .path1:before {
+  content: "\e900";
+  color: rgb(221, 243, 233);
+}
+
+.placa-user .path2:before {
+  content: "\e901";
+  margin-left: -1em;
+  color: rgb(10, 161, 110);
+}
+
+.placa-user .path3:before {
+  content: "\e902";
+  margin-left: -1em;
+  color: rgb(10, 161, 110);
+}
+
+.placa-workplace .path1:before {
+  content: "\e903";
+  color: rgb(221, 243, 233);
+}
+
+.placa-workplace .path2:before {
+  content: "\e904";
+  margin-left: -1em;
+  color: rgb(10, 161, 110);
+}
+
+.placa-minuta:before {
+  content: "\e905";
+}
+
+.placa-cerrar-sesion:before {
+  content: "\e909";
+}
