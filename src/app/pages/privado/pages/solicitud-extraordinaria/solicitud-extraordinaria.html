@@ -1,136 +1,107 @@
-<div class="header-platillo">
+<app-seccion-titulos [titulo]="'Solicitud extraordinaria al proveedor'"
+                     [retorno]="true" [ruta]="'/privado/solicitud-extraordinaria-proveedor'"></app-seccion-titulos>
 
-    <!-- BOTON REGRESAR -->
-
-    <button
-        pButton
-        type="button"
-        class="btn-regresar"
-        (click)="regresar()">
-
-        <img
-            src="assets/Images/regresar.png"
-            alt="Regresar"
-            class="icon-regresar" />
-
-    </button>
-
-    <!-- LINEA -->
-
-    <div class="divider-vertical"></div>
-
-    <!-- TITULO -->
-
-    <span class="titulo">
-        Solicitud extraordinaria al proveedor
-    </span>
-
-</div>
 <div class="principal">
-    <div class="div-header">
-        <span class="texto-campo font-semibold">
-            Folio:{{ solicitud?.folio }}
-        </span>
-    </div>
-      <div class="divformulario background-white">
-     
 
-                <!-- Campos -->
-                <article class="grid">
+  <app-seccion-template [leyenda]="'Folio'" [idLeyenda]="solicitud.folio">
+    <div class="divformulario background-white">
 
-                    <div class="lg:col-3 col-12">
 
-    <div class="campo">
+      <!-- Campos -->
+      <article class="grid">
+
+        <div class="lg:col-3 col-12">
+
+          <div class="campo">
 
         <span class="tituloLabel">
             Fecha de registro
         </span>
 
-        <span class="valor">
-            {{ solicitud?.fecha | date:'dd/MM/yyyy' }}
+            <span class="valor">
+            @if (solicitud.fecha) {
+              {{ solicitud.fecha | date:'dd/MM/yyyy' }}
+            }
         </span>
 
-    </div>
+          </div>
 
-</div>
+        </div>
 
-                    <div class="lg:col-3 col-12">
+        <div class="lg:col-3 col-12">
 
-    <div class="campo">
+          <div class="campo">
 
         <span class="tituloLabel">
             Responsable del registro
         </span>
 
-        <span class="valor">
-            {{ solicitud?.responsable }}
+            <span class="valor">
+            {{ solicitud.responsable ?? '' }}
         </span>
 
-    </div>
+          </div>
 
-</div>
+        </div>
 
-<div class="lg:col-3 col-12">
+        <div class="lg:col-3 col-12">
 
-    <div class="campo">
+          <div class="campo">
 
         <span class="tituloLabel">
             Estatus
         </span>
 
-        <span *ngIf="solicitud.estatus === 'Aprobada'" class="badge-estatus badge-aprobada" style="width: 100px;">
-                    Aprobada
-                </span>
-                 <span *ngIf="solicitud.estatus === 'Pendiente'" class="badge-estatus badge-pendiente" style="width: 100px;">
-                    Pendiente
-                </span>
-                 <span *ngIf="solicitud.estatus === 'Rechazada'" class="badge-estatus badge-rechazada" style="width: 100px;">
-                    Rechazada
-                </span>
+            @switch (solicitud.estatus) {
+              @case ('Aprobada') {
+                <span class="badge-estatus badge-aprobada">
+                Aprobada
+              </span>
+              }
+              @case ('Pendiente') {
+                <span class="badge-estatus badge-pendiente">
+                Pendiente
+              </span>
+              }
+              @case ('Rechazada') {
+                <span class="badge-estatus badge-rechazada">
+                Rechazada
+              </span>
+              }
+            }        </div>
 
-    </div>
-
-</div>
+        </div>
 
 
+        <div class="lg:col-3 col-12">
 
-
-
-                               <div class="lg:col-3 col-12">
-
-    <div class="campo">
+          <div class="campo">
 
         <span class="tituloLabel">
             Fecha de último cambio de estatus
         </span>
 
-        <span class="valor">
-            {{ solicitud?.fechaActualizacion | date:'dd/MM/yyyy' }}
+            <span class="valor">
+            @if (solicitud.fechaActualizacion) {
+              {{ solicitud.fechaActualizacion | date:'dd/MM/yyyy' }}
+            }
         </span>
 
+          </div>
+
+        </div>
+
+
+      </article>
+
+
     </div>
+  </app-seccion-template>
 
-</div>
-                    
-                    
-
-                
-
-                </article>
-
-               
-   
-
-        
-
-        
-      </div>
-      <div>
+  <div>
     <app-tabla-nueva-solicitud [data]="solicitud.ingredientes ?? []" [edicion]="false"></app-tabla-nueva-solicitud>
-</div>
+  </div>
 
 
-
-      
 </div>
 
