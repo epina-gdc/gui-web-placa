@@ -7,6 +7,8 @@ import { ButtonModule } from 'primeng/button';
 import { DatePickerModule } from 'primeng/datepicker';
 import { InputTextModule } from 'primeng/inputtext';
 import { SelectModule } from 'primeng/select';
+import { SeccionTitulos } from '@components/seccion-titulos/seccion-titulos';
+import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
 
 @Component({
   selector: 'app-solicitud-extraordinaria-proveedor',
@@ -17,6 +19,8 @@ import { SelectModule } from 'primeng/select';
     ButtonModule,
     DatePickerModule,
     TablaSolicitud,
+    SeccionTitulos,
+    SeccionBusqueda,
   ],
   templateUrl: './solicitud-extraordinaria-proveedor.html',
   styleUrl: './solicitud-extraordinaria-proveedor.scss',
