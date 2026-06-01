@@ -10,6 +10,7 @@ export const NAV_PUBLICO_URL = {
 export const NAV_PRIVADO_URL = {
   platillos: 'platillos',
   nuevoPlatillo: 'nuevo-platillo',
+  detallePlatillo: 'detalle-platillo',
   minutaSintetica: 'minuta-sintetica',
   ordenes: 'ordenes',
   reportes: 'reportes',

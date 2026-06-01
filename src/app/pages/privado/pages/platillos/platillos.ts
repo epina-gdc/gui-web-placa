@@ -8,31 +8,46 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { Platillo } from '@core/models/platillo.interface';
 import { TablaPlatillos } from '@components/tablas/tabla-platillos/tabla-platillos';
+import { SeccionTitulos } from '@components/seccion-titulos/seccion-titulos';
+import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
 
 @Component({
   selector: 'app-platillos',
-  imports: [ReactiveFormsModule, SelectModule, InputTextModule, ButtonModule, TablaPlatillos],
+  imports: [
+    ReactiveFormsModule,
+    SelectModule,
+    InputTextModule,
+    ButtonModule,
+    TablaPlatillos,
+    SeccionTitulos,
+    SeccionBusqueda,
+  ],
   templateUrl: './platillos.html',
   styleUrl: './platillos.scss',
 })
 export class Platillos {
   filtroForm!: FormGroup;
   fb: FormBuilder = inject(FormBuilder);
+
   gruposPlatillo: GrupoPlatillo[] = [
     { idGrupoPlatillo: 1, desGrupoPlatillo: 'Platillo principal' },
     { idGrupoPlatillo: 2, desGrupoPlatillo: 'Ensaladas y entremeses' },
     { idGrupoPlatillo: 3, desGrupoPlatillo: 'Frutas' },
     { idGrupoPlatillo: 4, desGrupoPlatillo: 'postres y dulces' },
   ];
+
   subgruposPlatillo: SubgrupoPlatillo[] = [
     { idSubgrupoPlatillo: 1, desSubgrupoPlatillo: 'Carne' },
     { idSubgrupoPlatillo: 2, desSubgrupoPlatillo: 'Pescados' },
   ];
+
   estatusPlatillo: EstatusPlatillo[] = [
     { idEstatusPlatillo: 1, desEstatusPlatillo: 'Activo' },
     { idEstatusPlatillo: 2, desEstatusPlatillo: 'Inactivo' },
   ];
+
   platillos: Platillo[] = [];
+
   constructor() {
     this.filtroForm = this.fb.group({
       nombreClave: [''],
@@ -41,6 +56,7 @@ export class Platillos {
       estatus: [null],
     });
   }
+
   consultarPlatillos() {
     // Aquí iría la lógica para consultar los platillos según los filtros seleccionados
 

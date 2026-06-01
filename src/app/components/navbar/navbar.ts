@@ -9,6 +9,5 @@ import { MenuInterno } from '@components/menu-interno/menu-interno';
   styleUrl: './navbar.scss',
 })
 export class Navbar {
-
   menuVisible = signal<boolean>(false);
 }

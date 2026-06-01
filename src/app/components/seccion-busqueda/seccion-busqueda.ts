@@ -1,11 +1,11 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-seccion-busqueda',
   imports: [],
   template: `
-    <div class="surface-card p-4 shadow-1 border-round surface-border border-1">
-      <div class="text-xl font-medium text-900 mb-4">
+    <div class="surface-card shadow-1 border-round surface-border border-1">
+      <div class="titulo-seccion-busqueda">
         {{ titulo() }}
       </div>
 
@@ -15,6 +15,7 @@ import { Component, input } from '@angular/core';
     </div>
   `,
   styleUrl: './seccion-busqueda.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class SeccionBusqueda {
   titulo = input.required<string>();

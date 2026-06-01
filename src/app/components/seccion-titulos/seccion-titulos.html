@@ -1,9 +1,16 @@
-<div class="flex align-items-center">
+<div class="flex align-items-center gap-2 seccion-titulos">
   @if (retorno()) {
-    <a class="bg-white border-circle justify-content-center align-items-center flex return" (click)="btnRegresar()">
-      <img class="p-0" width="20" height="20"
-           src="temporal/flecha_atras.svg" alt="Flecha atrás">
+    <a class="bg-white border-circle justify-content-center align-items-center flex return" (click)="btnRegresar($event)">
+      <img
+        [src]="'temporal/flecha_atras.svg'"
+        alt="Regresar"
+        class="icon-regresar" />
     </a>
+    <div class="hr-vertical"></div>
   }
-  <h2>{{ titulo() }}</h2>
+  @if(detalle()) {
+    <h2 class="cve-seccion m-0">{{ cve() }}</h2>
+    <h2 class="titulo-seccion m-0">-</h2>
+  }
+  <h2 class="titulo-seccion m-0">{{ titulo() }}</h2>
 </div>

@@ -1,34 +1,42 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { SeccionTitulos } from '@components/seccion-titulos/seccion-titulos';
+import { Button, ButtonDirective } from 'primeng/button';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { InputText } from 'primeng/inputtext';
+import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
+import { Select } from 'primeng/select';
 import { TablaIngredientes } from '@components/tablas/tabla-ingredientes/tabla-ingredientes';
-import { EstatusPlatillo } from '@core/models/estatusPlatillo.interface';
 import { GrupoPlatillo } from '@core/models/grupoPlatillo.interface';
+import { SubgrupoPlatillo } from '@core/models/subgrupoPlatillo.interface';
+import { EstatusPlatillo } from '@core/models/estatusPlatillo.interface';
+import { Variedad } from '@core/models/variedad.interface';
+import { Uso } from '@core/models/uso.interface';
 import { Ingrediente } from '@core/models/ingredientes.interface';
 import { IngredientesPlatillo } from '@core/models/platillo-ingediente.interface';
-import { SubgrupoPlatillo } from '@core/models/subgrupoPlatillo.interface';
-import { Uso } from '@core/models/uso.interface';
-import { Variedad } from '@core/models/variedad.interface';
-import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
-import { SelectModule } from 'primeng/select';
-import { SeccionTitulos } from '@components/seccion-titulos/seccion-titulos';
-import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
 
 @Component({
-  selector: 'app-nuevo-platillo',
+  selector: 'app-detalle-platillo',
   imports: [
-    ReactiveFormsModule,
-    SelectModule,
-    InputTextModule,
-    ButtonModule,
-    TablaIngredientes,
     SeccionTitulos,
+    Button,
+    ButtonDirective,
+    FormsModule,
+    InputText,
+    ReactiveFormsModule,
     SeccionBusqueda,
+    Select,
+    TablaIngredientes,
   ],
-  templateUrl: './nuevo-platillo.html',
-  styleUrl: './nuevo-platillo.scss',
+  templateUrl: './detalle-platillo.html',
+  styleUrl: './detalle-platillo.scss',
 })
-export class NuevoPlatillo {
+export class DetallePlatillo {
   filtroForm!: FormGroup;
   ingredienteForm!: FormGroup;
   fb: FormBuilder = inject(FormBuilder);
@@ -92,8 +100,8 @@ export class NuevoPlatillo {
   }
 
   /* =========================================================
-     FILTRAR
-     ========================================================= */
+   FILTRAR
+   ========================================================= */
 
   filtrarIngredientes(): void {
     const texto = this.ingredienteForm.get('ingredienteTexto')?.value?.toLowerCase()?.trim();
@@ -109,8 +117,8 @@ export class NuevoPlatillo {
     );
   }
   /* =========================================================
-     SELECCIONAR
-     ========================================================= */
+   SELECCIONAR
+   ========================================================= */
 
   seleccionarIngrediente(ingrediente: Ingrediente): void {
     this.ingredienteForm.patchValue({
@@ -121,8 +129,8 @@ export class NuevoPlatillo {
     this.mostrarLista = false;
   }
   /* =========================================================
-   AGREGAR INGREDIENTE
-   ========================================================= */
+ AGREGAR INGREDIENTE
+ ========================================================= */
 
   agregarIngrediente(): void {
     const idIngrediente = this.ingredienteForm.value.ingrediente;
@@ -174,15 +182,6 @@ export class NuevoPlatillo {
     this.ingredientesPlatillo = [
       {
         idIngrediente: 1,
-        ingrediente: 'Aceite de cartamo',
-        idVariedad: 1,
-        variedad: 'Normal A',
-        idUso: 1,
-        uso: 'Para guisar plato fuerte',
-        porcion: 0.18,
-      },
-      {
-        idIngrediente: 2,
         ingrediente: 'Ajo en bulbo',
         idVariedad: 1,
         variedad: 'Normal A',
@@ -191,7 +190,7 @@ export class NuevoPlatillo {
         porcion: 0.24,
       },
       {
-        idIngrediente: 3,
+        idIngrediente: 2,
         ingrediente: 'Cebolla blanca',
         idVariedad: 1,
         variedad: 'Normal A',
@@ -200,7 +199,7 @@ export class NuevoPlatillo {
         porcion: 0.56,
       },
       {
-        idIngrediente: 4,
+        idIngrediente: 3,
         ingrediente: 'Chile seco chipotle',
         idVariedad: 2,
         variedad: 'Normal B',
@@ -209,7 +208,7 @@ export class NuevoPlatillo {
         porcion: 0.89,
       },
       {
-        idIngrediente: 5,
+        idIngrediente: 4,
         ingrediente: 'Consome pollo desh. polvo',
         idVariedad: 1,
         variedad: 'Normal A',
@@ -218,7 +217,7 @@ export class NuevoPlatillo {
         porcion: 0.13,
       },
       {
-        idIngrediente: 6,
+        idIngrediente: 5,
         ingrediente: 'Crema entera leche de vaca',
         idVariedad: 1,
         variedad: 'Normal A',
@@ -227,7 +226,7 @@ export class NuevoPlatillo {
         porcion: 0.77,
       },
       {
-        idIngrediente: 7,
+        idIngrediente: 6,
         ingrediente: 'Harina de trigo',
         idVariedad: 1,
         variedad: 'Normal A',
@@ -236,7 +235,7 @@ export class NuevoPlatillo {
         porcion: 0.45,
       },
       {
-        idIngrediente: 8,
+        idIngrediente: 7,
         ingrediente: 'Margarina sin sal',
         idVariedad: 2,
         variedad: 'Normal B',
@@ -245,7 +244,7 @@ export class NuevoPlatillo {
         porcion: 0.32,
       },
       {
-        idIngrediente: 9,
+        idIngrediente: 8,
         ingrediente: 'Pierna cerdo entera, sin hueso',
         idVariedad: 2,
         variedad: 'Normal B',
@@ -254,7 +253,7 @@ export class NuevoPlatillo {
         porcion: 0.91,
       },
       {
-        idIngrediente: 10,
+        idIngrediente: 9,
         ingrediente: 'Sal refinada yodatada',
         idVariedad: 2,
         variedad: 'Normal B',
