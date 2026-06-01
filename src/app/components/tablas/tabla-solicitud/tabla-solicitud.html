@@ -113,7 +113,7 @@
 
         <td>
           <a
-            class="link-folio"
+            class="td-link"
             (click)="verDetalles(rowData)">
 
             {{ rowData.folio }}
@@ -126,19 +126,24 @@
         </td>
 
         <td>
-
-
-                 <span *ngIf="rowData.estatus === 'Aprobada'" class="badge-estatus badge-aprobada">
-                    Aprobada
-                </span>
-          <span *ngIf="rowData.estatus === 'Pendiente'" class="badge-estatus badge-pendiente">
-                    Pendiente
-                </span>
-          <span *ngIf="rowData.estatus === 'Rechazada'" class="badge-estatus badge-rechazada">
-                    Rechazada
-                </span>
+          @switch (rowData.estatus) {
+            @case ('Aprobada') {
+              <span class="badge-estatus badge-aprobada">
+                Aprobada
+              </span>
+            }
+            @case ('Pendiente') {
+              <span class="badge-estatus badge-pendiente">
+                Pendiente
+              </span>
+            }
+            @case ('Rechazada') {
+              <span class="badge-estatus badge-rechazada">
+                Rechazada
+              </span>
+            }
+          }
         </td>
-
         <td>
           {{ rowData.fechaActualizacion | date:'dd/MM/yyyy' }}
         </td>
@@ -153,56 +158,61 @@
 
           <div class="flex justify-content-center">
 
-            <img *ngIf="rowData.estatus === 'Aprobada'" src="/assets/Images/aprovado.png" alt="Aprobada">
+            @switch (rowData.estatus) {
+              @case ('Aprobada') {
+                <img src="/assets/Images/aprovado.png" alt="Aprobada">
+              }
+              @case ('Rechazada') {
+                <div class="tooltip-container">
 
-            <div class="tooltip-container" *ngIf="rowData.estatus === 'Rechazada'">
+                  <img
+                    src="/assets/Images/rechazado.png"
+                    alt="Rechazar">
 
-              <img
-                src="/assets/Images/rechazado.png"
-                alt="Rechazar">
+                  <div class="tooltip-custom">
 
-              <div class="tooltip-custom">
+                    <div class="tooltip-titulo">
+                      Motivo de rechazo
+                    </div>
 
-                <div class="tooltip-titulo">
-                  Motivo de rechazo
+                    <div class="tooltip-texto">
+                      {{ rowData.motivoRechazo }}
+                    </div>
+
+                  </div>
+
                 </div>
+              }
+              @case ('Pendiente') {
+                <div class="acciones-solicitud">
 
-                <div class="tooltip-texto">
-                  {{ rowData.motivoRechazo }}
+                  <button
+                    type="button"
+                    class="btn-aprobar" (click)="abrirModal()">
+
+                    <i class="pi pi-check"></i>
+
+                    <span>Aprobar</span>
+
+                  </button>
+
+                  <button
+                    type="button"
+                    class="btn-rechazar" (click)="rechazar()">
+
+                    <i class="pi pi-times"></i>
+
+                    <span>Rechazar</span>
+
+                  </button>
+
                 </div>
-
-              </div>
-
-            </div>
-
-            <div class="acciones-solicitud" *ngIf="rowData.estatus === 'Pendiente'">
-
-              <button
-                type="button"
-                class="btn-aprobar" (click)="abrirModal()">
-
-                <i class="pi pi-check"></i>
-
-                <span>Aprobar</span>
-
-              </button>
-
-              <button
-                type="button"
-                class="btn-rechazar" (click)="rechazar()">
-
-                <i class="pi pi-times"></i>
-
-                <span>Rechazar</span>
-
-              </button>
-
-            </div>
+              }
+            }
 
           </div>
 
         </td>
-
       </tr>
 
     </ng-template>
