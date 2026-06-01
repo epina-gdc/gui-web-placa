@@ -1,20 +1,3 @@
-/* =========================================================
-   ESTRUCTURA BASE
-   ========================================================= */
-
-
-.tabla-container {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 12px;
-  background-color: #FFF;
-}
-
-:host ::ng-deep .p-datatable,
-:host ::ng-deep .p-datatable-wrapper,
-:host ::ng-deep .p-datatable-table {
-  width: 100% !important;
-}
 
 /* =========================================================
    HEADER

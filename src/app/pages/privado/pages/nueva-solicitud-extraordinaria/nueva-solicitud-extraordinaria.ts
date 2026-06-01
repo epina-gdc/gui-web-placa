@@ -7,11 +7,21 @@ import { Presentacion } from '@core/models/presentacion.interface';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { SelectModule } from 'primeng/select';
+import { SeccionTitulos } from '@components/seccion-titulos/seccion-titulos';
+import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
 
 @Component({
   selector: 'app-nueva-solicitud-extraordinaria',
   standalone: true,
-  imports: [ReactiveFormsModule, SelectModule, InputTextModule, ButtonModule, TablaNuevaSolicitud],
+  imports: [
+    ReactiveFormsModule,
+    SelectModule,
+    InputTextModule,
+    ButtonModule,
+    TablaNuevaSolicitud,
+    SeccionTitulos,
+    SeccionBusqueda,
+  ],
   templateUrl: './nueva-solicitud-extraordinaria.html',
   styleUrl: './nueva-solicitud-extraordinaria.scss',
 })
