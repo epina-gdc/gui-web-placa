@@ -1,32 +1,32 @@
-<div class="tabla-container">
+<div class="table-container surface-card shadow-1 border-round surface-border border-1">
 
-    <!-- =====================================================
-         HEADER
-         ===================================================== -->
+  <!-- =====================================================
+           HEADER
+           ===================================================== -->
 
-    <div class="div-header">
+  <div class="div-header">
 
     <span class="texto-header">
         Resultado de la búsqueda
     </span>
 
     <p-button
-    type="button"
-    styleClass="btn-nueva-solicitud" (click)="nuevaSolicitud()">
+      type="button"
+      styleClass="btn-nueva-solicitud" (click)="nuevaSolicitud()">
 
-    <i class="pi pi-pencil"></i>
+      <i class="pi pi-pencil"></i>
 
-    <span>Nueva solicitud</span>
+      <span>Nueva solicitud</span>
 
-</p-button>
+    </p-button>
 
-</div>
+  </div>
 
-    <!-- =====================================================
-         TABLA
-         ===================================================== -->
+  <!-- =====================================================
+       TABLA
+       ===================================================== -->
 
-    <p-table
+  <p-table
     #dt2
     [value]="datosPaginados"
     [customSort]="true"
@@ -36,271 +36,267 @@
     [tableStyle]="{'min-width':'100%'}"
     [ngClass]="{ 'sin-header': !data.length }">
 
-        <!-- =====================================================
-             HEADER
-             ===================================================== -->
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
 
-        <ng-template pTemplate="header">
+    <ng-template pTemplate="header">
 
-            <tr>
+      <tr>
 
-                <th pSortableColumn="folio">
+        <th pSortableColumn="folio">
 
-                    <div class="header-column">
+          <div class="header-column">
 
-                        <span>Folio</span>
+            <span>Folio</span>
 
-                        <p-sortIcon field="folio"></p-sortIcon>
+            <p-sortIcon field="folio"></p-sortIcon>
 
-                    </div>
+          </div>
 
-                </th>
+        </th>
 
-                <th pSortableColumn="fecha">
+        <th pSortableColumn="fecha">
 
-                    <div class="header-column">
+          <div class="header-column">
 
-                        <span>Fecha de registro</span>
+            <span>Fecha de registro</span>
 
-                        <p-sortIcon field="fecha"></p-sortIcon>
+            <p-sortIcon field="fecha"></p-sortIcon>
 
-                    </div>
+          </div>
 
-                </th>
+        </th>
 
-                <th pSortableColumn="estatus">
+        <th pSortableColumn="estatus">
 
-                    <div class="header-column">
+          <div class="header-column">
 
-                        <span>Estatus</span>
+            <span>Estatus</span>
 
-                        <p-sortIcon field="estatus"></p-sortIcon>
+            <p-sortIcon field="estatus"></p-sortIcon>
 
-                    </div>
+          </div>
 
-                </th>
+        </th>
 
-                <th pSortableColumn="fechaActualizacion">
+        <th pSortableColumn="fechaActualizacion">
 
-                    <div class="header-column">
+          <div class="header-column">
 
-                        <span>Última actualización</span>
+            <span>Última actualización</span>
 
-                        <p-sortIcon field="fechaActualizacion"></p-sortIcon>
+            <p-sortIcon field="fechaActualizacion"></p-sortIcon>
 
-                    </div>
+          </div>
 
-                </th>
+        </th>
 
 
-              
-                <th class="text-center">
-                    Acciones
-                </th>
+        <th class="text-center">
+          Acciones
+        </th>
 
-            </tr>
+      </tr>
 
-        </ng-template>
+    </ng-template>
 
-        <!-- =====================================================
-             BODY
-             ===================================================== -->
+    <!-- =====================================================
+         BODY
+         ===================================================== -->
 
-        <ng-template
-            pTemplate="body"
-            let-rowData>
+    <ng-template
+      pTemplate="body"
+      let-rowData>
 
-            <tr>
+      <tr>
 
-                <td>
-                   <a
-                    class="link-folio"
-                    (click)="verDetalles(rowData)">
+        <td>
+          <a
+            class="link-folio"
+            (click)="verDetalles(rowData)">
 
-                    {{ rowData.folio }}
+            {{ rowData.folio }}
 
-                    </a>
-                </td>
+          </a>
+        </td>
 
-                <td>
-                    {{ rowData.fecha | date:'dd/MM/yyyy'}}
-                </td>
+        <td>
+          {{ rowData.fecha | date:'dd/MM/yyyy' }}
+        </td>
 
-                <td>
-                    
-                
+        <td>
+
+
                  <span *ngIf="rowData.estatus === 'Aprobada'" class="badge-estatus badge-aprobada">
                     Aprobada
                 </span>
-                 <span *ngIf="rowData.estatus === 'Pendiente'" class="badge-estatus badge-pendiente">
+          <span *ngIf="rowData.estatus === 'Pendiente'" class="badge-estatus badge-pendiente">
                     Pendiente
                 </span>
-                 <span *ngIf="rowData.estatus === 'Rechazada'" class="badge-estatus badge-rechazada">
+          <span *ngIf="rowData.estatus === 'Rechazada'" class="badge-estatus badge-rechazada">
                     Rechazada
                 </span>
-                </td>
+        </td>
 
-                <td>
-                    {{ rowData.fechaActualizacion | date:'dd/MM/yyyy'}}
-                </td>
-
-              
-
-                <!-- TOGGLE -->
+        <td>
+          {{ rowData.fechaActualizacion | date:'dd/MM/yyyy' }}
+        </td>
 
 
-                <!-- ELIMINAR -->
+        <!-- TOGGLE -->
 
-                <td class="text-center">
 
-                    <div class="flex justify-content-center">
+        <!-- ELIMINAR -->
 
-                        <img *ngIf="rowData.estatus === 'Aprobada'" src="/assets/Images/aprovado.png" alt="Aprobada">
-                        
-                        <div class="tooltip-container" *ngIf="rowData.estatus === 'Rechazada'">
+        <td class="text-center">
 
-                        <img
-                            src="/assets/Images/rechazado.png"
-                            alt="Rechazar">
+          <div class="flex justify-content-center">
 
-                        <div class="tooltip-custom">
+            <img *ngIf="rowData.estatus === 'Aprobada'" src="/assets/Images/aprovado.png" alt="Aprobada">
 
-                            <div class="tooltip-titulo">
-                                Motivo de rechazo
-                            </div>
+            <div class="tooltip-container" *ngIf="rowData.estatus === 'Rechazada'">
 
-                            <div class="tooltip-texto">
-                                {{ rowData.motivoRechazo }}
-                            </div>
+              <img
+                src="/assets/Images/rechazado.png"
+                alt="Rechazar">
 
-                        </div>
+              <div class="tooltip-custom">
 
-                    </div>
-
-                        <div class="acciones-solicitud" *ngIf="rowData.estatus === 'Pendiente'">
-
-    <button
-        type="button"
-        class="btn-aprobar" (click)="abrirModal()">
-
-        <i class="pi pi-check"></i>
-
-        <span>Aprobar</span>
-
-    </button>
-
-    <button
-        type="button"
-        class="btn-rechazar" (click)="rechazar()">
-
-        <i class="pi pi-times"></i>
-
-        <span>Rechazar</span>
-
-    </button>
-
-</div>
-                        
-                    </div>
-
-                </td>
-
-            </tr>
-
-        </ng-template>
-
-        <!-- =====================================================
-             EMPTY
-             ===================================================== -->
-
-        <ng-template pTemplate="emptymessage">
-
-            <tr>
-
-                <td colspan="7">
-
-                    <div class="empty-table">
-
-                        <p class="sinResultados">
-                            No hay resultados que coincidan con tu búsqueda
-                        </p>
-
-                    </div>
-
-                </td>
-
-            </tr>
-
-        </ng-template>
-
-    </p-table>
-
-    <!-- =====================================================
-         FOOTER PAGINADOR
-         ===================================================== -->
-
-    @if (totalPagesArray().length > 1) {
-
-        <div class="footer-tabla">
-
-            <div class="custom-paginator">
-
-                <!-- ANTERIOR -->
-
-                <button
-    pButton
-    type="button"
-    class="btn-paginador"
-    [disabled]="first() === 0"
-    (click)="prev()">
-
-    <i class="pi pi-chevron-left"></i>
-
-    <span>Anterior</span>
-
-</button>
-
-                <!-- PAGINAS -->
-
-                <div class="pages-container">
-
-                    @for (
-                        page of totalPagesArray();
-                        track page
-                    ) {
-
-                        <div
-                            class="pagina-item"
-                            [class.active]="page === currentPage()"
-                            (click)="goToPage(page)">
-
-                            {{ page }}
-
-                        </div>
-
-                    }
-
+                <div class="tooltip-titulo">
+                  Motivo de rechazo
                 </div>
 
-                <!-- SIGUIENTE -->
+                <div class="tooltip-texto">
+                  {{ rowData.motivoRechazo }}
+                </div>
 
-                <button
-    pButton
-    type="button"
-    class="btn-paginador"
-    [disabled]="first() + rows() >= totalRecords"
-    (click)="next()">
-
-    <span>Siguiente</span>
-
-    <i class="pi pi-chevron-right"></i>
-
-</button>
+              </div>
 
             </div>
 
+            <div class="acciones-solicitud" *ngIf="rowData.estatus === 'Pendiente'">
+
+              <button
+                type="button"
+                class="btn-aprobar" (click)="abrirModal()">
+
+                <i class="pi pi-check"></i>
+
+                <span>Aprobar</span>
+
+              </button>
+
+              <button
+                type="button"
+                class="btn-rechazar" (click)="rechazar()">
+
+                <i class="pi pi-times"></i>
+
+                <span>Rechazar</span>
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </td>
+
+      </tr>
+
+    </ng-template>
+
+    <!-- =====================================================
+         EMPTY
+         ===================================================== -->
+
+    <ng-template pTemplate="emptymessage">
+
+      <tr>
+
+        <td colspan="7">
+
+          <div class="empty-table">
+
+            <p class="td-sin-resultados">
+              No hay resultados que coincidan con tu búsqueda
+            </p>
+
+          </div>
+
+        </td>
+
+      </tr>
+
+    </ng-template>
+
+  </p-table>
+
+  <!-- =====================================================
+       FOOTER PAGINADOR
+       ===================================================== -->
+
+  @if (totalPagesArray().length > 1) {
+
+    <div class="footer-tabla">
+
+      <div class="custom-paginator">
+
+        <!-- ANTERIOR -->
+
+        <button
+          pButton
+          type="button"
+          class="btn-paginador"
+          [disabled]="first() === 0"
+          (click)="prev()">
+
+          <i class="pi pi-chevron-left"></i>
+
+          <span>Anterior</span>
+
+        </button>
+
+        <!-- PAGINAS -->
+
+        <div class="pages-container">
+
+          @for (page of totalPagesArray();
+            track page) {
+
+            <div
+              class="pagina-item"
+              [class.active]="page === currentPage()"
+              (click)="goToPage(page)">
+
+              {{ page }}
+
+            </div>
+
+          }
+
         </div>
 
-    }
+        <!-- SIGUIENTE -->
+
+        <button
+          pButton
+          type="button"
+          class="btn-paginador"
+          [disabled]="first() + rows() >= totalRecords"
+          (click)="next()">
+
+          <span>Siguiente</span>
+
+          <i class="pi pi-chevron-right"></i>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  }
 
 </div>

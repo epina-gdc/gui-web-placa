@@ -187,46 +187,7 @@
 .p-dialog .p-dialog-close-button svg {
 
   display: block !important;
-
   font-size: 14px !important;
-}
-
-
-.badge-estatus {
-
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  min-width: 105px;
-
-  height: 20px;
-
-  padding: 0 12px;
-
-  border-radius: 999px;
-
-  font-size: 12px;
-
-  font-weight: 600;
-}
-
-.badge-aprobada {
-
-  background: #A7E0C6;
-
-  color: #2E9B70;
-}
-
-.badge-pendiente {
-  background: #FDE7A3;
-  color: #B78103;
-}
-
-.badge-rechazada {
-  background: #FFD6D6;
-  color: #D64545;
 }
 
 .link-ver {
