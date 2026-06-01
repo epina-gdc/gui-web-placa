@@ -1,1 +1,236 @@
-<p>ordenes works!</p>
+<div class="header-platillo">
+    <div class="divider-vertical"></div>
+
+    <!-- TITULO -->
+
+    <span class="titulo">
+        Órdenes
+    </span>
+</div>
+<div class="principal">
+    <div class="div-header">
+        <span class="texto-campo font-semibold">
+           Generación de órdenes
+        </span>
+    </div>
+
+        <div class="divformulario background-white">
+                <form [formGroup]="filtroForm">
+                    <article class="grid">
+                         <div class="lg:col-3 col-12">
+
+                        <div class="label-container">
+
+        <label class="field-label">
+                Tipo de orden
+        </label>
+
+        
+
+    </div>
+
+                        <p-select
+                            formControlName="tipoOrden"
+                            [options]="tiposOrdenes"
+                            optionLabel="desTipoOrden"
+                            optionValue="idTipoOrden"
+                            placeholder="Selecciona una opción"
+                            class="w-full custom-dropdown ph-custom">
+                        </p-select>
+
+                    </div>
+                                   <div class="lg:col-3 col-12">
+
+                        <div class="label-container">
+
+        <label class="field-label">
+                OOAD
+        </label>
+
+        
+
+    </div>
+
+                        <p-select
+                            formControlName="ooad"
+                            [options]="ooads"
+                            optionLabel="desOoad"
+                            optionValue="idOoad"
+                            placeholder="Selecciona una opción"
+                            class="w-full custom-dropdown ph-custom">
+                        </p-select>
+
+                    </div>
+                                   <div class="lg:col-3 col-12">
+
+                        <div class="label-container">
+
+        <label class="field-label">
+                Unidad
+        </label>
+
+        
+
+    </div>
+
+                        <p-select
+                            formControlName="unidad"
+                            [options]="unidades"
+                            optionLabel="desUnidad"
+                            optionValue="idUnidad"
+                            placeholder="Selecciona una opción"
+                            class="w-full custom-dropdown ph-custom">
+                        </p-select>
+
+                    </div>
+
+                                   <div class="lg:col-3 col-12">
+
+                        <div class="label-container">
+
+        <label class="field-label">
+                Servicio
+        </label>
+
+        
+
+    </div>
+
+                        <p-select
+                            formControlName="servicio"
+                            [options]="servicios"
+                            optionLabel="desServicio"
+                            optionValue="idServicio"
+                            placeholder="Selecciona una opción"
+                            class="w-full custom-dropdown ph-custom">
+                        </p-select>
+
+                    </div>
+
+                                   <div class="lg:col-3 col-12">
+
+                        <div class="label-container">
+
+        <label class="field-label">
+                Año
+        </label>
+
+        
+
+    </div>
+
+                        <p-select
+                            formControlName="anio"
+                            [options]="years"
+                            optionLabel="desAnio"
+                            optionValue="idAnio"
+                            placeholder="Selecciona una opción"
+                            class="w-full custom-dropdown ph-custom">
+                        </p-select>
+
+                    </div>
+                    <div class="lg:col-3 col-12">
+
+                        <div class="label-container">
+
+        <label class="field-label">
+                Periodo
+        </label>
+
+        
+
+    </div>
+
+                        <p-select
+                            formControlName="periodo"
+                            [options]="periodos"
+                            optionLabel="desPeriodo"
+                            optionValue="idPeriodo"
+                            placeholder="Selecciona una opción"
+                            class="w-full custom-dropdown ph-custom">
+                        </p-select>
+
+                    </div>
+
+                    <div class="lg:col-3 col-12">
+        <div class="flex justify-content-between" style="margin-bottom: 0.5rem;">
+          <label class="field-label" for="fecha">Fecha</label>
+
+        </div>
+        <p-datepicker
+          formControlName="fecha"
+          placeholder="Selecciona"
+          [style]="{ width: '100%' }"
+          [iconDisplay]="'input'"
+          [showIcon]="true"
+          appendTo="body"
+          inputId="icondisplay">
+        </p-datepicker>
+
+      </div>
+      <div class="lg:col-3 col-12">
+        <div class="formato-container">
+
+    <div class="label-container">
+
+        <label class="titulo-formato">
+            Formato
+        </label>
+
+        <span class="texto-obligatorio">
+            Obligatorio
+        </span>
+
+    </div>
+
+    <div class="opciones-formato">
+
+        <div class="opcion-formato">
+
+            <p-radiobutton
+                name="formato"
+                value="PDF"
+                formControlName="formato">
+            </p-radiobutton>
+
+            <label>PDF</label>
+
+        </div>
+
+        <div class="opcion-formato">
+
+            <p-radiobutton
+                name="formato"
+                value="XLS"
+                formControlName="formato">
+            </p-radiobutton>
+
+            <label>XLS</label>
+
+        </div>
+
+    </div>
+
+</div>
+      </div>
+                    </article>
+
+                     <div class="contenedor-botones">
+
+                
+
+
+               <p-button
+    label="Generar orden"
+    icon="pi pi-arrow-down"
+    iconPos="right"
+    styleClass="btn-generar-reporte"
+    (onClick)="generarReporte()">
+</p-button>
+
+            </div>
+
+        </form>
+        </div>
+
+</div>
