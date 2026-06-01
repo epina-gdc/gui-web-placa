@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { TablaNuevaSolicitud } from '@components/tablas/tabla-nueva-solicitud/tabla-nueva-solicitud';
 import { Solicitud } from '@core/models/solicitud.interface';
+import { SeccionTitulos } from '@components/seccion-titulos/seccion-titulos';
 
 @Component({
   selector: 'app-solicitud-extraordinaria',
-  imports: [TablaNuevaSolicitud, CommonModule],
+  imports: [TablaNuevaSolicitud, CommonModule, SeccionTitulos],
   templateUrl: './solicitud-extraordinaria.html',
   styleUrl: './solicitud-extraordinaria.scss',
 })
