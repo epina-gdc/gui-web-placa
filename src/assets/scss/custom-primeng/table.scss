@@ -73,4 +73,52 @@
     width: 100% !important;
   }
 
+
+  /* =========================================================
+     SORT ICON PRIME
+     ========================================================= */
+  p-sorticon,
+  .p-datatable-sort-icon,
+  .p-datatable-sort-icon svg {
+    display: none !important;
+  }
+
+  /* =========================================================
+     CUSTOM SORT
+     ========================================================= */
+  .p-datatable-sortable-column {
+    position: relative;
+    padding-right: 18px !important;
+  }
+
+  .p-datatable-sortable-column::after {
+
+    content: '';
+
+    width: 10px;
+    height: 10px;
+
+    position: absolute;
+
+    right: 6px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: url('/assets/Images/arrows.png') no-repeat center;
+
+    background-size: 10px 10px;
+
+    opacity: 0.6;
+  }
+
+  .p-datatable-sortable-column[aria-sort="ascending"]::after {
+    background-image: url('/assets/Images/arrow_up.png');
+  }
+
+  .p-datatable-sortable-column[aria-sort="descending"]::after {
+    background-image: url('/assets/Images/arrowdown.png');
+  }
+
+
 }

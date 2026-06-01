@@ -11,54 +11,6 @@
 }
 
 /* =========================================================
-   SORT ICON PRIME
-   ========================================================= */
-
-:host ::ng-deep p-sorticon,
-:host ::ng-deep .p-datatable-sort-icon,
-:host ::ng-deep .p-datatable-sort-icon svg {
-  display: none !important;
-}
-
-/* =========================================================
-   CUSTOM SORT
-   ========================================================= */
-
-:host ::ng-deep .p-datatable-sortable-column {
-  position: relative;
-  padding-right: 18px !important;
-}
-
-:host ::ng-deep .p-datatable-sortable-column::after {
-
-  content: '';
-
-  width: 10px;
-  height: 10px;
-
-  position: absolute;
-
-  right: 6px;
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  background: url('/assets/Images/arrows.png') no-repeat center;
-
-  background-size: 10px 10px;
-
-  opacity: 0.6;
-}
-
-:host ::ng-deep .p-datatable-sortable-column[aria-sort="ascending"]::after {
-  background-image: url('/assets/Images/arrow_up.png');
-}
-
-:host ::ng-deep .p-datatable-sortable-column[aria-sort="descending"]::after {
-  background-image: url('/assets/Images/arrowdown.png');
-}
-
-/* =========================================================
    BOTONES
    ========================================================= */
 
