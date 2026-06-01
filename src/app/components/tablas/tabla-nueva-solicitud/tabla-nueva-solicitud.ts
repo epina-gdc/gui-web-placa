@@ -12,7 +12,16 @@ import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-tabla-nueva-solicitud',
-  imports: [TableModule, PaginatorModule, CommonModule, IconFieldModule, InputIconModule, InputTextModule, ButtonModule,FormsModule],
+  imports: [
+    TableModule,
+    PaginatorModule,
+    CommonModule,
+    IconFieldModule,
+    InputIconModule,
+    InputTextModule,
+    ButtonModule,
+    FormsModule,
+  ],
   templateUrl: './tabla-nueva-solicitud.html',
   styleUrl: './tabla-nueva-solicitud.scss',
 })
@@ -34,18 +43,18 @@ export class TablaNuevaSolicitud {
     {
       field: 'ingrediente',
       header: 'Ingrediente',
-      width: '80px'
+      width: '80px',
     },
     {
       field: 'presentacion',
       header: 'Presentación',
-      width: '150px'
+      width: '150px',
     },
     {
       field: 'cantidad',
       header: 'Cantidad',
-      width: '200px'
-    }
+      width: '200px',
+    },
   ];
 
   /* =========================================================
@@ -61,11 +70,8 @@ export class TablaNuevaSolicitud {
      ========================================================= */
 
   ngOnChanges(changes: SimpleChanges): void {
-
     if (changes['columns']) {
-
     }
-
   }
 
   /* =========================================================
@@ -73,11 +79,9 @@ export class TablaNuevaSolicitud {
      ========================================================= */
 
   onPageChange(event: any): void {
-
     this.first.set(event.first ?? 0);
 
     this.rows.set(event.rows ?? 10);
-
   }
 
   /* =========================================================
@@ -85,9 +89,7 @@ export class TablaNuevaSolicitud {
      ========================================================= */
 
   buscar(busqueda: any): string {
-
     return busqueda.target.value;
-
   }
 
   /* =========================================================
@@ -95,17 +97,9 @@ export class TablaNuevaSolicitud {
      ========================================================= */
 
   next(): void {
-
-    if (
-      this.first() + this.rows() < this.totalRecords
-    ) {
-
-      this.first.set(
-        this.first() + this.rows()
-      );
-
+    if (this.first() + this.rows() < this.totalRecords) {
+      this.first.set(this.first() + this.rows());
     }
-
   }
 
   /* =========================================================
@@ -113,15 +107,9 @@ export class TablaNuevaSolicitud {
      ========================================================= */
 
   prev(): void {
-
     if (this.first() > 0) {
-
-      this.first.set(
-        this.first() - this.rows()
-      );
-
+      this.first.set(this.first() - this.rows());
     }
-
   }
 
   /* =========================================================
@@ -129,11 +117,7 @@ export class TablaNuevaSolicitud {
      ========================================================= */
 
   currentPage(): number {
-
-    return Math.floor(
-      this.first() / this.rows()
-    ) + 1;
-
+    return Math.floor(this.first() / this.rows()) + 1;
   }
 
   /* =========================================================
@@ -141,16 +125,9 @@ export class TablaNuevaSolicitud {
      ========================================================= */
 
   totalPagesArray(): number[] {
+    const totalPages = Math.ceil(this.totalRecords / this.rows());
 
-    const totalPages = Math.ceil(
-      this.totalRecords / this.rows()
-    );
-
-    return Array.from(
-      { length: totalPages },
-      (_, i) => i + 1
-    );
-
+    return Array.from({ length: totalPages }, (_, i) => i + 1);
   }
 
   /* =========================================================
@@ -158,10 +135,6 @@ export class TablaNuevaSolicitud {
      ========================================================= */
 
   goToPage(page: number): void {
-
-    this.first.set(
-      (page - 1) * this.rows()
-    );
-
+    this.first.set((page - 1) * this.rows());
   }
 }

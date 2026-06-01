@@ -17,23 +17,25 @@ import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-tabla-solicitud',
-  imports: [ TableModule,
+  imports: [
+    TableModule,
     PaginatorModule,
     CommonModule,
     IconFieldModule,
     InputIconModule,
     InputTextModule,
     ButtonModule,
-    FormsModule,],
+    FormsModule,
+  ],
   templateUrl: './tabla-solicitud.html',
   styleUrl: './tabla-solicitud.scss',
   standalone: true,
 })
 export class TablaSolicitud {
-   @Input() data: Solicitud[] = [];
-   dataOrdenada: Solicitud[] = [];
+  @Input() data: Solicitud[] = [];
+  dataOrdenada: Solicitud[] = [];
 
-    first: WritableSignal<number> = signal(0);
+  first: WritableSignal<number> = signal(0);
 
   rows: WritableSignal<number> = signal(10);
 
@@ -63,37 +65,31 @@ export class TablaSolicitud {
       field: 'fechaActualizacion',
       header: 'Fecha de actualización',
       width: '200px',
-    }
+    },
   ];
 
   protected _router: Router;
 
-constructor( private dialogService: DialogService) {
-     this._router = inject(Router);
-   }
+  constructor(private dialogService: DialogService) {
+    this._router = inject(Router);
+  }
   /* =========================================================
      TOTAL RECORDS
      ========================================================= */
 
-get totalRecords(): number {
-
-  return this.dataOrdenada.length;
-
-}
+  get totalRecords(): number {
+    return this.dataOrdenada.length;
+  }
 
   /* =========================================================
      CAMBIOS
      ========================================================= */
 
- ngOnChanges(changes: SimpleChanges): void {
-
-  if (changes['data']) {
-
-    this.dataOrdenada = [...this.data];
-
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['data']) {
+      this.dataOrdenada = [...this.data];
+    }
   }
-
-}
   /* =========================================================
      PAGINADOR
      ========================================================= */
@@ -159,101 +155,78 @@ get totalRecords(): number {
   }
 
   nuevaSolicitud() {
-this._router.navigate(['/privado', NAV_PRIVADO_URL.nuevaSolicitudExtraordinaria]);
+    this._router.navigate(['/privado', NAV_PRIVADO_URL.nuevaSolicitudExtraordinaria]);
   }
 
   /* =========================================================
    SORT GLOBAL
    ========================================================= */
 
-customSort(event: any): void {
+  customSort(event: any): void {
+    const field = event.field;
+    const order = event.order;
 
-  const field = event.field;
-  const order = event.order;
+    this.dataOrdenada.sort((a: any, b: any) => {
+      let value1 = a[field];
+      let value2 = b[field];
 
-  this.dataOrdenada.sort((a: any, b: any) => {
+      if (value1 == null && value2 != null) return -1 * order;
+      if (value1 != null && value2 == null) return 1 * order;
+      if (value1 == null && value2 == null) return 0;
 
-    let value1 = a[field];
-    let value2 = b[field];
-
-    if (value1 == null && value2 != null) return -1 * order;
-    if (value1 != null && value2 == null) return 1 * order;
-    if (value1 == null && value2 == null) return 0;
-
-    if (
-      !isNaN(Date.parse(value1)) &&
-      !isNaN(Date.parse(value2))
-    ) {
+      if (!isNaN(Date.parse(value1)) && !isNaN(Date.parse(value2))) {
+        return (new Date(value1).getTime() - new Date(value2).getTime()) * order;
+      }
 
       return (
-        new Date(value1).getTime() -
-        new Date(value2).getTime()
-      ) * order;
-
-    }
-
-    return value1.toString().localeCompare(
-      value2.toString(),
-      'es',
-      { sensitivity: 'base' }
-    ) * order;
-
-  });
-
-}
-
-get datosPaginados(): Solicitud[] {
-
-  return this.dataOrdenada.slice(
-    this.first(),
-    this.first() + this.rows()
-  );
-
-}
-
-
-abrirModal(): void {
-const ref = this.dialogService.open(
-  ModalConfirmacion,
-  {
-    header: 'Aprobar solicitud extraordinaria',
-    width: '800px',
-    modal: true,
-    closable: true,
-    showHeader: true,
-    dismissableMask: false,
-    data: {
-      mensaje: 'Confirme la aprobación de la solicitud',
-      textoBoton: 'Aprobar solicitud'
-    }
+        value1.toString().localeCompare(value2.toString(), 'es', { sensitivity: 'base' }) * order
+      );
+    });
   }
-);
-}
 
-rechazar(): void {
-const ref = this.dialogService.open(
-  ModalRechazo,
-  {
-    header: 'Rechazar solicitud extraordinaria',
-    width: '800px',
-    modal: true,
-    closable: true,
-    showHeader: true,
-    dismissableMask: false,
-    data: {
-      mensaje: 'Rechazar solicitud',
-      textoBoton: 'Rechazar solicitud'
-    }
+  get datosPaginados(): Solicitud[] {
+    return this.dataOrdenada.slice(this.first(), this.first() + this.rows());
   }
-);
-}
 
-verDetalles(solicitud: Solicitud): void {
-  console.log('Detalles de la solicitud');
-  console.log('Solicitud seleccionada:', solicitud);
-  this._router.navigate(['/privado', NAV_PRIVADO_URL.solicitudExtraordinaria, solicitud.idSolicitud]); }
+  abrirModal(): void {
+    const ref = this.dialogService.open(ModalConfirmacion, {
+      header: 'Aprobar solicitud extraordinaria',
+      width: '800px',
+      modal: true,
+      closable: true,
+      showHeader: true,
+      dismissableMask: false,
+      data: {
+        mensaje: 'Confirme la aprobación de la solicitud',
+        textoBoton: 'Aprobar solicitud',
+      },
+    });
+  }
 
+  rechazar(): void {
+    const ref = this.dialogService.open(ModalRechazo, {
+      header: 'Rechazar solicitud extraordinaria',
+      width: '800px',
+      modal: true,
+      closable: true,
+      showHeader: true,
+      dismissableMask: false,
+      data: {
+        mensaje: 'Rechazar solicitud',
+        textoBoton: 'Rechazar solicitud',
+      },
+    });
+  }
 
+  verDetalles(solicitud: Solicitud): void {
+    console.log('Detalles de la solicitud');
+    console.log('Solicitud seleccionada:', solicitud);
+    this._router.navigate([
+      '/privado',
+      NAV_PRIVADO_URL.solicitudExtraordinaria,
+      solicitud.idSolicitud,
+    ]);
+  }
 }
 
 

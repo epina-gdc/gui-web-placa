@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, input, output, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, input, output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Menu } from 'primeng/menu';
 import { Ripple } from 'primeng/ripple';

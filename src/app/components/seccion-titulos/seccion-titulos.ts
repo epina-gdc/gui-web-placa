@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-seccion-titulos',
@@ -9,13 +10,16 @@ import { Component, input } from '@angular/core';
 export class SeccionTitulos {
   titulo = input.required<string>();
   ruta = input<string>();
+  cve = input<string>();
   retorno = input<boolean>(false);
+  detalle = input<boolean>(false);
 
-  public btnRegresar(): void {
+  _router = inject(Router);
+
+  public btnRegresar(event: any): void {
+    event.preventDefault();
     if (this.ruta()) {
-      // void this._router.navigate([this.ruta]);
-    } else {
-      // this._alertServices.informacion('No se ha ingresado la ruta de retorno');
+      void this._router.navigate([this.ruta()]);
     }
   }
 }

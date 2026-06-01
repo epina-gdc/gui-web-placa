@@ -1,8 +1,8 @@
 <div class="table-container surface-card shadow-1 border-round surface-border border-1">
 
   <!-- =====================================================
-           HEADER
-           ===================================================== -->
+         HEADER
+         ===================================================== -->
 
   <div class="div-header">
 
@@ -49,17 +49,20 @@
             </th>
 
             <th style="width:22%">
-              Presentación
+              Variedad
             </th>
 
             <th style="width:24%">
-              Cantidad
+              Uso
             </th>
 
+            <th style="width:8%">
+              Porción
+            </th>
 
-            <th *ngIf="edicion"
-                style="width:8%"
-                class="text-center">
+            <th
+              style="width:8%"
+              class="text-center">
 
               Eliminar
 
@@ -89,21 +92,26 @@
             </td>
 
             <td class="col-variedad">
-              {{ rowData.presentacion }}
+              {{ rowData.variedad }}
             </td>
 
             <td class="col-uso">
-              {{ rowData.cantidad }}
+              {{ rowData.uso }}
             </td>
 
+            <td class="col-porcion">
+              {{ rowData.porcion | number:'1.2-2' }}
+            </td>
 
-            <td class="col-eliminar text-center" *ngIf="edicion">
+            <td class="col-eliminar text-center">
 
               <button
                 pButton
                 type="button"
                 icon="pi pi-trash"
-                class="p-button-text p-button-danger">
+                class="p-button-text p-button-danger"
+                size="large"
+              >
               </button>
 
             </td>

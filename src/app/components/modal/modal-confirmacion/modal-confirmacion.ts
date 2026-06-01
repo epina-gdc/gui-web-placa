@@ -1,22 +1,18 @@
 import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import {
-  DynamicDialogConfig,
-  DynamicDialogRef
-} from 'primeng/dynamicdialog';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-modal-confirmacion',
   imports: [ButtonModule],
   standalone: true,
   templateUrl: './modal-confirmacion.html',
-  styleUrl: './modal-confirmacion.scss'
+  styleUrl: './modal-confirmacion.scss',
 })
 export class ModalConfirmacion {
-
   constructor(
     public config: DynamicDialogConfig,
-    public ref: DynamicDialogRef
+    public ref: DynamicDialogRef,
   ) {}
 
   get mensaje(): string {

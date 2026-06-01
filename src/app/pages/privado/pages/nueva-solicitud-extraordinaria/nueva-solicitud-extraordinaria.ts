@@ -7,158 +7,129 @@ import { Presentacion } from '@core/models/presentacion.interface';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { SelectModule } from 'primeng/select';
+import { SeccionTitulos } from '@components/seccion-titulos/seccion-titulos';
+import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
 
 @Component({
   selector: 'app-nueva-solicitud-extraordinaria',
-   standalone: true,
-  imports: [ReactiveFormsModule,
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
     SelectModule,
-    InputTextModule,ButtonModule,TablaNuevaSolicitud],
+    InputTextModule,
+    ButtonModule,
+    TablaNuevaSolicitud,
+    SeccionTitulos,
+    SeccionBusqueda,
+  ],
   templateUrl: './nueva-solicitud-extraordinaria.html',
   styleUrl: './nueva-solicitud-extraordinaria.scss',
 })
 export class NuevaSolicitudExtraordinaria {
-filtroForm!: FormGroup;
-fb: FormBuilder = inject(FormBuilder);
-  presentaciones:Presentacion[] = [
+  filtroForm!: FormGroup;
+  fb: FormBuilder = inject(FormBuilder);
+  presentaciones: Presentacion[] = [
     { idPresentacion: 1, desPresentacion: 'Lata' },
     { idPresentacion: 2, desPresentacion: 'Gramos' },
-    { idPresentacion: 3, desPresentacion: 'Kilos' }
+    { idPresentacion: 3, desPresentacion: 'Kilos' },
   ];
-  listIngredientes:IngredienteSolicitud[]=[];
+  listIngredientes: IngredienteSolicitud[] = [];
 
-   ingredientes:Ingrediente[] = [{ idIngrediente: 1, desIngrediente: 'Carne de res' }, { idIngrediente: 2, desIngrediente: 'Carne de cerdo' },
-      { idIngrediente: 3, desIngrediente: 'Pechuga de pollo' }, { idIngrediente: 4, desIngrediente: 'Pescado' }, { idIngrediente: 5, desIngrediente: 'Camarón' }];
-  
-       ingredientesFiltrados: Ingrediente[] = [];
-        mostrarLista: boolean = false;
-        ingredienteSeleccionado = '';
-constructor() {
-
-  this.filtroForm = this.fb.group({
-
-    ingrediente: [null, Validators.required],
-
-    ingredienteTexto: [''],
-
-    presentacion: [null, Validators.required],
-
-    cantidad: [null, Validators.required]
-
-  });
-
-  this.ingredientesFiltrados = [
-    ...this.ingredientes
+  ingredientes: Ingrediente[] = [
+    { idIngrediente: 1, desIngrediente: 'Carne de res' },
+    { idIngrediente: 2, desIngrediente: 'Carne de cerdo' },
+    { idIngrediente: 3, desIngrediente: 'Pechuga de pollo' },
+    { idIngrediente: 4, desIngrediente: 'Pescado' },
+    { idIngrediente: 5, desIngrediente: 'Camarón' },
   ];
 
-}
+  ingredientesFiltrados: Ingrediente[] = [];
+  mostrarLista: boolean = false;
+  ingredienteSeleccionado = '';
+  constructor() {
+    this.filtroForm = this.fb.group({
+      ingrediente: [null, Validators.required],
+
+      ingredienteTexto: [''],
+
+      presentacion: [null, Validators.required],
+
+      cantidad: [null, Validators.required],
+    });
+
+    this.ingredientesFiltrados = [...this.ingredientes];
+  }
 
   regresar() {
-    window.history.back(); 
-   }
+    window.history.back();
+  }
 
-
-   /* =========================================================
+  /* =========================================================
      FILTRAR
      ========================================================= */
 
- filtrarIngredientes(): void {
+  filtrarIngredientes(): void {
+    const texto = this.filtroForm.get('ingredienteTexto')?.value?.toLowerCase()?.trim();
 
-  const texto = this.filtroForm
-    .get('ingredienteTexto')
-    ?.value
-    ?.toLowerCase()
-    ?.trim();
+    if (!texto) {
+      this.ingredientesFiltrados = [...this.ingredientes];
 
-  if (!texto) {
+      return;
+    }
 
-    this.ingredientesFiltrados = [
-      ...this.ingredientes
-    ];
-
-    return;
-  }
-
-  this.ingredientesFiltrados =
-    this.ingredientes.filter(x =>
-      x.desIngrediente
-        .toLowerCase()
-        .includes(texto)
+    this.ingredientesFiltrados = this.ingredientes.filter((x) =>
+      x.desIngrediente.toLowerCase().includes(texto),
     );
-
-}
+  }
   /* =========================================================
      SELECCIONAR
      ========================================================= */
 
-seleccionarIngrediente(
-  ingrediente: Ingrediente
-): void {
+  seleccionarIngrediente(ingrediente: Ingrediente): void {
+    this.filtroForm.patchValue({
+      ingrediente: ingrediente,
+      ingredienteTexto: ingrediente.desIngrediente,
+    });
 
-  this.filtroForm.patchValue({
-    ingrediente: ingrediente,
-    ingredienteTexto: ingrediente.desIngrediente
-  });
-
-  this.mostrarLista = false;
-
-}
+    this.mostrarLista = false;
+  }
   /* =========================================================
    AGREGAR INGREDIENTE
    ========================================================= */
 
-agregarIngrediente(): void {
+  agregarIngrediente(): void {
+    const idIngrediente = this.filtroForm.value.ingrediente;
 
-  const idIngrediente =
-    this.filtroForm.value.ingrediente;
+    const idPresentacion = this.filtroForm.value.presentacion;
 
-  const idPresentacion =
-    this.filtroForm.value.presentacion;
+    const ingrediente = this.filtroForm.value.ingrediente;
 
- 
+    ingrediente.idIngrediente;
+    ingrediente.desIngrediente;
 
-  const ingrediente =
-  this.filtroForm.value.ingrediente;
+    const presentacion = this.presentaciones.find((x) => x.idPresentacion === idPresentacion);
 
-ingrediente.idIngrediente
-ingrediente.desIngrediente
+    if (!ingrediente || !presentacion) {
+      return;
+    }
 
-  const presentacion = this.presentaciones.find(
-    x => x.idPresentacion === idPresentacion
-  );
-
-
-
-  if (!ingrediente || !presentacion) {
-    return;
-  }
-
-  const existe =
-    this.listIngredientes.some(x =>
-      x.idIngrediente === idIngrediente &&
-      x.idPresentacion === idPresentacion
+    const existe = this.listIngredientes.some(
+      (x) => x.idIngrediente === idIngrediente && x.idPresentacion === idPresentacion,
     );
 
-  if (existe) {
-    return;
+    if (existe) {
+      return;
+    }
+
+    this.listIngredientes.push({
+      idIngrediente: ingrediente.idIngrediente,
+      ingrediente: ingrediente.desIngrediente,
+
+      idPresentacion: presentacion.idPresentacion,
+      presentacion: presentacion.desPresentacion,
+      cantidad: this.filtroForm.value.cantidad,
+    });
+
+    this.filtroForm.reset();
   }
-
-  this.listIngredientes.push({
-
-    idIngrediente: ingrediente.idIngrediente,
-    ingrediente: ingrediente.desIngrediente,
-
-    idPresentacion: presentacion.idPresentacion,
-    presentacion: presentacion.desPresentacion,
-cantidad: this.filtroForm.value.cantidad
-
-
-  });
-
-
-
-  this.filtroForm.reset();
-}
-
-
 }
