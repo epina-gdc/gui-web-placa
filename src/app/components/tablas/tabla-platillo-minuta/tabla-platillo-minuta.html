@@ -1,10 +1,16 @@
 <div class="table-container surface-card shadow-1 border-round surface-border border-1">
 
   <!-- =====================================================
-           HEADER
-           ===================================================== -->
+         HEADER
+         ===================================================== -->
 
+  <div class="div-header">
 
+        <span class="texto-header">
+            Platillos asignados a la minuta
+        </span>
+
+  </div>
 
   <!-- =====================================================
        WRAPPER 90%
@@ -20,11 +26,11 @@
 
       <p-table
         #dt2
-        [value]="servicioMinuta.variedad.slice(first(), first() + rows())"
+        [value]="data.slice(first(), first() + rows())"
         responsiveLayout="scroll"
         styleClass="tabla-custom"
         [tableStyle]="{'width':'100%'}"
-        [ngClass]="{ 'sin-header': !servicioMinuta.variedad.length }">
+        [ngClass]="{ 'sin-header': !data.length }">
 
         <!-- =====================================================
              HEADER
@@ -35,22 +41,24 @@
           <tr>
 
             <th style="width:4%">
-              <p-checkbox
-        [binary]="true"
-        [ngModel]="todosSeleccionados()"
-        (onChange)="toggleTodos($event.checked)">
-    </p-checkbox>
+              No.
             </th>
 
             <th style="width:34%">
-              Variedades
+              Platillo
             </th>
 
             <th style="width:22%">
-              Raciones
+              Ración
             </th>
+           
+            <th
+              style="width:8%"
+              class="text-center">
 
+              Eliminar
 
+            </th>
 
           </tr>
 
@@ -68,23 +76,11 @@
           <tr>
 
             <td class="col-no">
-               <p-checkbox
-        [binary]="true"
-        [ngModel]="estaSeleccionado(rowData)"
-        (onChange)="toggleFila(rowData, $event.checked)">
-    </p-checkbox>
-
+              {{ first() + rowIndex + 1 }}
             </td>
 
             <td class="col-ingrediente">
-              <a
-            class="td-link"
-            (click)="verDetalles(rowData)">
-
-            {{ rowData. desVariedad }}
-
-          </a>
-              
+              {{ rowData.platillo }}
             </td>
 
             <td class="col-variedad">
@@ -95,7 +91,20 @@
                     class="w-full">
             </td>
 
+           
 
+            <td class="col-eliminar text-center">
+
+              <button
+                pButton
+                type="button"
+                icon="placa-trash"
+                class="p-button-text p-button-danger"
+                size="large"
+              >
+              </button>
+
+            </td>
 
           </tr>
 
