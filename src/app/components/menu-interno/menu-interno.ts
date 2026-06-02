@@ -21,7 +21,7 @@ export class MenuInterno {
       items: [
         {
           label: 'Cerrar menú',
-          icon: 'pi pi-question-circle',
+          icon: 'placa-regresar',
           command: () => this.onClose.emit(),
         },
       ],
@@ -31,7 +31,7 @@ export class MenuInterno {
       items: [
         {
           label: 'Platillos',
-          icon: 'pi pi-question-circle',
+          icon: 'placa-platillos',
           routerLink: `/${NAV_BASE_URL.privado}/${NAV_PRIVADO_URL.platillos}`,
           command: () => this.onClose.emit(),
         },
@@ -48,19 +48,19 @@ export class MenuInterno {
       items: [
         {
           label: 'Órdenes',
-          icon: 'pi pi-question-circle',
+          icon: 'placa-ordenes',
           routerLink: `/${NAV_BASE_URL.privado}/${NAV_PRIVADO_URL.ordenes}`,
           command: () => this.onClose.emit(),
         },
         {
           label: 'Reportes',
-          icon: 'pi pi-question-circle',
+          icon: 'placa-reportes',
           routerLink: `/${NAV_BASE_URL.privado}/${NAV_PRIVADO_URL.reportes}`,
           command: () => this.onClose.emit(),
         },
         {
           label: 'Solicitud extraordinaria al proveedor',
-          icon: 'pi pi-question-circle',
+          icon: 'placa-solicitud-proveedor',
           routerLink: `/${NAV_BASE_URL.privado}/${NAV_PRIVADO_URL.solicitudExtraordinariaProveedor}`,
           command: () => this.onClose.emit(),
         },
