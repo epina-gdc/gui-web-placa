@@ -5,9 +5,9 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 
 RUN npm install -g pnpm
+RUN pnpm config set only-built-dependencies false
 
-RUN pnpm install --frozen-lockfile
-
+RUN pnpm install --frozen-lockfile --ignore-scripts=false
 COPY . .
 
 RUN pnpm run build --configuration production
