@@ -4,10 +4,10 @@ WORKDIR /app
 
 COPY package.json pnpm-lock.yaml .npmrc ./
 
+RUN ls -la
+
+RUN cat .npmrc
+
 RUN npm install -g pnpm@11.1.3
 
 RUN pnpm install --frozen-lockfile
-
-COPY . .
-
-RUN pnpm run build
