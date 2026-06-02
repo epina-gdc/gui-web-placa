@@ -1,8 +1,7 @@
-import {Injectable} from '@angular/core';
-import {Observable, Subject} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { Alert, AlertType } from '@core/models/alert.model';
-
+import { Alert, AlertType } from '@core/utils/alert.model';
 
 @Injectable({ providedIn: 'root' })
 export class AlertService {
@@ -12,7 +11,7 @@ export class AlertService {
 
   // enable subscribing to alerts observable
   onAlert(id = this.defaultId): Observable<Alert> {
-    return this.subject.asObservable().pipe(filter(x => x && x.id === id));
+    return this.subject.asObservable().pipe(filter((x) => x && x.id === id));
   }
 
   exito(message = this.text, title = '¡Éxito!') {
@@ -22,13 +21,19 @@ export class AlertService {
 
   exitoCargaArchivo() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    this.alert(new Alert({ type: AlertType.Success, message: 'Carga del archivo exitosa', title: '¡Éxito!' }));
+    this.alert(
+      new Alert({
+        type: AlertType.Success,
+        message: 'Carga del archivo exitosa',
+        title: '¡Éxito!',
+      }),
+    );
   }
 
   error(message = this.text, title = '¡Error!') {
     message = message ?? this.text;
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    this.alert(new Alert({ type: AlertType.Error,message, title: title  }));
+    this.alert(new Alert({ type: AlertType.Error, message, title: title }));
   }
 
   alerta(message?: string) {
@@ -53,5 +58,4 @@ export class AlertService {
   clear(id = this.defaultId) {
     this.subject.next(new Alert({ id }));
   }
-
 }
