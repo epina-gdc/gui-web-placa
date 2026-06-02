@@ -1,6 +1,6 @@
-import { ServicioMinuta } from "./servicio-minuta.interface";
+import { ServicioMinuta } from './servicio-minuta.interface';
 
 export interface Minuta {
-    idMinuta: number;
-   servicios: ServicioMinuta[];
+  idMinuta: number;
+  servicios: ServicioMinuta[];
 }

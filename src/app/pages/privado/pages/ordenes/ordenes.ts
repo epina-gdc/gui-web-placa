@@ -5,7 +5,6 @@ import { Anio } from '@core/models/anio.interface';
 import { Ooad } from '@core/models/ooad.interface';
 import { Periodo } from '@core/models/periodo.interface';
 import { Servicio } from '@core/models/servicio.interface';
-import { TipoReporte } from '@core/models/tipo-reporte.interface';
 import { Unidad } from '@core/models/unidad.interface';
 import { ButtonModule } from 'primeng/button';
 import { SelectModule } from 'primeng/select';
