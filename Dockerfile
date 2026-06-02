@@ -1,3 +1,6 @@
+# ==========================
+# BUILD
+# ==========================
 FROM node:24 AS builder
 
 WORKDIR /app
@@ -11,3 +14,14 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 
 RUN pnpm run build
+
+# ==========================
+# NGINX
+# ==========================
+FROM nginx:1.29
+
+COPY --from=builder /app/dist/gui-web-placa/browser /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
