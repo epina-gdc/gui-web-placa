@@ -1,38 +1,37 @@
 <div class="modal-confirmacion">
 
-    <!-- MENSAJE -->
+  <!-- MENSAJE -->
 
-    <div class="contenido-modal">
+  <div class="contenido-modal">
 
-        <p class="mensaje">
+    <p class="mensaje">
 
-            {{ mensaje }}
+      {{ mensaje }}
 
-        </p>
+    </p>
 
-    </div>
+  </div>
 
-    <!-- BOTONES -->
-
-  
-
-    <div class="contenedor-botones">
-
-              <p-button
-    type="button"
-    label="Cancelar"
-    styleClass="boton-cancelar" (click)="cancelar()">
-</p-button>
+  <!-- BOTONES -->
 
 
-                <p-button
-                    type="button"
-                    [label]="textoBoton"
-                    styleClass="btn-background"
-                    [style]="{'width':'150px'}" (click)="aceptar()" >
-                </p-button>
+  <div class="contenedor-botones">
 
-            </div>
+    <p-button
+      type="button"
+      label="Cancelar"
+      styleClass="boton-cancelar" (click)="cancelar()">
+    </p-button>
+
+
+    <p-button
+      type="button"
+      [label]="textoBoton"
+      styleClass="btn-background"
+      [style]="{'width':'150px'}" (click)="aceptar()">
+    </p-button>
+
+  </div>
 
 
 </div>
