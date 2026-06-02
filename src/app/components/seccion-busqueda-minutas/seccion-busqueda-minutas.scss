@@ -1,0 +1,284 @@
+:host ::ng-deep .btn-nueva-solicitud.p-button {
+
+  background: #FFFFFF !important;
+
+  border: 1px solid #4BAF8A !important;
+
+  color: #4BAF8A !important;
+
+  border-radius: 8px !important;
+
+  height: 40px !important;
+
+  padding: 0 16px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  gap: 8px !important;
+
+  font-size: 14px !important;
+
+  font-weight: 500 !important;
+
+  box-shadow: none !important;
+}
+
+:host ::ng-deep .btn-nueva-solicitud.p-button:hover {
+
+  background: #F0FBF6 !important;
+
+  border-color: #3C9D79 !important;
+
+  color: #3C9D79 !important;
+}
+
+:host ::ng-deep .btn-nueva-solicitud .pi {
+
+  font-size: 14px !important;
+}
+
+:host ::ng-deep .btn-nueva-solicitud:focus {
+
+  box-shadow: none !important;
+}
+
+.div-header {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 32px;
+
+  padding: 0 20px;
+
+  min-height: 60px;
+
+  background: #F4F7FC;
+}
+
+.texto-header {
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  color: #344054;
+
+  white-space: nowrap;
+}
+
+.header-minuta {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+}
+
+.dato {
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  color: #344054;
+
+  white-space: nowrap;
+}
+
+.fecha-navegacion {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.btn-fecha {
+
+  width: 36px;
+
+  height: 36px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #FFFFFF;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+.btn-fecha:hover {
+
+  background: #F8FAFC;
+}
+
+.fecha-actual {
+
+  min-width: 120px;
+
+  height: 36px;
+
+  background: #FFFFFF;
+
+  border-radius: 8px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0 16px;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  color: #344054;
+
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+
+
+/* Contenedor tabs */
+
+:host ::ng-deep .p-tablist {
+
+    border-bottom: 1px solid #D9DEE8;
+}
+
+/* Todas las tabs */
+
+:host ::ng-deep .p-tab {
+
+    flex: 1;
+
+    justify-content: center;
+
+    min-height: 56px;
+
+    color: #667085;
+
+    background: #FFFFFF;
+
+    transition: all .2s ease;
+}
+
+/* Tab seleccionada */
+
+:host ::ng-deep .p-tab-active {
+
+    background: #F2FCF8 !important;
+
+    color: #10B981 !important;
+
+    font-weight: 500;
+}
+
+/* Línea inferior */
+
+:host ::ng-deep .p-tablist-active-bar {
+
+    background: #10B981 !important;
+
+    height: 3px !important;
+}
+
+/* Icono seleccionado */
+
+:host ::ng-deep .p-tab-active i {
+
+    color: #10B981 !important;
+}
+
+/* TAB */
+
+:host ::ng-deep .p-tab {
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    gap: 8px !important;
+
+    text-align: center !important;
+
+    min-height: 56px;
+}
+
+/* ICONO */
+
+:host ::ng-deep .p-tab i {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+}
+
+
+
+:host ::ng-deep .btn-modificar-raciones {
+
+    background: transparent !important;
+
+    border: none !important;
+
+    color: #8BCBB6 !important;
+
+    box-shadow: none !important;
+
+    padding: 0 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 8px !important;
+}
+
+:host ::ng-deep .btn-modificar-raciones:hover {
+
+    background: transparent !important;
+
+    border: none !important;
+
+    box-shadow: none !important;
+}
+
+:host ::ng-deep .btn-modificar-raciones .pi {
+
+    color: #8BCBB6 !important;
+
+    font-size: 14px !important;
+}
+
+:host ::ng-deep .btn-modificar-raciones .p-button-label {
+
+    color: #8BCBB6 !important;
+
+    font-size: 14px !important;
+
+    font-weight: 400 !important;
+}
