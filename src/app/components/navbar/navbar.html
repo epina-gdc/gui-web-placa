@@ -22,7 +22,7 @@
       </span>
     </div>
     <div class="flex justify-content-center align-items-center">
-      <img [src]="'temporal/User_info.svg'" alt="Icono para acceder a opciones de sesión del usuario"
+      <img [src]="'assets/Images/user.svg'" alt="Icono para acceder a opciones de sesión del usuario"
            (click)="op.toggle($event)" />
     </div>
     <p-popover #op styleClass="nav-popover">
@@ -33,7 +33,7 @@
         <div class="popover-header border-round-top">
           <div class="flex align-items-start gap-2">
             <div class="flex justify-content-start">
-              <img [src]="'temporal/User_info.svg'" alt="Imagen informativa de icono de usuario generico" />
+              <img [src]="'assets/Images/user.svg'" alt="Imagen informativa de icono de usuario generico" />
             </div>
             <div class="ml-1 flex flex-column gap-2">
               <p class="mb-0 popover-usuario">
@@ -52,7 +52,7 @@
       <div class="popover-body">
         <div class="flex align-items-start gap-2">
           <div class="flex justify-content-start">
-            <img [src]="'temporal/User_info.svg'" />
+            <img [src]="'assets/Images/workplace.svg'" />
           </div>
           <div class="flex flex-column">
             <div class="flex flex-column">
@@ -71,7 +71,7 @@
       <div
         class="flex justify-content-start align-items-center gap-2 border-round-bottom card flex-row cursor-pointer hover:surface-200 popover-footer"
         style="background-color: #FFFBFF;">
-        <i class="pi pi-sign-out" style="font-size: 1.2rem;"></i>
+        <i class="placa-cerrar-sesion" style="font-size: 1.2rem;"></i>
         <span class="text-xl">Cerrar Sesión</span>
       </div>
     </p-popover>

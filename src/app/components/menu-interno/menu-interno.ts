@@ -37,7 +37,7 @@ export class MenuInterno {
         },
         {
           label: 'Minuta sintética',
-          icon: 'pi pi-question-circle',
+          icon: 'placa-minuta',
           routerLink: `/${NAV_BASE_URL.privado}/${NAV_PRIVADO_URL.minutaSintetica}`,
           command: () => this.onClose.emit(),
         },
