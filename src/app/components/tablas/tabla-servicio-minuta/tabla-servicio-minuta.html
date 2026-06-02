@@ -77,7 +77,14 @@
             </td>
 
             <td class="col-ingrediente">
-              {{ rowData. desVariedad }}
+              <a
+            class="td-link"
+            (click)="verDetalles(rowData)">
+
+            {{ rowData. desVariedad }}
+
+          </a>
+              
             </td>
 
             <td class="col-variedad">

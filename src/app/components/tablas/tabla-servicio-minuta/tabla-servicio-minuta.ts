@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
+import { Component, inject, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ColumnDefinition } from '@core/models/columna-tabla';
 import { ServicioMinuta } from '@core/models/servicio-minuta.interface';
+import { NAV_PRIVADO_URL } from '@core/utils/url-global';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
@@ -45,6 +47,11 @@ export class TablaServicioMinuta {
     }
   ];
 
+  protected _router: Router;
+
+  constructor() {
+    this._router = inject(Router);
+  }
 
 estaSeleccionado(row: any): boolean {
 
@@ -181,4 +188,13 @@ toggleTodos(
   goToPage(page: number): void {
     this.first.set((page - 1) * this.rows());
   }
+
+  verDetalles(variedad: any): void {
+     
+      this._router.navigate([
+        '/privado',
+        NAV_PRIVADO_URL.detalleMinuta,1,2,
+        
+      ]);
+    }
 }
