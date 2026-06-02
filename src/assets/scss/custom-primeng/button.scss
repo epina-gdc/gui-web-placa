@@ -217,5 +217,7 @@
     box-shadow: none !important;
   }
 
-
+  .p-button-icon-only::after {
+    display: none;
+  }
 }
