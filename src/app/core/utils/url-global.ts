@@ -12,6 +12,7 @@ export const NAV_PRIVADO_URL = {
   nuevoPlatillo: 'nuevo-platillo',
   detallePlatillo: 'detalle-platillo',
   minutaSintetica: 'minuta-sintetica',
+  detalleMinuta: 'detalle-minuta',
   ordenes: 'ordenes',
   reportes: 'reportes',
   solicitudExtraordinariaProveedor: 'solicitud-extraordinaria-proveedor',

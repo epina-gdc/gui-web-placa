@@ -13,6 +13,7 @@ import { Abasto } from '@pages/privado/pages/abasto/abasto';
 import { ModuloMedico } from '@pages/privado/pages/modulo-medico/modulo-medico';
 import { SolicitudExtraordinaria } from './pages/solicitud-extraordinaria/solicitud-extraordinaria';
 import { DetallePlatillo } from '@pages/privado/pages/detalle-platillo/detalle-platillo';
+import { DetalleMinuta } from './pages/detalle-minuta/detalle-minuta';
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
       {
         path: NAV_PRIVADO_URL.minutaSintetica,
         component: MinutaSintetica,
+      },
+      {
+        path: `${NAV_PRIVADO_URL.detalleMinuta}/:idMinuta/:idVariedad`,
+        component: DetalleMinuta,
       },
       {
         path: NAV_PRIVADO_URL.ordenes,
