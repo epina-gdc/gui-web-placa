@@ -13,14 +13,14 @@ enum AlertType {
 }
 
 @Component({
-  selector: 'alert',
-  templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.scss'],
+  selector: 'app-alerta',
+  templateUrl: './alerta.html',
+  styleUrls: ['./alerta.scss'],
 })
-export class AlertComponent implements OnInit, OnDestroy {
+export class Alerta implements OnInit, OnDestroy {
   private readonly destroy$ = new Subject<void>();
 
-  @Input() public readonly id: string = 'default-alert';
+  @Input() public readonly id: string = 'default-alerta';
   @Input() public readonly fade: boolean = true;
   @Input() public autoCloseTime = 6000;
 
@@ -104,10 +104,10 @@ export class AlertComponent implements OnInit, OnDestroy {
     }
 
     const alertTypeClasses: Record<AlertType, string> = {
-      [AlertType.Success]: 'alert-success',
-      [AlertType.Error]: 'alert-danger',
-      [AlertType.Info]: 'alert-info',
-      [AlertType.Warning]: 'alert-warning',
+      [AlertType.Success]: 'alerta-success',
+      [AlertType.Error]: 'alerta-danger',
+      [AlertType.Info]: 'alerta-info',
+      [AlertType.Warning]: 'alerta-warning',
     };
 
     const typeClass = alertTypeClasses[alert.type as AlertType] || '';
@@ -121,7 +121,7 @@ export class AlertComponent implements OnInit, OnDestroy {
     }
 
     const alertTypeIcons: Record<AlertType, string> = {
-      [AlertType.Success]: '#check-circle-fill',
+      [AlertType.Success]: 'placa-alerta-check',
       [AlertType.Error]: '#exclamation-circle-fill',
       [AlertType.Info]: '#info-fill',
       [AlertType.Warning]: '#exclamation-triangle-fill',
