@@ -11,16 +11,12 @@ import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-tabla-servicio-minuta',
-  imports: [ FormsModule,
-    CheckboxModule,
-    InputTextModule,TableModule,CommonModule],
+  imports: [FormsModule, CheckboxModule, InputTextModule, TableModule, CommonModule],
   templateUrl: './tabla-servicio-minuta.html',
   styleUrl: './tabla-servicio-minuta.scss',
 })
 export class TablaServicioMinuta {
-
-  @Input() servicioMinuta:ServicioMinuta=null!;
-
+  @Input() servicioMinuta: ServicioMinuta = null!;
 
   selectedRows: any[] = [];
 
@@ -44,71 +40,38 @@ export class TablaServicioMinuta {
       field: 'racion',
       header: 'Raciónes',
       width: '150px',
-    }
+    },
   ];
+  constructor(private _router: Router) {}
 
-  protected _router: Router;
-
-  constructor() {
-    this._router = inject(Router);
+  estaSeleccionado(row: any): boolean {
+    return this.selectedRows.some((x) => x.idVariedad === row.idVariedad);
   }
-
-estaSeleccionado(row: any): boolean {
-
-  return this.selectedRows.some(
-    x => x.idVariedad === row.idVariedad
-  );
-
-}
-toggleFila(
-  row: any,
-  checked: boolean
-): void {
-
-  if (checked) {
-
-    if (!this.estaSeleccionado(row)) {
-
-      this.selectedRows.push(row);
-
+  toggleFila(row: any, checked: boolean): void {
+    if (checked) {
+      if (!this.estaSeleccionado(row)) {
+        this.selectedRows.push(row);
+      }
+    } else {
+      this.selectedRows = this.selectedRows.filter((x) => x.idVariedad !== row.idVariedad);
     }
-
-  } else {
-
-    this.selectedRows =
-      this.selectedRows.filter(
-        x => x.idVariedad !== row.idVariedad
-      );
-
+  }
+  todosSeleccionados(): boolean {
+    return (
+      this.servicioMinuta.variedad.length > 0 &&
+      this.selectedRows.length === this.servicioMinuta.variedad.length
+    );
   }
 
-}
-todosSeleccionados(): boolean {
-
-  return this.servicioMinuta.variedad.length > 0 &&
-         this.selectedRows.length === this.servicioMinuta.variedad.length;
-
-}
-
-toggleTodos(
-  checked: boolean
-): void {
-
-  if (checked) {
-
-    this.selectedRows = [
-      ...this.servicioMinuta.variedad
-    ];
-
-  } else {
-
-    this.selectedRows = [];
-
+  toggleTodos(checked: boolean): void {
+    if (checked) {
+      this.selectedRows = [...this.servicioMinuta.variedad];
+    } else {
+      this.selectedRows = [];
+    }
   }
 
-}
-
-/* =========================================================
+  /* =========================================================
      TOTAL RECORDS
      ========================================================= */
 

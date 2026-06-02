@@ -1,58 +1,56 @@
 <div class="modal-confirmacion">
 
-    <!-- MENSAJE -->
-      <form [formGroup]="filtroForm">
+  <!-- MENSAJE -->
+  <form [formGroup]="filtroForm">
 
     <div class="contenido-modal">
 
-          <div class="lg:col-3 col-12">
+      <div class="lg:col-3 col-12">
 
-                        <div class="label-container">
+        <div class="label-container">
 
-        <label class="field-label">
-               Mootivo de rechazo
-        </label>
+          <label class="label-input">
+            Mootivo de rechazo
+          </label>
 
-        
 
-    </div>
+        </div>
 
-                        <p-select
-                            formControlName="motivo"
-                            [options]="motivos"
-                            optionLabel="descripcion"
-                            optionValue="idMotivo"
-                            placeholder="Selecciona una opción"
-                            class="w-full custom-dropdown ph-custom">
-                        </p-select>
+        <p-select
+          formControlName="motivo"
+          [options]="motivos"
+          optionLabel="descripcion"
+          optionValue="idMotivo"
+          placeholder="Selecciona una opción"
+          class="w-full custom-dropdown ph-custom">
+        </p-select>
 
-                    </div>
+      </div>
 
     </div>
 
     <!-- BOTONES -->
 
-  
 
     <div class="contenedor-botones">
 
-              <p-button
-    type="button"
-    label="Cancelar"
-    styleClass="boton-cancelar" (click)="cancelar()">
-</p-button>
+      <p-button
+        type="button"
+        label="Cancelar"
+        styleClass="boton-cancelar" (click)="cancelar()">
+      </p-button>
 
 
-                <p-button
-                    type="button"
-                    [label]="textoBoton"
-                    styleClass="btn-background"
-                    [style]="{'width':'170px'}" (click)="aceptar()" 
-                    [disabled]="filtroForm.invalid">
-                </p-button>
+      <p-button
+        type="button"
+        [label]="textoBoton"
+        styleClass="btn-background"
+        [style]="{'width':'170px'}" (click)="aceptar()"
+        [disabled]="filtroForm.invalid">
+      </p-button>
 
-            </div>
-      </form>
+    </div>
+  </form>
 
 </div>
 
