@@ -1,34 +1,23 @@
 .modal-confirmacion {
 
-  min-height: 160px;
-
   display: flex;
-
   flex-direction: column;
-
-  justify-content: space-between;
 }
 
 .contenido-modal {
 
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
-  min-height: 90px;
+  min-height: 170px;
 }
 
 .mensaje {
-
-  font-size: 16px;
-
-  color: #4B5563;
-
-  text-align: center;
-
-  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #44474C;
 }
 
 .acciones {

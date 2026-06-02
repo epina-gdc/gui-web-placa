@@ -12,6 +12,9 @@ import { ToggleSwitchModule } from 'primeng/toggleswitch';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { NAV_PRIVADO_URL } from '@core/utils/url-global';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ModalConfirmacion } from '@components/modal/modal-confirmacion/modal-confirmacion';
+import { AlertService } from '@core/services/alert.service';
 
 @Component({
   selector: 'app-tabla-platillos',
@@ -44,6 +47,8 @@ export class TablaPlatillos {
 
   totalWidth: any;
 
+  protected _alertaService: AlertService = inject(AlertService);
+
   columns: ColumnDefinition[] = [
     {
       field: 'clave',
@@ -73,7 +78,7 @@ export class TablaPlatillos {
   ];
   protected _router: Router;
 
-  constructor() {
+  constructor(private dialogService: DialogService) {
     this._router = inject(Router);
   }
   /* =========================================================
@@ -158,6 +163,31 @@ export class TablaPlatillos {
   }
 
   nuevoPlatillo() {
-    this._router.navigate(['/privado', NAV_PRIVADO_URL.nuevoPlatillo]);
+    void this._router.navigate(['/privado', NAV_PRIVADO_URL.nuevoPlatillo]);
+  }
+
+  eliminarPlatillo(): void {
+    const ref = this.dialogService.open(ModalConfirmacion, {
+      header: 'Eliminar platillo',
+      width: '800px',
+      height: '300px',
+      draggable: false,
+      modal: true,
+      closable: true,
+      showHeader: true,
+      dismissableMask: false,
+      data: {
+        mensaje: 'Confirme que desea eliminar este platillo. Esta acción no se puede deshacer',
+        textoBoton: 'Sí, confirmar',
+      },
+    });
+
+    ref?.onClose?.subscribe(() => {
+      this.mostrarMensajeEliminar();
+    })
+  }
+
+  mostrarMensajeEliminar(): void {
+    this._alertaService.exito('Platillo eliminado', '');
   }
 }
