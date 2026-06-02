@@ -82,33 +82,36 @@
   }
 
   .p-datatable-sortable-column::after {
+    font-family: 'primeicons', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-    content: '';
-
-    width: 10px;
-    height: 10px;
+    content: '\e99e';
 
     position: absolute;
-
-    right: 6px;
+    right: 8px;
     top: 50%;
-
     transform: translateY(-50%);
-
-    background: url('/assets/Images/arrows.png') no-repeat center;
-
-    background-size: 10px 10px;
-
-    opacity: 0.6;
+    font-size: 11px;
+    opacity: 0.5;
+    transition: color 0.2s, opacity 0.2s;
   }
 
   .p-datatable-sortable-column[aria-sort="ascending"]::after {
-    background-image: url('/assets/Images/arrow_up.png');
+    content: '\e930';
+    opacity: 1;
+    font-weight: bold;
   }
 
   .p-datatable-sortable-column[aria-sort="descending"]::after {
-    background-image: url('/assets/Images/arrowdown.png');
+    content: '\e933';
+    opacity: 1;
+    font-weight: bold;
   }
-
-
 }
