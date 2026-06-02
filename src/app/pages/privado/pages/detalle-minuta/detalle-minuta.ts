@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
 import { SeccionTitulos } from '@components/seccion-titulos/seccion-titulos';
+import { TablaPlatilloMinuta } from '@components/tablas/tabla-platillo-minuta/tabla-platillo-minuta';
 import { PlatilloMinuta } from '@core/models/platillo-minuta.interface';
 import { Platillo } from '@core/models/platillo.interface';
 import { ButtonModule } from 'primeng/button';
@@ -13,7 +14,7 @@ import { SelectModule } from 'primeng/select';
   imports: [SeccionTitulos,SeccionBusqueda, ReactiveFormsModule,
     SelectModule,
     InputTextModule,
-    ButtonModule],
+    ButtonModule,TablaPlatilloMinuta],
   templateUrl: './detalle-minuta.html',
   styleUrl: './detalle-minuta.scss',
 })

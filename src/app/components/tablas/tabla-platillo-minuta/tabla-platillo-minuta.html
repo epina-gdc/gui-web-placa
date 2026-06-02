@@ -1,0 +1,210 @@
+<div class="table-container surface-card shadow-1 border-round surface-border border-1">
+
+  <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+  <div class="div-header">
+
+        <span class="texto-header">
+            Platillos asignados a la minuta
+        </span>
+
+  </div>
+
+  <!-- =====================================================
+       WRAPPER 90%
+       ===================================================== -->
+
+  <div class="div-tabla-wrapper">
+
+    <!-- =====================================================
+         TABLA
+         ===================================================== -->
+
+    <div class="div-tabla">
+
+      <p-table
+        #dt2
+        [value]="data.slice(first(), first() + rows())"
+        responsiveLayout="scroll"
+        styleClass="tabla-custom"
+        [tableStyle]="{'width':'100%'}"
+        [ngClass]="{ 'sin-header': !data.length }">
+
+        <!-- =====================================================
+             HEADER
+             ===================================================== -->
+
+        <ng-template pTemplate="header">
+
+          <tr>
+
+            <th style="width:4%">
+              No.
+            </th>
+
+            <th style="width:34%">
+              Platillo
+            </th>
+
+            <th style="width:22%">
+              Ración
+            </th>
+           
+            <th
+              style="width:8%"
+              class="text-center">
+
+              Eliminar
+
+            </th>
+
+          </tr>
+
+        </ng-template>
+
+        <!-- =====================================================
+             BODY
+             ===================================================== -->
+
+        <ng-template
+          pTemplate="body"
+          let-rowData
+          let-rowIndex="rowIndex">
+
+          <tr>
+
+            <td class="col-no">
+              {{ first() + rowIndex + 1 }}
+            </td>
+
+            <td class="col-ingrediente">
+              {{ rowData.platillo }}
+            </td>
+
+            <td class="col-variedad">
+              <input
+                    pInputText
+                    type="number"
+                    [(ngModel)]="rowData.racion"
+                    class="w-full">
+            </td>
+
+           
+
+            <td class="col-eliminar text-center">
+
+              <button
+                pButton
+                type="button"
+                icon="placa-trash"
+                class="p-button-text p-button-danger"
+                size="large"
+              >
+              </button>
+
+            </td>
+
+          </tr>
+
+        </ng-template>
+
+        <!-- =====================================================
+             EMPTY
+             ===================================================== -->
+
+        <ng-template pTemplate="emptymessage">
+
+          <tr>
+
+            <td colspan="6">
+
+              <div class="empty-table py-3">
+                <img src="/assets/Images/ingrediente_zanahoria.svg" alt="Sin resultados">
+                <p class="td-sin-resultados">
+                  Sin ingredientes seleccionados
+                </p>
+
+              </div>
+
+            </td>
+
+          </tr>
+
+        </ng-template>
+
+      </p-table>
+
+    </div>
+
+    <!-- =====================================================
+         FOOTER PAGINADOR
+         ===================================================== -->
+
+    @if (totalPagesArray().length > 1) {
+
+      <div class="footer-tabla">
+
+        <div class="custom-paginator">
+
+          <!-- ANTERIOR -->
+
+          <button
+            pButton
+            type="button"
+            class="btn-paginador"
+            [disabled]="first() === 0"
+            (click)="prev()">
+
+            <i class="placa-flecha-izq"></i>
+
+            <span>Anterior</span>
+
+          </button>
+
+          <!-- PAGINAS -->
+
+          <div class="pages-container">
+
+            @for (page of totalPagesArray();
+              track page) {
+
+              <div
+                class="pagina-item"
+                [class.active]="page === currentPage()"
+                (click)="goToPage(page)">
+
+                {{ page }}
+
+              </div>
+
+            }
+
+          </div>
+
+          <!-- SIGUIENTE -->
+
+          <button
+            pButton
+            type="button"
+            class="btn-paginador"
+            [disabled]="first() + rows() >= totalRecords"
+            (click)="next()">
+
+            <span>Siguiente</span>
+
+            <i class="placa-flecha-der"></i>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    }
+
+  </div>
+
+</div>
+
