@@ -1,20 +1,20 @@
-# Build Angular
-FROM node:24 AS builder
+FROM node:18 AS builder
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json pnpm-lock.yaml ./
 
-RUN npm install --force
+RUN npm install -g pnpm
+
+RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-RUN npm run build -- --configuration production
+RUN pnpm run build --configuration production
 
-# Nginx
 FROM nginx:1.29
 
-COPY --from=builder /dist /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 
