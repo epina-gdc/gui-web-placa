@@ -6,7 +6,10 @@ import { Component, input } from '@angular/core';
   styleUrl: './seccion-template.scss',
   template: `
     <div class="surface-card shadow-1 border-round surface-border border-1">
-      <div class="titulo-seccion-template flex gap-1">{{ leyenda() }} : <p class="id-leyenda">{{ idLeyenda() }}</p></div>
+      <div class="titulo-seccion-template flex gap-1">
+        {{ leyenda() }} :
+        <p class="id-leyenda">{{ idLeyenda() }}</p>
+      </div>
 
       <div class="flex flex-column gap-3">
         <ng-content></ng-content>

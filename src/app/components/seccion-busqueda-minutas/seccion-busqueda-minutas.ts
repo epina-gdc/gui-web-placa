@@ -8,55 +8,37 @@ import { TabsModule } from 'primeng/tabs';
 
 @Component({
   selector: 'app-seccion-busqueda-minutas',
-  imports: [CommonModule, ButtonModule,TabsModule,TablaServicioMinuta],
+  imports: [CommonModule, ButtonModule, TabsModule, TablaServicioMinuta],
   templateUrl: './seccion-busqueda-minutas.html',
   styleUrl: './seccion-busqueda-minutas.scss',
 })
 export class SeccionBusquedaMinutas {
-
   @Input() tipoBusqueda: string = '';
   @Input() periodo: string = '';
-  @Input() fecha: string = ''
-  @Input() minuta:Minuta | null = null;
-   tabSeleccionado = 'desayuno';
+  @Input() fecha: string = '';
+  @Input() minuta: Minuta | null = null;
+  tabSeleccionado = 'desayuno';
 
-   desayuno: ServicioMinuta | null = null;
-   comida: ServicioMinuta | null = null;
-   cena: ServicioMinuta | null = null;
-   colacion: ServicioMinuta | null = null;
+  desayuno: ServicioMinuta | null = null;
+  comida: ServicioMinuta | null = null;
+  cena: ServicioMinuta | null = null;
+  colacion: ServicioMinuta | null = null;
 
-     ngOnChanges(changes: SimpleChanges): void {
-
+  ngOnChanges(changes: SimpleChanges): void {
     if (changes['minuta']) {
-
       this.cargarServicios();
-
     }
-
   }
 
   private cargarServicios(): void {
-
     this.desayuno =
-      this.minuta?.servicios.find(
-        x => x.servicio.desServicio === 'Desayuno'
-      ) ?? null;
+      this.minuta?.servicios.find((x) => x.servicio.desServicio === 'Desayuno') ?? null;
 
-    this.comida =
-      this.minuta?.servicios.find(
-        x => x.servicio.desServicio === 'Comida'
-      ) ?? null;
+    this.comida = this.minuta?.servicios.find((x) => x.servicio.desServicio === 'Comida') ?? null;
 
-    this.cena =
-      this.minuta?.servicios.find(
-        x => x.servicio.desServicio === 'Cena'
-      ) ?? null;
+    this.cena = this.minuta?.servicios.find((x) => x.servicio.desServicio === 'Cena') ?? null;
 
     this.colacion =
-      this.minuta?.servicios.find(
-        x => x.servicio.desServicio === 'Colación'
-      ) ?? null;
-
+      this.minuta?.servicios.find((x) => x.servicio.desServicio === 'Colación') ?? null;
   }
-
 }

@@ -24,7 +24,7 @@
                     type="button"
                     class="btn-fecha">
 
-                    <i class="pi pi-chevron-left"></i>
+                    <i class="placa-flecha-izq"></i>
 
                 </button>
 
@@ -36,7 +36,7 @@
                     type="button"
                     class="btn-fecha">
 
-                    <i class="pi pi-chevron-right"></i>
+                    <i class="placa-flecha-der"></i>
 
                 </button>
 
@@ -65,22 +65,22 @@
     <p-tablist>
 
         <p-tab value="desayuno">
-            <i class="pi pi-sun mr-2"></i>
+            <i class="placa-desayuno mr-2"></i>
             Desayuno
         </p-tab>
 
         <p-tab value="comida">
-            <i class="pi pi-clock mr-2"></i>
+            <i class="placa-comida mr-2"></i>
             Comida
         </p-tab>
 
         <p-tab value="cena">
-            <i class="pi pi-home mr-2"></i>
+            <i class="placa-cena mr-2"></i>
             Cena
         </p-tab>
 
         <p-tab value="colacion">
-            <i class="pi pi-apple mr-2"></i>
+            <i class="placa-colacion mr-2"></i>
             Colación
         </p-tab>
 
@@ -91,13 +91,13 @@
         <p-tabpanel value="desayuno">
 
             @if(desayuno){
-                
+
          <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
                    <p-button
     type="button"
     styleClass="btn-modificar-raciones">
 
-    <i class="pi pi-pencil"></i>
+    <i class="placa-pencil"></i>
 
     <span>Modificar raciones seleccionadas</span>
 
@@ -112,7 +112,7 @@
     type="button"
     styleClass="btn-modificar-raciones">
 
-   
+
 
     <span>Restablecer valores anteriores</span>
 
@@ -133,7 +133,7 @@
     type="button"
     styleClass="btn-modificar-raciones">
 
-    <i class="pi pi-pencil"></i>
+    <i class="placa-pencil"></i>
 
     <span>Modificar raciones seleccionadas</span>
 
@@ -141,14 +141,14 @@
     </div>
             <app-tabla-servicio-minuta
                 [servicioMinuta]="comida">
-             
+
             </app-tabla-servicio-minuta>
              <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;margin-top: 1rem;">
                    <p-button
     type="button"
     styleClass="btn-modificar-raciones">
 
-   
+
 
     <span>Restablecer valores anteriores</span>
 
@@ -169,7 +169,7 @@
     type="button"
     styleClass="btn-modificar-raciones">
 
-    <i class="pi pi-pencil"></i>
+    <i class="placa-pencil"></i>
 
     <span>Modificar raciones seleccionadas</span>
 
@@ -183,7 +183,7 @@
     type="button"
     styleClass="btn-modificar-raciones">
 
-   
+
 
     <span>Restablecer valores anteriores</span>
 
@@ -204,7 +204,7 @@
     type="button"
     styleClass="btn-modificar-raciones">
 
-    <i class="pi pi-pencil"></i>
+    <i class="placa-pencil"></i>
 
     <span>Modificar raciones seleccionadas</span>
 
@@ -219,7 +219,7 @@
     type="button"
     styleClass="btn-modificar-raciones">
 
-   
+
 
     <span>Restablecer valores anteriores</span>
 
@@ -232,7 +232,7 @@
     </div>
         }
         </p-tabpanel>
-                    
+
 
     </p-tabpanels>
 
