@@ -3,5 +3,146 @@
 <div class="principal pb-4">
 
   <app-seccion-busqueda [titulo]="'Búsqueda de minutas'">
+       <section class="divformulario">
+
+      <form [formGroup]="filtroForm">
+
+        <!-- Campos -->
+        <article class="grid">
+
+                 <div class="lg:col-3 col-12">
+            <div class="formato-container">
+
+              <div class="label-container">
+
+                <label class="titulo-formato">
+                  Buscar por
+                </label>
+
+                <span class="texto-obligatorio">
+            Obligatorio
+        </span>
+
+              </div>
+
+              <div class="opciones-formato">
+
+                <div class="opcion-formato">
+
+                  <p-radiobutton
+                    name="tipoBusqueda"
+                    value="periodo"
+                    formControlName="tipoBusqueda">
+                  </p-radiobutton>
+
+                  <label>Periodo</label>
+
+                </div>
+
+                <div class="opcion-formato">
+
+                  <p-radiobutton
+                    name="tipoBusqueda"
+                    value="minuta"
+                    formControlName="tipoBusqueda">
+                  </p-radiobutton>
+
+                  <label>Minuta</label>
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          @if (esBusquedaPeriodo) {
+
+            <div class="lg:col-3 col-12">
+
+            <div class="label-container">
+
+              <label class="label-input">
+                Año
+              </label>
+
+
+            </div>
+
+            <p-select
+              formControlName="anio"
+              [options]="years"
+              optionLabel="desAnio"
+              optionValue="idAnio"
+              placeholder="Selecciona una opción"
+              class="w-full custom-dropdown ph-custom">
+            </p-select>
+
+          </div>
+          <div class="lg:col-3 col-12">
+
+            <div class="label-container">
+
+              <label class="label-input">
+                Periodo
+              </label>
+
+
+            </div>
+
+            <p-select
+              formControlName="periodo"
+              [options]="periodos"
+              optionLabel="desPeriodo"
+              optionValue="idPeriodo"
+              placeholder="Selecciona una opción"
+              class="w-full custom-dropdown ph-custom">
+            </p-select>
+
+          </div>
+        }
+        @if (esBusquedaMinuta) {
+          <div class="lg:col-3 col-12">
+            <div class="flex justify-content-between" style="margin-bottom: 0.5rem;">
+              <label class="label-input" for="fecha">Fecha</label>
+
+            </div>
+            <p-datepicker
+              formControlName="fecha"
+              placeholder="Selecciona"
+              [style]="{ width: '100%' }"
+              [iconDisplay]="'input'"
+              [showIcon]="true"
+              appendTo="body"
+              inputId="icondisplay">
+            </p-datepicker>
+
+          </div>
+        }
+
+        <div class="contenedor-botones">
+
+          <p-button
+            type="button"
+            label="Limpiar"
+            styleClass="btn-limpiar"
+            [style]="{'width':'90px'}">
+          </p-button>
+
+
+          <p-button
+            type="button"
+            label="Buscar"
+            [style]="{'width':'125px'}" (click)="buscar()" >
+          </p-button>
+
+        </div>
+        </article>
+      </form>
+       </section>
   </app-seccion-busqueda>
+<app-seccion-busqueda-minutas [tipoBusqueda]="tipoBusquedaSeleccionada" [periodo]="periodoSeleccionado" [fecha]="fechaSeleccionada" [minuta]="minuta"  >
+
+</app-seccion-busqueda-minutas>
+
 </div>
