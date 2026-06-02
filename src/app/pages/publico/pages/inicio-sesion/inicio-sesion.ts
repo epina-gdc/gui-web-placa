@@ -3,6 +3,8 @@ import { Card } from 'primeng/card';
 import { Button } from 'primeng/button';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputText } from 'primeng/inputtext';
+import { Router } from '@angular/router';
+import { NAV_PRIVADO_URL } from '@core/utils/url-global';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -14,7 +16,7 @@ import { InputText } from 'primeng/inputtext';
   },
 })
 export class InicioSesion {
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,private _router: Router) {
     this.loginForm = this.inicializarForm();
   }
 
@@ -27,5 +29,12 @@ export class InicioSesion {
     });
   }
 
-  iniciarSesion(): void {}
+  iniciarSesion(): void {
+
+     this._router.navigate([
+            '/privado',
+            NAV_PRIVADO_URL.platillos
+            
+          ]);
+  }
 }

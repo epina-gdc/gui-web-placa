@@ -31,7 +31,7 @@
       </form>
       <ng-template #footer>
         <section class="flex justify-content-end inicio-sesion-form-footer">
-          <p-button type="submit" label="Ingresar" class="inicio-sesion-button" [styleClass]="'w-full'"
+          <p-button type="submit" label="Ingresar" class="inicio-sesion-button" [styleClass]="'w-full'" (click)="iniciarSesion()"
                     [disabled]="loginForm.invalid"></p-button>
         </section>
       </ng-template>
