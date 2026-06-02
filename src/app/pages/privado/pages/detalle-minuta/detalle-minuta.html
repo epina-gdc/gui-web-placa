@@ -16,7 +16,7 @@
         <div class="circulo-icono">
 
             <img
-                src="assets/Images/ingrediente_zanahoria 1.svg"
+                src="assets/Images/ingrediente_zanahoria.svg"
                 alt="Icono"
                 class="icono" />
 
@@ -98,6 +98,109 @@
 
 </div>
     </div>
+
+     
   
   </app-seccion-busqueda>
 </div>
+  <div class="divformulario">
+         <div class="section-title-container">
+
+          <span class="filter-section-title">
+            Agregar platillo a la minuta
+          </span>
+
+        </div>
+
+       <form [formGroup]="platilloForm">
+          <article class="grid">
+            <div class="lg:col-3 col-12">
+
+              <div class="flex justify-content-between">
+                <label class="label-input">
+                  Nombre del platillo
+                </label>
+              </div>
+
+              <div class="input-search-container">
+
+                <!-- INPUT -->
+
+                <div class="search-input-wrapper">
+                  <input
+                    class="w-full"
+                    pInputText
+                    type="text"
+                    formControlName="platilloTexto"
+                    placeholder="Buscar"
+                    (input)="filtrarplatillos()"
+                    (focus)="mostrarLista = true" />
+
+                  <i class="pi pi-search icon-search"></i>
+
+                </div>
+
+                <!-- LISTA -->
+
+                @if (mostrarLista && platillosFiltrados.length > 0) {
+
+                  <div class="lista-ingredientes">
+
+                    @for (platillo of platillosFiltrados;
+                      track platillo.clave) {
+
+                      <div
+                        class="item-ingrediente"
+                        (click)="seleccionarPlatillo(platillo)">
+
+                        {{ platillo.nombre }}
+
+                      </div>
+
+                    }
+
+                  </div>
+
+                }
+
+              </div>
+
+            </div>
+            <div class="lg:col-3 col-12">
+
+              <div class="flex justify-content-between">
+                <label class="label-input">
+                  Ración
+                </label>
+              </div>
+
+              <input
+              pInputText
+              type="number"
+              min="0"
+              class="w-full"
+              placeholder="Ingresar"
+
+              formControlName="racion"
+            />
+            </div>
+
+          
+            <div class="lg:col-3 col-12 flex align-items-end justify-content-start">
+              <button
+                pButton
+                type="button"
+                style="{width: 190px}"
+                class="btn-agregar-ingrediente" [disabled]="platilloForm.invalid" (click)="agregarPlatillo()">
+
+
+                <i class="pi pi-plus"></i>
+
+                <span>Agregar platillo</span>
+
+              </button>
+            </div>
+          </article>
+        </form>
+       
+      </div>

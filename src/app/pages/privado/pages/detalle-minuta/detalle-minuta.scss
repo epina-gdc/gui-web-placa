@@ -99,3 +99,291 @@ margin-bottom: 20px;
 
     color: #4B5563;
 }
+
+.btn-regresar {
+
+  background: transparent !important;
+
+  border: none !important;
+
+  padding: 0 !important;
+
+  box-shadow: none !important;
+}
+
+.header-platillo {
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  height: 48px;
+
+  padding: 0 12px;
+
+ 
+}
+
+/* =========================================================
+   BOTON REGRESAR
+   ========================================================= */
+
+.btn-regresar {
+
+ background: transparent;
+
+  border: none;
+
+  padding: 0;
+
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+/* Hover */
+
+.btn-regresar:hover {
+
+  background: #F9FAFB !important;
+}
+
+/* =========================================================
+   ICONO
+   ========================================================= */
+
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.divider-vertical {
+
+  width: 1px;
+
+  height: 19px;
+
+  background: #D1D5DB;
+}
+
+.contenedor-botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+
+.section-title-container {
+
+  width: 100%;
+
+  padding-bottom: 0.75rem;
+  
+  /* margin-top: 1.5rem;
+  margin-bottom: 1.5rem;  border-bottom: 1px solid #D1D5DB;*/
+
+ 
+}
+
+/* =========================================================
+   TITULO
+   ========================================================= */
+
+.section-title {
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #8FA3B8;
+
+  line-height: 1;
+}
+
+
+.ingrediente-search-container {
+
+  width: 100%;
+
+  position: relative;
+}
+
+/* =========================================================
+   INPUT WRAPPER
+   ========================================================= */
+
+.search-input-wrapper {
+
+  position: relative;
+
+  width: 100%;
+}
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.input-ingrediente {
+
+  width: 100% !important;
+
+  height: 42px !important;
+
+  border-radius: 8px !important;
+
+  padding-right: 40px !important;
+
+  font-size: 14px !important;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   ICONO
+   ========================================================= */
+
+.icon-search {
+
+  position: absolute;
+
+  right: 14px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: #9CA3AF;
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   LISTA
+   ========================================================= */
+
+.lista-ingredientes {
+
+  position: absolute;
+
+  top: calc(100% + 4px);
+
+  left: 0;
+
+  width: 100%;
+
+  background: white;
+
+  border: 1px solid #E5E7EB;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.08);
+
+  z-index: 1000;
+
+  max-height: 220px;
+
+  overflow-y: auto;
+}
+
+/* =========================================================
+   ITEM
+   ========================================================= */
+
+.item-ingrediente {
+
+  padding: 12px 14px;
+
+  font-size: 14px;
+
+  color: #374151;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+/* Hover */
+
+.item-ingrediente:hover {
+
+  background: #F3F4F6;
+}
+
+.btn-agregar-ingrediente {
+
+  height: 42px !important;
+
+  padding: 0 18px !important;
+
+  border-radius: 10px !important;
+
+  border: 1px solid #73C7C7 !important;
+
+  background: #FFFFFF !important;
+
+  color: #73C7C7 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 0.5rem !important;
+
+  font-size: 14px !important;
+  font-weight: 500 !important;
+
+  box-shadow: none !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.btn-agregar-ingrediente:hover {
+
+  background: #F0FAFA !important;
+
+  border-color: #5FB8B8 !important;
+
+  color: #5FB8B8 !important;
+}
+
+/* =========================================================
+   ICONO
+   ========================================================= */
+
+.btn-agregar-ingrediente .pi {
+
+  font-size: 14px !important;
+
+  font-weight: 600 !important;
+}
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.btn-agregar-ingrediente:focus {
+
+  box-shadow: none !important;
+}
+.divformulario {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  background: #FFFFFF;
+  border-radius: 8px;
+}
