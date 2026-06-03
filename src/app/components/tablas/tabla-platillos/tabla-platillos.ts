@@ -184,7 +184,7 @@ export class TablaPlatillos {
 
     ref?.onClose?.subscribe(() => {
       this.mostrarMensajeEliminar();
-    })
+    });
   }
 
   mostrarMensajeEliminar(): void {

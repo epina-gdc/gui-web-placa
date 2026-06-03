@@ -16,7 +16,10 @@ import { NAV_PRIVADO_URL } from '@core/utils/url-global';
   },
 })
 export class InicioSesion {
-  constructor(private formBuilder: FormBuilder,private _router: Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private _router: Router,
+  ) {
     this.loginForm = this.inicializarForm();
   }
 
@@ -30,11 +33,6 @@ export class InicioSesion {
   }
 
   iniciarSesion(): void {
-
-     this._router.navigate([
-            '/privado',
-            NAV_PRIVADO_URL.platillos
-            
-          ]);
+    this._router.navigate(['/privado', NAV_PRIVADO_URL.platillos]);
   }
 }

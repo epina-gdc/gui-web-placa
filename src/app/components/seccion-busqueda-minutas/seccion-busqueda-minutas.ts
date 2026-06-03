@@ -10,7 +10,7 @@ import { TabsModule } from 'primeng/tabs';
 
 @Component({
   selector: 'app-seccion-busqueda-minutas',
-  imports: [CommonModule, ButtonModule, TabsModule, TablaServicioMinuta,ModalDuplicar],
+  imports: [CommonModule, ButtonModule, TabsModule, TablaServicioMinuta],
   templateUrl: './seccion-busqueda-minutas.html',
   styleUrl: './seccion-busqueda-minutas.scss',
 })
@@ -45,14 +45,14 @@ export class SeccionBusquedaMinutas {
       this.minuta?.servicios.find((x) => x.servicio.desServicio === 'Colación') ?? null;
   }
 
-   abrirModal(): void {
-      const ref = this.dialogService.open(ModalDuplicar, {
-        header: 'Duplicar periodo',
-        width: '800px',
-        modal: true,
-        closable: true,
-        showHeader: true,
-        dismissableMask: false
-      });
-    }
+  abrirModal(): void {
+    const ref = this.dialogService.open(ModalDuplicar, {
+      header: 'Duplicar periodo',
+      width: '800px',
+      modal: true,
+      closable: true,
+      showHeader: true,
+      dismissableMask: false,
+    });
+  }
 }

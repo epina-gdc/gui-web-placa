@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
+import { Component, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ColumnDefinition } from '@core/models/columna-tabla';
@@ -153,11 +153,6 @@ export class TablaServicioMinuta {
   }
 
   verDetalles(variedad: any): void {
-     
-      this._router.navigate([
-        '/privado',
-        NAV_PRIVADO_URL.detalleMinuta,1,2,
-        
-      ]);
-    }
+    this._router.navigate(['/privado', NAV_PRIVADO_URL.detalleMinuta, 1, 2]);
+  }
 }

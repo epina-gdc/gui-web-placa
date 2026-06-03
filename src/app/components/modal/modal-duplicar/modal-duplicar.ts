@@ -9,13 +9,12 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
   styleUrl: './modal-duplicar.scss',
 })
 export class ModalDuplicar {
-
-    constructor(
+  constructor(
     public config: DynamicDialogConfig,
     public ref: DynamicDialogRef,
   ) {}
 
-    aceptar(): void {
+  aceptar(): void {
     this.ref.close(true);
   }
 
