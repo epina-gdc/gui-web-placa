@@ -1,211 +1,209 @@
 <app-seccion-titulos [titulo]="'Normal A'"
                      [retorno]="true" [ruta]="'/privado/minuta-sintetica'"
-                     >
+>
 </app-seccion-titulos>
 <div class="principal">
 
   <app-seccion-busqueda [titulo]="'Información de la minuta'">
 
     <div style="display: flex;justify-content: center">
-          <div class="resumen-minuta">
+      <div class="resumen-minuta">
 
-    <!-- Icono -->
+        <!-- Icono -->
 
-    <div class="item-icono">
+        <div class="item-icono">
 
-        <div class="circulo-icono">
+          <div class="circulo-icono">
 
             <img
-                src="assets/Images/ingrediente_zanahoria.svg"
-                alt="Icono"
-                class="icono" />
+              src="assets/Images/ingrediente_zanahoria.svg"
+              alt="Icono"
+              class="icono" />
 
-               
+
+          </div>
 
         </div>
 
-    </div>
+        <!-- Periodo -->
 
-    <!-- Periodo -->
-
-    <div class="item-info">
+        <div class="item-info">
 
         <span class="label">
             Periodo
         </span>
 
-        <span class="valor">
+          <span class="valor">
             2
         </span>
 
-    </div>
+        </div>
 
-    <!-- Minuta -->
+        <!-- Minuta -->
 
-    <div class="item-info">
+        <div class="item-info">
 
         <span class="label">
             Minuta
         </span>
 
-        <span class="valor">
+          <span class="valor">
             4
         </span>
 
-    </div>
+        </div>
 
-    <!-- Fecha -->
+        <!-- Fecha -->
 
-    <div class="item-info">
+        <div class="item-info">
 
         <span class="label">
             Fecha
         </span>
 
-        <span class="valor">
+          <span class="valor">
             19/02/2026
         </span>
 
-    </div>
+        </div>
 
-    <!-- Servicio -->
+        <!-- Servicio -->
 
-    <div class="item-info">
+        <div class="item-info">
 
         <span class="label">
             Servicio
         </span>
 
-        <span class="valor">
+          <span class="valor">
             Desayuno
         </span>
 
-    </div>
+        </div>
 
-    <!-- Variedad -->
+        <!-- Variedad -->
 
-    <div class="item-info">
+        <div class="item-info">
 
         <span class="label">
             Variedad
         </span>
 
-        <span class="valor">
+          <span class="valor">
             Normal A
         </span>
 
+        </div>
+
+      </div>
     </div>
 
-</div>
-    </div>
 
-     
-  
   </app-seccion-busqueda>
 </div>
-  <div class="divformulario">
-         <div class="section-title-container">
+<div class="divformulario">
+  <div class="section-title-container">
 
           <span class="filter-section-title">
             Agregar platillo a la minuta
           </span>
 
+  </div>
+
+  <form [formGroup]="platilloForm">
+    <article class="grid">
+      <div class="lg:col-3 col-12">
+
+        <div class="flex justify-content-between">
+          <label class="label-input">
+            Nombre del platillo
+          </label>
         </div>
 
-       <form [formGroup]="platilloForm">
-          <article class="grid">
-            <div class="lg:col-3 col-12">
+        <div class="input-search-container">
 
-              <div class="flex justify-content-between">
-                <label class="label-input">
-                  Nombre del platillo
-                </label>
-              </div>
+          <!-- INPUT -->
 
-              <div class="input-search-container">
+          <div class="search-input-wrapper">
+            <input
+              class="w-full"
+              pInputText
+              type="text"
+              formControlName="platilloTexto"
+              placeholder="Buscar"
+              (input)="filtrarplatillos()"
+              (focus)="mostrarLista = true" />
 
-                <!-- INPUT -->
+            <i class="pi pi-search icon-search"></i>
 
-                <div class="search-input-wrapper">
-                  <input
-                    class="w-full"
-                    pInputText
-                    type="text"
-                    formControlName="platilloTexto"
-                    placeholder="Buscar"
-                    (input)="filtrarplatillos()"
-                    (focus)="mostrarLista = true" />
+          </div>
 
-                  <i class="pi pi-search icon-search"></i>
+          <!-- LISTA -->
+
+          @if (mostrarLista && platillosFiltrados.length > 0) {
+
+            <div class="lista-ingredientes">
+
+              @for (platillo of platillosFiltrados;
+                track platillo.clave) {
+
+                <div
+                  class="item-ingrediente"
+                  (click)="seleccionarPlatillo(platillo)">
+
+                  {{ platillo.nombre }}
 
                 </div>
 
-                <!-- LISTA -->
-
-                @if (mostrarLista && platillosFiltrados.length > 0) {
-
-                  <div class="lista-ingredientes">
-
-                    @for (platillo of platillosFiltrados;
-                      track platillo.clave) {
-
-                      <div
-                        class="item-ingrediente"
-                        (click)="seleccionarPlatillo(platillo)">
-
-                        {{ platillo.nombre }}
-
-                      </div>
-
-                    }
-
-                  </div>
-
-                }
-
-              </div>
+              }
 
             </div>
-            <div class="lg:col-3 col-12">
 
-              <div class="flex justify-content-between">
-                <label class="label-input">
-                  Ración
-                </label>
-              </div>
+          }
 
-              <input
-              pInputText
-              type="number"
-              min="0"
-              class="w-full"
-              placeholder="Ingresar"
+        </div>
 
-              formControlName="racion"
-            />
-            </div>
-
-          
-            <div class="lg:col-3 col-12 flex align-items-end justify-content-start">
-              <button
-                pButton
-                type="button"
-                style="{width: 190px}"
-                class="btn-agregar-ingrediente" [disabled]="platilloForm.invalid" (click)="agregarPlatillo()">
-
-
-                <i class="pi pi-plus"></i>
-
-                <span>Agregar platillo</span>
-
-              </button>
-            </div>
-          </article>
-        </form>
-       
       </div>
-      <app-tabla-platillo-minuta [data]="platillosMinuta"></app-tabla-platillo-minuta>
-      <div class="contenedor-botones pb-5">
+      <div class="lg:col-3 col-12">
+
+        <div class="flex justify-content-between">
+          <label class="label-input">
+            Ración
+          </label>
+        </div>
+
+        <input
+          pInputText
+          type="number"
+          min="0"
+          class="w-full"
+          placeholder="Ingresar"
+
+          formControlName="racion"
+        />
+      </div>
+
+
+      <div class="lg:col-3 col-12 flex align-items-end justify-content-start">
+        <button
+          pButton
+          type="button"
+          style="{width: 190px}"
+          class="btn-agregar-ingrediente" [disabled]="platilloForm.invalid" (click)="agregarPlatillo()">
+
+
+          <i class="pi pi-plus"></i>
+
+          <span>Agregar platillo</span>
+
+        </button>
+      </div>
+    </article>
+  </form>
+
+</div>
+<app-tabla-platillo-minuta [data]="platillosMinuta"></app-tabla-platillo-minuta>
+<div class="contenedor-botones pb-5">
 
   <p-button
     type="button"

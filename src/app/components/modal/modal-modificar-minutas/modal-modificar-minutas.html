@@ -1,0 +1,54 @@
+<div class="modal-confirmacion">
+
+  <!-- MENSAJE -->
+  <form [formGroup]="filtroForm">
+
+    <div class="contenido-modal">
+
+      <div class="lg:col-3 col-12 flex justify-content-center align-items-center flex-column">
+
+        <div class="label-container">
+
+          <label class="label-input">
+            Raciones
+          </label>
+
+
+        </div>
+
+        <input
+          pInputText
+          type="number"
+          [formControlName]="'motivo'"
+          [style]="{'min-width': '300px'}"
+          class="w-full">
+
+      </div>
+
+    </div>
+
+    <!-- BOTONES -->
+
+
+    <div class="contenedor-botones justify-content-end">
+
+      <p-button
+        type="button"
+        label="Cancelar"
+        styleClass="boton-cancelar" (click)="cancelar()">
+      </p-button>
+
+
+      <p-button
+        type="button"
+        [label]="textoBoton"
+        styleClass="btn-background"
+        [style]="{'width':'170px'}" (click)="aceptar()"
+        [disabled]="filtroForm.invalid">
+      </p-button>
+
+    </div>
+  </form>
+
+</div>
+
