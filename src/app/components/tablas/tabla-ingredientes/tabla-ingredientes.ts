@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
+import { Component, inject, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ColumnDefinition } from '@core/models/columna-tabla';
 import { IngredientesPlatillo } from '@core/models/platillo-ingediente.interface';
@@ -9,6 +9,7 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { PaginatorModule } from 'primeng/paginator';
 import { TableModule } from 'primeng/table';
+import { AlertService } from '@core/services/alert.service';
 
 @Component({
   selector: 'app-tabla-ingredientes',
@@ -37,6 +38,8 @@ export class TablaIngredientes {
   unfrozenColumns: ColumnDefinition[] = [];
 
   totalWidth: any;
+
+  protected _alertaService: AlertService = inject(AlertService);
 
   columns: ColumnDefinition[] = [
     {
@@ -140,5 +143,9 @@ export class TablaIngredientes {
 
   goToPage(page: number): void {
     this.first.set((page - 1) * this.rows());
+  }
+
+  eliminarIngredientes(): void {
+    this._alertaService.exito('Ingrediente eliminado', '');
   }
 }
