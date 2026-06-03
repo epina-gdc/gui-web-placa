@@ -11,42 +11,42 @@ import { SelectModule } from 'primeng/select';
 
 @Component({
   selector: 'app-detalle-minuta',
-  imports: [SeccionTitulos,SeccionBusqueda, ReactiveFormsModule,
+  imports: [
+    SeccionTitulos,
+    SeccionBusqueda,
+    ReactiveFormsModule,
     SelectModule,
     InputTextModule,
-    ButtonModule,TablaPlatilloMinuta],
+    ButtonModule,
+    TablaPlatilloMinuta,
+  ],
   templateUrl: './detalle-minuta.html',
   styleUrl: './detalle-minuta.scss',
 })
 export class DetalleMinuta {
   platilloForm!: FormGroup;
   fb: FormBuilder = inject(FormBuilder);
-  platillos:Platillo[]=[]
-   platillosFiltrados: Platillo[] = [];
-     mostrarLista: boolean = false;
+  platillos: Platillo[] = [];
+  platillosFiltrados: Platillo[] = [];
+  mostrarLista: boolean = false;
   platilloSeleccionado = '';
 
-platillosMinuta:PlatilloMinuta[] = [
-  
-]
+  platillosMinuta: PlatilloMinuta[] = [];
   constructor() {
-
-     this.platilloForm = this.fb.group({
+    this.platilloForm = this.fb.group({
       platillo: [null, Validators.required],
       platilloTexto: [''],
       racion: [null, Validators.required],
     });
 
-     this.platillosFiltrados = [...this.platillos];
-
-
+    this.platillosFiltrados = [...this.platillos];
   }
 
   ngOnInit() {
     this.consultarPlatillos();
   }
 
-   consultarPlatillos() {
+  consultarPlatillos() {
     // Aquí iría la lógica para consultar los platillos según los filtros seleccionados
 
     this.platillos = [
@@ -149,62 +149,54 @@ platillosMinuta:PlatilloMinuta[] = [
     ];
   }
 
-
   /* =========================================================
        FILTRAR
        ========================================================= */
-  
-    filtrarplatillos(): void {
-      const texto = this.platilloForm.get('platilloTexto')?.value?.toLowerCase()?.trim();
-  
-      if (!texto) {
-        this.platillosFiltrados = [...this.platillos];
-  
-        return;
-      }
-  
-      this.platillosFiltrados = this.platillos.filter((x) =>
-        x.nombre.toLowerCase().includes(texto),
-      );
+
+  filtrarplatillos(): void {
+    const texto = this.platilloForm.get('platilloTexto')?.value?.toLowerCase()?.trim();
+
+    if (!texto) {
+      this.platillosFiltrados = [...this.platillos];
+
+      return;
     }
-    /* =========================================================
+
+    this.platillosFiltrados = this.platillos.filter((x) => x.nombre.toLowerCase().includes(texto));
+  }
+  /* =========================================================
        SELECCIONAR
        ========================================================= */
-  
-    seleccionarPlatillo(platillo: Platillo): void {
-      this.platilloForm.patchValue({
-        platillo: platillo,
-        platilloTexto: platillo.nombre,
-      });
-  
-      this.mostrarLista = false;
-    }
-    /* =========================================================
+
+  seleccionarPlatillo(platillo: Platillo): void {
+    this.platilloForm.patchValue({
+      platillo: platillo,
+      platilloTexto: platillo.nombre,
+    });
+
+    this.mostrarLista = false;
+  }
+  /* =========================================================
      AGREGAR INGREDIENTE
      ========================================================= */
-  
-    agregarPlatillo(): void {
 
-  
-      const platillo = this.platilloForm.value.platillo;
-      const racion = this.platilloForm.value.racion;
-  console.log('platillo:', platillo);
- 
-  
-      const existe = this.platillosMinuta.some(
-        (x) => x.platillo === platillo ,
-      );
-  
-      if (existe) {
-        return;
-      }
-  
-      this.platillosMinuta.push({
-        platillo: platillo.nombre,
-        racion: racion,
-      });
-        
-     console.log('platillosMinuta:', this.platillosMinuta);
-      this.platilloForm.reset(); 
+  agregarPlatillo(): void {
+    const platillo = this.platilloForm.value.platillo;
+    const racion = this.platilloForm.value.racion;
+    console.log('platillo:', platillo);
+
+    const existe = this.platillosMinuta.some((x) => x.platillo === platillo);
+
+    if (existe) {
+      return;
     }
+
+    this.platillosMinuta.push({
+      platillo: platillo.nombre,
+      racion: racion,
+    });
+
+    console.log('platillosMinuta:', this.platillosMinuta);
+    this.platilloForm.reset();
+  }
 }

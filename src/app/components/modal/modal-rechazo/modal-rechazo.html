@@ -5,12 +5,12 @@
 
     <div class="contenido-modal">
 
-      <div class="lg:col-3 col-12">
+      <div class="lg:col-3 col-12 flex justify-content-center align-items-center flex-column">
 
         <div class="label-container">
 
           <label class="label-input">
-            Mootivo de rechazo
+            Motivo de rechazo
           </label>
 
 
@@ -19,6 +19,7 @@
         <p-select
           formControlName="motivo"
           [options]="motivos"
+          [style]="{ 'min-width': '300px'}"
           optionLabel="descripcion"
           optionValue="idMotivo"
           placeholder="Selecciona una opción"
@@ -32,7 +33,7 @@
     <!-- BOTONES -->
 
 
-    <div class="contenedor-botones">
+    <div class="contenedor-botones justify-content-center">
 
       <p-button
         type="button"

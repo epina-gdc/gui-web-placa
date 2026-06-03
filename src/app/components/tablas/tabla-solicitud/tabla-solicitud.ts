@@ -196,6 +196,7 @@ export class TablaSolicitud {
       closable: true,
       showHeader: true,
       dismissableMask: false,
+      draggable: false,
       data: {
         mensaje: 'Confirme la aprobación de la solicitud',
         textoBoton: 'Aprobar solicitud',
@@ -210,6 +211,7 @@ export class TablaSolicitud {
       modal: true,
       closable: true,
       showHeader: true,
+      draggable: false,
       dismissableMask: false,
       data: {
         mensaje: 'Rechazar solicitud',

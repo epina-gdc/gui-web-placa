@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ColumnDefinition } from '@core/models/columna-tabla';
-import { IngredientesPlatillo } from '@core/models/platillo-ingediente.interface';
 import { PlatilloMinuta } from '@core/models/platillo-minuta.interface';
 import { ButtonModule } from 'primeng/button';
 import { IconFieldModule } from 'primeng/iconfield';
@@ -13,19 +12,21 @@ import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-tabla-platillo-minuta',
-  imports: [ TableModule,
+  imports: [
+    TableModule,
     PaginatorModule,
     CommonModule,
     IconFieldModule,
     InputIconModule,
     InputTextModule,
     ButtonModule,
-    FormsModule,],
+    FormsModule,
+  ],
   templateUrl: './tabla-platillo-minuta.html',
   styleUrl: './tabla-platillo-minuta.scss',
 })
 export class TablaPlatilloMinuta {
-   @Input() data: PlatilloMinuta[] = [];
+  @Input() data: PlatilloMinuta[] = [];
 
   first: WritableSignal<number> = signal(0);
 
@@ -36,7 +37,7 @@ export class TablaPlatilloMinuta {
   unfrozenColumns: ColumnDefinition[] = [];
 
   totalWidth: any;
-   columns: ColumnDefinition[] = [
+  columns: ColumnDefinition[] = [
     {
       field: 'platillo',
       header: 'Platillo',
@@ -46,7 +47,7 @@ export class TablaPlatilloMinuta {
       field: 'racion',
       header: 'Ración',
       width: '150px',
-    }
+    },
   ];
 
   /* =========================================================
@@ -129,5 +130,4 @@ export class TablaPlatilloMinuta {
   goToPage(page: number): void {
     this.first.set((page - 1) * this.rows());
   }
-
 }
