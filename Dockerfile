@@ -1,38 +1,28 @@
-# Stage 1: Compile and Build angular codebase
+FROM node:24 AS build
 
-# Use official node image as the base image
-FROM image-registry.openshift-image-registry.svc:5000/openshift/nodejs-18:latest AS builder
-
-# Set the working directory
 WORKDIR /app
 
-USER root
+COPY package*.json ./
 
-# Add the source code to app
-COPY package.json package-lock.json ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 
-# Install all the dependencies
-RUN npm install --force
+RUN npm install -g pnpm@11.1.3
 
+RUN pnpm install --frozen-lockfile
 COPY . .
 
-# Generate the build of the application
-RUN npm run build -- --configuration production --output-path=/dist
+# Ajusta el nombre exactamente del proyecto según angular.json
+RUN pnpm run build
+# o si tu proyecto requiere especificar la app:
+# RUN npm run build gui-web-firma-electronica --configuration production
 
-#RUN chmod -R 755 /opt/app-root/src
-#RUN chown -R nginx:nginx /opt/app-root/src
 
-# Stage 2: Serve app with nginx server
+FROM nginx:1.25
 
-# Use official nginx image as the base image
-FROM image-registry.openshift-image-registry.svc:5000/openshift/nginx:1.29
+# Ajusta la ruta según la salida real
+COPY --from=build /app/dist/gui-web-placa/browser/ /usr/share/nginx/html
 
-# TEST
-USER root
-
-# Ajustamos permisos de directorios que nginx necesita
-RUN mkdir -p /var/cache/nginx /var/run /var/log/nginx \
-    && chmod -R 777 /var/cache/nginx /var/run /var/log/nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 5047
 CMD ["nginx", "-g", "daemon off;"]

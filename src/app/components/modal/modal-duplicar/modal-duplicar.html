@@ -1,0 +1,76 @@
+<div class="modal-confirmacion">
+
+  <div class="contenido-modal">
+
+    <div class="datos-periodo">
+
+      <!-- Fila 1 -->
+
+      <div class="campo">
+        <span class="label">Periodo a duplicar</span>
+        <span class="valor">2</span>
+      </div>
+
+      <div class="campo">
+        <span class="label">Año</span>
+        <span class="valor">2026</span>
+      </div>
+
+      <div class="campo">
+        <span class="label">Fecha inicial</span>
+        <span class="valor">09/02/2026</span>
+      </div>
+
+      <div class="campo">
+        <span class="label">Fecha final</span>
+        <span class="valor">10/03/2026</span>
+      </div>
+
+      <!-- Fila 2 -->
+
+      <div class="campo">
+        <span class="label">Periodo nuevo</span>
+        <span class="valor">3</span>
+      </div>
+
+      <div class="campo">
+        <span class="label">Año</span>
+        <span class="valor">2026</span>
+      </div>
+
+      <div class="campo">
+        <span class="label">Fecha inicial</span>
+        <span class="valor">11/03/2026</span>
+      </div>
+
+      <div class="campo">
+        <span class="label">Fecha final</span>
+        <span class="valor">08/04/2026</span>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="contenedor-botones">
+
+    <p-button
+      type="button"
+      label="Cancelar"
+      styleClass="boton-cancelar" (click)="cancelar()">
+    </p-button>
+
+
+    <p-button
+      type="button"
+      label="Duplicar periodo"
+      styleClass="btn-background"
+      [style]="{'width':'150px'}" (click)="aceptar()">
+    </p-button>
+
+  </div>
+
+
+</div>
+

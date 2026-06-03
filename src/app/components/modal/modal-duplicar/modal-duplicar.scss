@@ -1,0 +1,77 @@
+.modal-confirmacion {
+  display: flex;
+  flex-direction: column;
+}
+
+.contenido-modal {
+  padding: 1.5rem;
+}
+
+.datos-periodo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem 3rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* <- importante */
+  text-align: left;
+}
+
+.label {
+  width: 100%;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: #718096;
+  margin-bottom: 0.5rem;
+  padding:0
+}
+
+.valor {
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+  color: #374151;
+}
+
+
+.acciones {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 1rem;
+
+  padding-bottom: 1rem;
+}
+
+/* Cancelar */
+
+:host ::ng-deep .btn-cancelar {
+
+  background: white !important;
+
+  border: 1px solid #DC2626 !important;
+
+  color: #DC2626 !important;
+
+  min-width: 120px;
+}
+
+/* Aceptar */
+
+:host ::ng-deep .btn-aceptar {
+
+  background: #138A5B !important;
+
+  border: 1px solid #138A5B !important;
+
+  color: white !important;
+
+  min-width: 140px;
+}
