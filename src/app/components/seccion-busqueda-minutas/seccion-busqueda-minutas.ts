@@ -7,6 +7,8 @@ import { ServicioMinuta } from '@core/models/servicio-minuta.interface';
 import { ButtonModule } from 'primeng/button';
 import { DialogService } from 'primeng/dynamicdialog';
 import { TabsModule } from 'primeng/tabs';
+import { ModalRechazo } from '@components/modal/modal-rechazo/modal-rechazo';
+import { ModalModificarMinutas } from '@components/modal/modal-modificar-minutas/modal-modificar-minutas';
 
 @Component({
   selector: 'app-seccion-busqueda-minutas',
@@ -53,6 +55,22 @@ export class SeccionBusquedaMinutas {
       closable: true,
       showHeader: true,
       dismissableMask: false,
+    });
+  }
+
+  modificar(): void {
+    const ref = this.dialogService.open(ModalModificarMinutas, {
+      header: 'Modificar selección',
+      width: '800px',
+      modal: true,
+      closable: true,
+      showHeader: true,
+      draggable: false,
+      dismissableMask: false,
+      data: {
+        mensaje: 'Ingresa el valor para actualizar las raciones seleccionadas',
+        textoBoton: 'Modificar raciones',
+      },
     });
   }
 }

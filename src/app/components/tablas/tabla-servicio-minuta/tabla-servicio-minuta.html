@@ -5,7 +5,6 @@
            ===================================================== -->
 
 
-
   <!-- =====================================================
        WRAPPER 90%
        ===================================================== -->
@@ -36,10 +35,10 @@
 
             <th style="width:4%">
               <p-checkbox
-        [binary]="true"
-        [ngModel]="todosSeleccionados()"
-        (onChange)="toggleTodos($event.checked)">
-    </p-checkbox>
+                [binary]="true"
+                [ngModel]="todosSeleccionados()"
+                (onChange)="toggleTodos($event.checked)">
+              </p-checkbox>
             </th>
 
             <th style="width:34%">
@@ -49,7 +48,6 @@
             <th style="width:22%">
               Raciones
             </th>
-
 
 
           </tr>
@@ -68,33 +66,32 @@
           <tr>
 
             <td class="col-no">
-               <p-checkbox
-        [binary]="true"
-        [ngModel]="estaSeleccionado(rowData)"
-        (onChange)="toggleFila(rowData, $event.checked)">
-    </p-checkbox>
+              <p-checkbox
+                [binary]="true"
+                [ngModel]="estaSeleccionado(rowData)"
+                (onChange)="toggleFila(rowData, $event.checked)">
+              </p-checkbox>
 
             </td>
 
             <td class="col-ingrediente">
               <a
-            class="td-link"
-            (click)="verDetalles(rowData)">
+                class="td-link"
+                (click)="verDetalles(rowData)">
 
-            {{ rowData. desVariedad }}
+                {{ rowData.desVariedad }}
 
-          </a>
-              
+              </a>
+
             </td>
 
             <td class="col-variedad">
               <input
-                    pInputText
-                    type="number"
-                    [(ngModel)]="rowData.racion"
-                    class="w-full">
+                pInputText
+                type="number"
+                [(ngModel)]="rowData.racion"
+                class="w-full">
             </td>
-
 
 
           </tr>
