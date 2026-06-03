@@ -41,3 +41,7 @@
   border: 12px solid transparent;
   border-radius: 12px;
 }
+
+:host ::ng-deep .p-menu {
+  min-height: 600px;
+}
