@@ -183,28 +183,30 @@
 /* Tab seleccionada */
 
 :host ::ng-deep .p-tab-active {
-
-    background: #F2FCF8 !important;
-
-    color: #10B981 !important;
-
-    font-weight: 500;
+  color: #0CBA7F;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 114.286% */
 }
 
 /* Línea inferior */
 
 :host ::ng-deep .p-tablist-active-bar {
-
-    background: #10B981 !important;
-
-    height: 3px !important;
+  color: #0CBA7F;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 114.286% */
 }
 
 /* Icono seleccionado */
 
 :host ::ng-deep .p-tab-active i {
 
-    color: #10B981 !important;
+    color: #0CBA7F !important;
 }
 
 /* TAB */

@@ -1,8 +1,8 @@
 <div class="table-container surface-card shadow-1 border-round surface-border border-1">
 
-<!-- =====================================================
-       HEADER
-       ===================================================== -->
+  <!-- =====================================================
+         HEADER
+         ===================================================== -->
 
   <div class="div-header">
 
@@ -16,225 +16,221 @@
             {{ periodo }}
         </span>
 
-        @if (tipoBusqueda === 'minuta') {
+      @if (tipoBusqueda === 'minuta') {
 
-            <div class="fecha-navegacion">
+        <div class="fecha-navegacion">
 
-                <button
-                    type="button"
-                    class="btn-fecha">
+          <button
+            type="button"
+            class="btn-fecha">
 
-                    <i class="placa-flecha-izq"></i>
+            <i class="placa-flecha-izq"></i>
 
-                </button>
+          </button>
 
-                <div class="fecha-actual">
-                    {{ fecha }}
-                </div>
+          <div class="fecha-actual">
+            {{ fecha }}
+          </div>
 
-                <button
-                    type="button"
-                    class="btn-fecha">
+          <button
+            type="button"
+            class="btn-fecha">
 
-                    <i class="placa-flecha-der"></i>
+            <i class="placa-flecha-der"></i>
 
-                </button>
+          </button>
 
-            </div>
+        </div>
 
-        }
+      }
 
-        @if (tipoBusqueda === 'periodo') {
+      @if (tipoBusqueda === 'periodo') {
 
-            <p-button
-                type="button"
-                styleClass="btn-nueva-solicitud" (click)="abrirModal()">
+        <p-button
+          type="button"
+          styleClass="btn-nueva-solicitud" (click)="abrirModal()">
 
-                <span>Duplicar periodo</span>
+          <span>Duplicar periodo</span>
 
-            </p-button>
+        </p-button>
 
-        }
+      }
 
     </div>
 
-</div>
+  </div>
 
-<p-tabs value="desayuno">
+  <p-tabs value="desayuno">
 
     <p-tablist>
 
-        <p-tab value="desayuno">
-            <i class="placa-desayuno mr-2"></i>
-            Desayuno
-        </p-tab>
+      <p-tab value="desayuno" class="tab-seccion-minutas">
+        <i class="placa-desayuno mr-2"></i>
+        Desayuno
+      </p-tab>
 
-        <p-tab value="comida">
-            <i class="placa-comida mr-2"></i>
-            Comida
-        </p-tab>
+      <p-tab value="comida">
+        <i class="placa-comida mr-2"></i>
+        Comida
+      </p-tab>
 
-        <p-tab value="cena">
-            <i class="placa-cena mr-2"></i>
-            Cena
-        </p-tab>
+      <p-tab value="cena">
+        <i class="placa-cena mr-2"></i>
+        Cena
+      </p-tab>
 
-        <p-tab value="colacion">
-            <i class="placa-colacion mr-2"></i>
-            Colación
-        </p-tab>
+      <p-tab value="colacion">
+        <i class="placa-colacion mr-2"></i>
+        Colación
+      </p-tab>
 
     </p-tablist>
 
     <p-tabpanels>
 
-        <p-tabpanel value="desayuno">
+      <p-tabpanel value="desayuno">
 
-            @if(desayuno){
+        @if (desayuno) {
 
-         <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
-                   <p-button
-    type="button"
-    styleClass="btn-modificar-raciones">
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
+            <p-button
+              type="button" (click)="modificar()"
+              styleClass="btn-modificar-raciones">
 
-    <i class="placa-pencil"></i>
+              <i class="placa-pencil"></i>
 
-    <span>Modificar raciones seleccionadas</span>
+              <span>Modificar raciones seleccionadas</span>
 
-</p-button>
-    </div>
-            <app-tabla-servicio-minuta
-                [servicioMinuta]="desayuno"
-                >
-            </app-tabla-servicio-minuta>
-            <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;margin-top: 1rem;">
-                   <p-button
-    type="button"
-    styleClass="btn-modificar-raciones">
+            </p-button>
+          </div>
+          <app-tabla-servicio-minuta
+            [servicioMinuta]="desayuno"
+          >
+          </app-tabla-servicio-minuta>
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;margin-top: 1rem;">
+            <p-button
+              type="button"
+              styleClass="btn-modificar-raciones">
 
 
+              <span>Restablecer valores anteriores</span>
 
-    <span>Restablecer valores anteriores</span>
-
-</p-button>
-<p-button
-            type="button"
-            label="Guardar"
-            [style]="{'width':'125px'}"  >
-          </p-button>
-    </div>
+            </p-button>
+            <p-button
+              type="button"
+              label="Guardar"
+              [style]="{'width':'125px'}">
+            </p-button>
+          </div>
         }
-        </p-tabpanel>
+      </p-tabpanel>
 
-        <p-tabpanel value="comida">
-@if(comida){
-    <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
-                   <p-button
-    type="button"
-    styleClass="btn-modificar-raciones">
+      <p-tabpanel value="comida">
+        @if (comida) {
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
+            <p-button
+              type="button"
+              styleClass="btn-modificar-raciones">
 
-    <i class="placa-pencil"></i>
+              <i class="placa-pencil"></i>
 
-    <span>Modificar raciones seleccionadas</span>
+              <span>Modificar raciones seleccionadas</span>
 
-</p-button>
-    </div>
-            <app-tabla-servicio-minuta
-                [servicioMinuta]="comida">
+            </p-button>
+          </div>
+          <app-tabla-servicio-minuta
+            [servicioMinuta]="comida">
 
-            </app-tabla-servicio-minuta>
-             <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;margin-top: 1rem;">
-                   <p-button
-    type="button"
-    styleClass="btn-modificar-raciones">
+          </app-tabla-servicio-minuta>
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;margin-top: 1rem;">
+            <p-button
+              type="button"
+              styleClass="btn-modificar-raciones">
 
 
+              <span>Restablecer valores anteriores</span>
 
-    <span>Restablecer valores anteriores</span>
-
-</p-button>
-<p-button
-            type="button"
-            label="Guardar"
-            [style]="{'width':'125px'}"  >
-          </p-button>
-    </div>
+            </p-button>
+            <p-button
+              type="button"
+              label="Guardar"
+              [style]="{'width':'125px'}">
+            </p-button>
+          </div>
         }
-        </p-tabpanel>
+      </p-tabpanel>
 
-        <p-tabpanel value="cena">
- @if(cena){
-    <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
-                   <p-button
-    type="button"
-    styleClass="btn-modificar-raciones">
+      <p-tabpanel value="cena">
+        @if (cena) {
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
+            <p-button
+              type="button"
+              styleClass="btn-modificar-raciones">
 
-    <i class="placa-pencil"></i>
+              <i class="placa-pencil"></i>
 
-    <span>Modificar raciones seleccionadas</span>
+              <span>Modificar raciones seleccionadas</span>
 
-</p-button>
-    </div>
-            <app-tabla-servicio-minuta
-                [servicioMinuta]="cena">
-            </app-tabla-servicio-minuta>
-             <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;margin-top: 1rem;">
-                   <p-button
-    type="button"
-    styleClass="btn-modificar-raciones">
+            </p-button>
+          </div>
+          <app-tabla-servicio-minuta
+            [servicioMinuta]="cena">
+          </app-tabla-servicio-minuta>
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;margin-top: 1rem;">
+            <p-button
+              type="button"
+              styleClass="btn-modificar-raciones">
 
 
+              <span>Restablecer valores anteriores</span>
 
-    <span>Restablecer valores anteriores</span>
-
-</p-button>
-<p-button
-            type="button"
-            label="Guardar"
-            [style]="{'width':'125px'}"  >
-          </p-button>
-    </div>
+            </p-button>
+            <p-button
+              type="button"
+              label="Guardar"
+              [style]="{'width':'125px'}">
+            </p-button>
+          </div>
         }
-        </p-tabpanel>
+      </p-tabpanel>
 
-        <p-tabpanel value="colacion">
-    @if(colacion){
-        <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
-                   <p-button
-    type="button"
-    styleClass="btn-modificar-raciones">
+      <p-tabpanel value="colacion">
+        @if (colacion) {
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
+            <p-button
+              type="button"
+              styleClass="btn-modificar-raciones">
 
-    <i class="placa-pencil"></i>
+              <i class="placa-pencil"></i>
 
-    <span>Modificar raciones seleccionadas</span>
+              <span>Modificar raciones seleccionadas</span>
 
-</p-button>
-    </div>
-            <app-tabla-servicio-minuta
-                [servicioMinuta]="colacion">
-            </app-tabla-servicio-minuta>
+            </p-button>
+          </div>
+          <app-tabla-servicio-minuta
+            [servicioMinuta]="colacion">
+          </app-tabla-servicio-minuta>
 
-             <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;margin-top: 1rem;">
-                   <p-button
-    type="button"
-    styleClass="btn-modificar-raciones">
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;margin-top: 1rem;">
+            <p-button
+              type="button"
+              styleClass="btn-modificar-raciones">
 
 
+              <span>Restablecer valores anteriores</span>
 
-    <span>Restablecer valores anteriores</span>
-
-</p-button>
-<p-button
-            type="button"
-            label="Guardar"
-            [style]="{'width':'125px'}"  >
-          </p-button>
-    </div>
+            </p-button>
+            <p-button
+              type="button"
+              label="Guardar"
+              [style]="{'width':'125px'}">
+            </p-button>
+          </div>
         }
-        </p-tabpanel>
+      </p-tabpanel>
 
 
     </p-tabpanels>
 
-</p-tabs>
+  </p-tabs>
 </div>
