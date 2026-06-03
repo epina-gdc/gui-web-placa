@@ -1,5 +1,5 @@
 <div class="alert-fixed-container flex flex-column w-100 justify-content-center align-items-center">
-  @for (alert of alerts; track alert) {
+  @for (alert of alerts(); track alert.title) {
     <div class="{{cssClass(alert)}} col-md-11 d-flex align-items-center justify-content-between"
          role="alert">
 
