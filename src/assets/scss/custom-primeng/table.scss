@@ -82,9 +82,8 @@
   }
 
   .p-datatable-sortable-column::after {
-    font-family: 'primeicons', sans-serif;
+    font-family: 'icomoon', sans-serif;
     font-style: normal;
-    font-weight: normal;
     font-variant: normal;
     text-transform: none;
     line-height: 1;
@@ -92,25 +91,30 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    content: '\e99e';
+    content: '\e91b';
+    font-weight: bold;
 
     position: absolute;
     right: 8px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 11px;
+    font-size: 16px;
     opacity: 0.5;
     transition: color 0.2s, opacity 0.2s;
   }
 
   .p-datatable-sortable-column[aria-sort="ascending"]::after {
+    font-family: 'primeicons', sans-serif;
     content: '\e930';
     opacity: 1;
+    font-size: 11px;
     font-weight: bold;
   }
 
   .p-datatable-sortable-column[aria-sort="descending"]::after {
+    font-family: 'primeicons', sans-serif;
     content: '\e933';
+    font-size: 11px;
     opacity: 1;
     font-weight: bold;
   }
