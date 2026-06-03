@@ -1,0 +1,223 @@
+@layer app-components {
+  :root {
+    --p-button-primary-background: #08865C;
+    --p-button-primary-border-color: #08865C;
+    --p-button-text-danger-color: #FF5B5E;
+  }
+
+  .p-button {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 14px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    text-decoration: none !important;
+
+    border-radius: 8px !important;
+
+    min-height: 42px !important;
+    padding: 0.75rem 1.25rem !important;
+
+    box-shadow: none !important;
+    outline: none !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+
+    overflow: hidden !important;
+
+    transition: background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease !important;
+  }
+
+
+  .p-button:disabled {
+    background-color: #0CBA7F;
+    border-color: #0CBA7F;
+    opacity: 0.5;
+  }
+
+  /* =========================================================
+     LABEL DEL BOTON
+     ========================================================= */
+  .p-button .p-button-label {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+  }
+
+  /* =========================================================
+     BOTON BUSCAR
+     ========================================================= */
+  .p-button.btn-background {
+    background: #08865C !important;
+    border: 1px solid #08865C !important;
+    color: #FFFFFF !important;
+  }
+
+  .p-button.btn-background:hover:not(:disabled) {
+    background: #066B49 !important;
+    border-color: #066B49 !important;
+    color: #FFFFFF !important;
+  }
+
+  .p-button.btn-background:focus {
+    box-shadow: 0 0 0 0.2rem rgba(8, 134, 92, 0.25) !important;
+  }
+
+  /* =========================================================
+     BOTON LIMPIAR
+     ========================================================= */
+  .p-button.btn-limpiar {
+    background: transparent !important;
+    border: none !important;
+    color: #9CCDBA !important;
+
+    font-family: "Noto Sans", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: normal !important;
+
+    box-shadow: none !important;
+    outline: none !important;
+
+    padding: 0.75rem 1rem !important;
+    min-height: 42px !important;
+
+    transition: color 0.2s ease !important;
+  }
+
+  .p-button.btn-limpiar:hover:not(:disabled) {
+    background: transparent !important;
+    border: none !important;
+    color: #6BAA92 !important;
+  }
+
+  .p-button.btn-limpiar:focus {
+    box-shadow: none !important;
+  }
+
+  .p-button.btn-limpiar .p-button-label {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+  }
+
+  /* =========================================================
+     BOTON CANCELAR
+     ========================================================= */
+  .p-button.btn-cancelar {
+    background: #611232 !important;
+    border: 1px solid #611232 !important;
+    color: #FFFFFF !important;
+  }
+
+  .p-button.btn-cancelar:hover:not(:disabled) {
+    background: #4E0E28 !important;
+    border-color: #4E0E28 !important;
+  }
+
+  /* =========================================================
+     BOTON ACTUALIZAR
+     ========================================================= */
+  .p-button.btn-actualizar {
+    background: #31708F !important;
+    border: 1px solid #31708F !important;
+    color: #FFFFFF !important;
+  }
+
+  .p-button.btn-actualizar:hover:not(:disabled) {
+    background: #24566E !important;
+    border-color: #24566E !important;
+  }
+
+  /* =========================================================
+     BOTON DISABLED
+     ========================================================= */
+  .p-button:disabled,
+  .p-button.p-disabled {
+    opacity: 0.65 !important;
+    cursor: not-allowed !important;
+  }
+
+  .nav-popover .p-popover-content {
+    padding: 0 !important;
+    min-width: 318px;
+  }
+
+  .p-popover:before {
+    border: none !important;
+  }
+
+  .inicio-sesion-button .p-button-label {
+    padding: 8px 20px;
+    min-height: 40px;
+    border-radius: 8px;
+    min-width: 135px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: 0;
+    color: #FFF;
+  }
+
+  .inicio-sesion-button .p-button {
+    padding: 0 !important;
+  }
+
+  .inicio-sesion-form .p-card-body {
+    padding: 0;
+  }
+
+
+  .boton-cancelar {
+
+    width: 80px !important;
+
+    height: 40px !important;
+
+    background: #FFFFFF !important;
+
+    border: 1px solid #EF4444 !important;
+
+    border-radius: 8px !important;
+
+    color: #EF4444 !important;
+
+    font-size: 14px !important;
+
+    font-weight: 500 !important;
+
+    box-shadow: none !important;
+
+    transition: all 0.2s ease;
+  }
+
+  /* Hover */
+  .boton-cancelar:hover {
+
+    background: #FEF2F2 !important;
+
+    border-color: #DC2626 !important;
+
+    color: #DC2626 !important;
+  }
+
+  /* Focus */
+  .boton-cancelar:focus {
+
+    box-shadow: none !important;
+  }
+
+  .p-button-icon-only::after {
+    display: none;
+  }
+}

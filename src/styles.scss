@@ -1,1 +1,202 @@
-/* You can add global styles to this file, and also import other style files */
+@use "primeflex/primeflex.css";
+@use "primeicons/primeicons.css";
+
+@use 'assets/scss/identidad/index';
+@use 'assets/scss/custom-primeng/index' as custom;
+@use 'assets/scss/general/index' as general;
+@use 'assets/scss/icons/index' as common;
+
+@import url("https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css") layer(framework);
+
+@layer app-components {
+
+  html,
+  body {
+    height: 100%;
+    font-size: 12px;
+    margin: 0;
+    background-color: var(--surface-placa) !important;
+    font-family: Noto Sans, serif !important;
+  }
+
+  .hr-vertical {
+    border: 10px;
+    margin: 10px;
+    border-left: 1px solid #b1b1b1;
+    height: 20px;
+    width: 0;
+    float: left;
+  }
+
+
+  .no-decoration {
+    text-decoration: none !important;
+  }
+
+  .ul-p-0 ul {
+    padding: 0 !important;
+  }
+
+  .titulo {
+    color: #374957;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 24px */
+  }
+
+  hr.vertical {
+    border: 10px;
+    margin: 10px;
+    border-left: 1px solid #ccc;
+    height: 20px;
+    width: 0;
+    float: left;
+  }
+
+  .background-white {
+    background-color: white;
+  }
+
+  .divformulario {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .label-container {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 0.5rem;
+  }
+
+
+  .contenedor-botones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .empty-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .p-datatable-thead > tr > th {
+    background: #F1F4FD !important;
+  }
+
+}
+
+.principal {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+
+.div-header {
+  border-radius: 12px 12px 0 0;
+  padding-left: 15px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.p-dialog {
+
+  border-radius: 8px !important;
+
+  overflow: hidden !important;
+}
+
+/* =========================================================
+   DIALOG HEADER
+   ========================================================= */
+
+.p-dialog .p-dialog-header {
+
+  border-top: 9px solid #0F9B9B !important;
+  background: transparent !important;
+  padding: 1rem !important;
+  height: 60px !important;
+}
+
+/* =========================================================
+   TITULO
+   ========================================================= */
+
+.p-dialog .p-dialog-title {
+
+  color: #374151 !important;
+
+  font-size: 18px !important;
+
+  font-weight: 700 !important;
+}
+
+/* =========================================================
+   BOTON CERRAR
+   ========================================================= */
+
+.p-dialog .p-dialog-header-actions {
+
+  display: flex !important;
+}
+
+.p-dialog .p-dialog-close-button {
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  width: 32px !important;
+
+  height: 32px !important;
+
+  border-radius: 50% !important;
+
+  background: transparent !important;
+
+  color: #6B7280 !important;
+}
+
+/* =========================================================
+   ICONO X
+   ========================================================= */
+
+.p-dialog .p-dialog-close-button .pi,
+.p-dialog .p-dialog-close-button svg {
+
+  display: block !important;
+  font-size: 14px !important;
+}
+
+label {
+  margin-bottom: 0;
+}
+
+.icono-aprobada {
+  color: #0AA16E;
+  font-size: 20px;
+}
+
+.icono-rechazada {
+  color: #DF5A68;
+  font-size: 20px;
+
+}

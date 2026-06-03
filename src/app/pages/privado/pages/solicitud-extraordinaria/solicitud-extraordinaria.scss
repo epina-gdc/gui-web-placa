@@ -1,0 +1,28 @@
+.campo {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.tituloLabel {
+
+  font-size: 14px;
+
+  font-weight: 400;
+
+  color: #7C8DB5;
+}
+
+.valor {
+
+  font-size: 16px;
+
+  font-weight: 400;
+
+  color: #4B5563;
+
+  line-height: 1.2;
+}

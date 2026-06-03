@@ -1,0 +1,61 @@
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.div-header {
+  width: 100%;
+  height: 26px;
+  background: #F4F7FC;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #E5E7EB;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
+
+.texto-header {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374957;
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+/* =========================================================
+   COLUMNAS
+   ========================================================= */
+
+.col-no {
+
+  width: 4%;
+}
+
+.col-ingrediente {
+
+  width: 34%;
+}
+
+.col-variedad {
+
+  width: 22%;
+}
+
+.col-uso {
+
+  width: 24%;
+}
+
+.col-porcion {
+
+  width: 8%;
+
+  text-align: left;
+}
+
+.col-eliminar {
+
+  width: 8%;
+
+  text-align: center;
+}

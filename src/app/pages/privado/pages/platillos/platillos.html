@@ -1,0 +1,126 @@
+<app-seccion-titulos [titulo]="'Platillos'"></app-seccion-titulos>
+
+<div class="principal pb-4">
+
+  <app-seccion-busqueda [titulo]="'Búsqueda de Platillos'">
+    <section class="divformulario">
+
+      <form [formGroup]="filtroForm">
+
+        <!-- Campos -->
+        <article class="grid">
+
+          <!-- Nombre o clave -->
+          <div class="lg:col-3 col-12">
+
+            <div class="flex justify-content-between">
+              <label class="label-input">
+                Nombre o clave
+              </label>
+            </div>
+
+            <div class="input-search-container">
+
+              <input
+                pInputText
+                type="text"
+                placeholder="Ingresar"
+                class="input-search w-full"
+                formControlName="nombreClave"
+              />
+
+              <i class="placa-busqueda icon-search"></i>
+
+            </div>
+
+          </div>
+
+          <!-- Grupo -->
+          <div class="lg:col-3 col-12">
+
+            <div class="flex justify-content-between">
+              <label class="label-input">
+                Grupo
+              </label>
+            </div>
+
+            <p-select
+              formControlName="grupo"
+              [options]="gruposPlatillo"
+              optionLabel="desGrupoPlatillo"
+              optionValue="idGrupoPlatillo"
+              placeholder="Seleccionar"
+              class="w-full custom-dropdown ph-custom">
+            </p-select>
+
+          </div>
+
+          <!-- Subgrupo -->
+          <div class="lg:col-3 col-12">
+
+            <div class="flex justify-content-between">
+              <label class="label-input">
+                Subgrupo
+              </label>
+            </div>
+
+            <p-select
+              formControlName="subgrupo"
+              [options]="subgruposPlatillo"
+              optionLabel="desSubgrupoPlatillo"
+              optionValue="idSubgrupoPlatillo"
+              placeholder="Seleccionar"
+              class="w-full custom-dropdown ph-custom">
+            </p-select>
+
+          </div>
+
+          <!-- Estatus -->
+          <div class="lg:col-3 col-12">
+
+            <div class="flex justify-content-between">
+              <label class="label-input">
+                Estatus
+              </label>
+            </div>
+
+            <p-select
+              formControlName="estatus"
+              [options]="estatusPlatillo"
+              optionLabel="desEstatusPlatillo"
+              optionValue="idEstatusPlatillo"
+              placeholder="Seleccionar"
+              class="w-full custom-dropdown ph-custom">
+            </p-select>
+
+          </div>
+
+        </article>
+
+        <!-- Botones -->
+        <div class="contenedor-botones">
+
+          <p-button
+            type="button"
+            label="Limpiar"
+            styleClass="btn-limpiar"
+            [style]="{'width':'90px'}">
+          </p-button>
+
+
+          <p-button
+            type="button"
+            label="Buscar"
+            [style]="{'width':'125px'}" (click)="consultarPlatillos()">
+          </p-button>
+
+        </div>
+
+      </form>
+
+    </section>
+  </app-seccion-busqueda>
+
+  <app-tabla-platillos [data]="platillos" class="pb-5" />
+
+</div>

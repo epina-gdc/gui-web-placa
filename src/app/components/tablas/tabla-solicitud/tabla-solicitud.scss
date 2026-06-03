@@ -1,0 +1,301 @@
+/* Hover */
+
+.btn-nuevo-platillo:hover {
+  background: #0F6E49 !important;
+}
+
+/* Icono */
+
+.btn-nuevo-platillo .pi {
+  font-size: 16px !important;
+}
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+:host ::ng-deep .custom-paginator .p-button {
+
+  background: transparent !important;
+
+  border: none !important;
+
+  box-shadow: none !important;
+
+  color: #6B7280 !important;
+
+  font-size: 14px !important;
+
+  font-weight: 500 !important;
+}
+
+:host ::ng-deep .custom-paginator .p-button:hover {
+
+  background: #E5E7EB !important;
+
+  border-radius: 8px !important;
+}
+
+.btn-paginador {
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+
+  background: transparent !important;
+  border: none !important;
+
+  color: #9CA3AF !important;
+
+  font-size: 14px !important;
+  font-weight: 500 !important;
+
+  padding: 0.5rem 0.75rem !important;
+
+  border-radius: 8px !important;
+
+  box-shadow: none !important;
+
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+
+.btn-paginador:hover {
+
+  background: #E5E7EB !important;
+
+  color: #6B7280 !important;
+}
+
+/* Icono */
+
+.btn-paginador .pi {
+
+  font-size: 12px !important;
+}
+
+/* Disabled */
+
+.btn-paginador:disabled {
+
+  opacity: 0.5;
+
+  cursor: default;
+}
+
+:host ::ng-deep .btn-nueva-solicitud.p-button {
+
+  background: #FFFFFF !important;
+
+  border: 1px solid #4BAF8A !important;
+
+  color: #4BAF8A !important;
+
+  border-radius: 8px !important;
+
+  height: 40px !important;
+
+  padding: 0 16px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  gap: 8px !important;
+
+  font-size: 14px !important;
+
+  font-weight: 500 !important;
+
+  box-shadow: none !important;
+}
+
+:host ::ng-deep .btn-nueva-solicitud.p-button:hover {
+
+  background: #F0FBF6 !important;
+
+  border-color: #3C9D79 !important;
+
+  color: #3C9D79 !important;
+}
+
+:host ::ng-deep .btn-nueva-solicitud .pi {
+
+  font-size: 14px !important;
+}
+
+:host ::ng-deep .btn-nueva-solicitud:focus {
+
+  box-shadow: none !important;
+}
+
+
+.acciones-solicitud {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+}
+
+/* =========================================================
+   APROBAR
+   ========================================================= */
+
+.btn-aprobar {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  color: #0AA16E;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  padding: 0;
+}
+
+.btn-aprobar .pi {
+
+  font-size: 12px;
+}
+
+.btn-aprobar:hover {
+
+  opacity: .8;
+}
+
+/* =========================================================
+   RECHAZAR
+   ========================================================= */
+
+.btn-rechazar {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  color: #DF5A68;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  padding: 0;
+}
+
+.btn-rechazar .pi {
+
+  font-size: 12px;
+}
+
+.btn-rechazar:hover {
+
+  opacity: .8;
+}
+
+.tooltip-container {
+
+  position: relative;
+
+  display: inline-block;
+
+  cursor: pointer;
+}
+
+/* Tooltip oculto */
+
+.tooltip-custom {
+
+  position: absolute;
+
+  top: 50%;
+
+  right: 120%;
+
+  transform: translateY(-50%);
+
+  min-width: 220px;
+
+  background: #6B6B6B;
+
+  color: white;
+
+  border-radius: 4px;
+
+  padding: 12px;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition: all 0.2s ease;
+
+  z-index: 1000;
+}
+
+/* Flecha */
+
+.tooltip-custom::after {
+
+  content: '';
+
+  position: absolute;
+
+  top: 50%;
+
+  right: -6px;
+
+  transform: translateY(-50%);
+
+  border-top: 6px solid transparent;
+
+  border-bottom: 6px solid transparent;
+
+  border-left: 6px solid #6B6B6B;
+}
+
+/* Mostrar al pasar el mouse */
+
+.tooltip-container:hover .tooltip-custom {
+
+  opacity: 1;
+
+  visibility: visible;
+}
+
+.tooltip-titulo {
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  margin-bottom: 6px;
+}
+
+.tooltip-texto {
+
+  font-size: 14px;
+
+  font-weight: 400;
+}

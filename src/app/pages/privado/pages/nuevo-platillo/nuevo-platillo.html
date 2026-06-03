@@ -1,0 +1,257 @@
+<app-seccion-titulos [titulo]="'Nuevo platillo'" [retorno]="true" [ruta]="'/privado/platillos'"></app-seccion-titulos>
+
+<div class="principal">
+
+  <app-seccion-busqueda [titulo]="'Información del platillo'">
+    <div class="divformulario background-white">
+      <form [formGroup]="filtroForm">
+
+        <!-- Campos -->
+        <article class="grid">
+
+          <!-- Nombre o clave -->
+          <div class="lg:col-3 col-12">
+
+            <div class="label-container">
+
+              <label class="label-input">
+                Nombre
+              </label>
+
+              <span class="required-text">Obligatorio</span>
+
+            </div>
+
+
+            <input
+              pInputText
+              type="text"
+              class="w-full"
+              placeholder="Ingresar"
+
+              formControlName="nombre"
+            />
+
+
+          </div>
+
+          <!-- Grupo -->
+          <div class="lg:col-3 col-12">
+
+            <div class="label-container">
+
+              <label class="label-input">
+                Grupo
+              </label>
+
+              <span class="required-text">Obligatorio</span>
+
+            </div>
+
+            <p-select
+              formControlName="grupo"
+              [options]="gruposPlatillo"
+              optionLabel="desGrupoPlatillo"
+              optionValue="idGrupoPlatillo"
+              placeholder="Selecciona una opción"
+              class="w-full custom-dropdown ph-custom">
+            </p-select>
+
+          </div>
+
+          <!-- Subgrupo -->
+          <div class="lg:col-3 col-12">
+
+            <div class="label-container">
+
+              <label class="label-input">
+                Subgrupo
+              </label>
+
+              <span class="required-text">Obligatorio</span>
+
+            </div>
+
+            <p-select
+              formControlName="subgrupo"
+              [options]="subgruposPlatillo"
+              optionLabel="desSubgrupoPlatillo"
+              optionValue="idSubgrupoPlatillo"
+              placeholder="Selecciona una opción"
+              class="w-full custom-dropdown ph-custom">
+            </p-select>
+
+          </div>
+
+          <!-- Estatus -->
+          <div class="lg:col-3 col-12">
+
+            <div class="label-container">
+
+              <label class="label-input">
+                Estatus
+              </label>
+
+              <span class="required-text">Obligatorio</span>
+
+            </div>
+
+            <p-select
+              formControlName="estatus"
+              [options]="estatusPlatillo"
+              optionLabel="desEstatusPlatillo"
+              optionValue="idEstatusPlatillo"
+              placeholder="Selecciona una opción"
+              class="w-full custom-dropdown ph-custom">
+            </p-select>
+
+          </div>
+
+        </article>
+
+        <div class="section-title-container">
+
+          <span class="filter-section-title">
+            Ingredientes del platillo
+          </span>
+
+        </div>
+
+        <hr class="hr-seccion-busqueda">
+
+
+      </form>
+
+      <div>
+        <form [formGroup]="ingredienteForm">
+          <article class="grid">
+            <div class="lg:col-3 col-12">
+
+              <div class="flex justify-content-between">
+                <label class="label-input">
+                  Ingrediente
+                </label>
+              </div>
+
+              <div class="input-search-container">
+
+                <!-- INPUT -->
+
+                <div class="search-input-wrapper">
+                  <input
+                    class="w-full"
+                    pInputText
+                    type="text"
+                    formControlName="ingredienteTexto"
+                    placeholder="Buscar"
+                    (input)="filtrarIngredientes()"
+                    (focus)="mostrarLista = true" />
+
+                  <i class="placa-busqueda icon-search"></i>
+
+                </div>
+
+                <!-- LISTA -->
+
+                @if (mostrarLista && ingredientesFiltrados.length > 0) {
+
+                  <div class="lista-ingredientes">
+
+                    @for (ingrediente of ingredientesFiltrados;
+                      track ingrediente.idIngrediente) {
+
+                      <div
+                        class="item-ingrediente"
+                        (click)="seleccionarIngrediente(ingrediente)">
+
+                        {{ ingrediente.desIngrediente }}
+
+                      </div>
+
+                    }
+
+                  </div>
+
+                }
+
+              </div>
+
+            </div>
+            <div class="lg:col-3 col-12">
+
+              <div class="flex justify-content-between">
+                <label class="label-input">
+                  Variedad
+                </label>
+              </div>
+
+              <p-select
+                formControlName="variedad"
+                [options]="listaVariedades"
+                optionLabel="desVariedad"
+                optionValue="idVariedad"
+                placeholder="Selecciona una opción"
+                class="w-full custom-dropdown ph-custom">
+              </p-select>
+
+            </div>
+
+            <div class="lg:col-3 col-12">
+
+              <div class="flex justify-content-between">
+                <label class="label-input">
+                  Uso
+                </label>
+              </div>
+
+              <p-select
+                formControlName="uso"
+                [options]="listaUsos"
+                optionLabel="desUso"
+                optionValue="idUso"
+                placeholder="Selecciona una opción"
+                class="w-full custom-dropdown ph-custom">
+              </p-select>
+
+            </div>
+            <div class="lg:col-3 col-12 flex align-items-end justify-content-start">
+              <button
+                pButton
+                type="button"
+                style="{width: 190px}"
+                class="btn-agregar-ingrediente" [disabled]="filtroForm.invalid" (click)="agregarIngrediente()">
+
+
+                <i class="placa-add"></i>
+
+                <span>Agregar ingrediente</span>
+
+              </button>
+            </div>
+          </article>
+        </form>
+      </div>
+    </div>
+
+  </app-seccion-busqueda>
+
+  <app-tabla-ingredientes [data]="ingredientesPlatillo"></app-tabla-ingredientes>
+</div>
+
+<div class="contenedor-botones pb-5">
+
+  <p-button
+    type="button"
+    label="Cancelar"
+    styleClass="boton-cancelar">
+  </p-button>
+
+
+  <p-button
+    type="button"
+    label="Guardar cambios"
+    styleClass="btn-background"
+    [style]="{'width':'150px'}">
+  </p-button>
+
+</div>

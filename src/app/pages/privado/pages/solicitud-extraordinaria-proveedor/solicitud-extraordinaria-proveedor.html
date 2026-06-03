@@ -1,0 +1,91 @@
+<app-seccion-titulos [titulo]="'Solicitud extraordianaria al proveedor'"></app-seccion-titulos>
+
+
+<div class="principal pb-4">
+  <app-seccion-busqueda [titulo]="'Búsqueda de solicitudes'">
+    <div class="divformulario background-white">
+      <form [formGroup]="filtroForm">
+
+        <article class="grid">
+
+          <div class="lg:col-3 col-12">
+            <div class="flex justify-content-between">
+              <label class="label-input" for="fecha">Fecha de registro</label>
+
+            </div>
+            <p-datepicker
+              formControlName="fecha"
+              placeholder="Selecciona"
+              [style]="{ width: '100%' }"
+              [iconDisplay]="'input'"
+              [showIcon]="true"
+              appendTo="body"
+              inputId="icondisplay">
+            </p-datepicker>
+
+          </div>
+          <div class="lg:col-3 col-12">
+
+            <div class="flex justify-content-between">
+              <label class="label-input">
+                Folio
+              </label>
+            </div>
+
+            <input
+              pInputText
+              type="text"
+              class="w-full"
+              placeholder="Ingresar"
+
+              formControlName="folio"
+            />
+
+
+          </div>
+          <div class="lg:col-3 col-12">
+
+            <div class="flex justify-content-between">
+              <label class="label-input">
+                Estatus
+              </label>
+            </div>
+
+            <p-select
+              formControlName="estatus"
+              [options]="listaEstatus"
+              optionLabel="desEstatus"
+              optionValue="idEstatus"
+              placeholder="Selecciona una opción"
+              class="w-full custom-dropdown ph-custom">
+            </p-select>
+
+          </div>
+          <div class="lg:col-3 col-12 contenedor-botones-solicitud">
+            <p-button
+              type="button"
+              label="Limpiar"
+              styleClass="btn-limpiar"
+              [style]="{'width':'110px'}">
+            </p-button>
+
+
+            <p-button
+              type="button"
+              label="Buscar"
+              styleClass="btn-background"
+              [style]="{'width':'110px'}">
+            </p-button>
+
+
+          </div>
+        </article>
+      </form>
+    </div>
+  </app-seccion-busqueda>
+
+  <div>
+    <app-tabla-solicitud [data]="solicitudes" />
+  </div>
+
+</div>

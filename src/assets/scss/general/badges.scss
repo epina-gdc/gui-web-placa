@@ -1,0 +1,29 @@
+.badge-estatus {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 105px;
+  max-width: 120px;
+  height: 20px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+.badge-aprobada {
+  background: #9CE2C2;
+  color: #169C5F;
+}
+
+.badge-pendiente {
+  background: #FFF2CA;
+  color: #FF9B06;
+}
+
+.badge-rechazada {
+  background: #F8D7DA;
+  color: #DC3545;
+}

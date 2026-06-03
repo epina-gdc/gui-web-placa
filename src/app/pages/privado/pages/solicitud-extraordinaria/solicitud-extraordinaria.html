@@ -1,0 +1,107 @@
+<app-seccion-titulos [titulo]="'Solicitud extraordinaria al proveedor'"
+                     [retorno]="true" [ruta]="'/privado/solicitud-extraordinaria-proveedor'"></app-seccion-titulos>
+
+<div class="principal">
+
+  <app-seccion-template [leyenda]="'Folio'" [idLeyenda]="solicitud.folio">
+    <div class="divformulario background-white">
+
+
+      <!-- Campos -->
+      <article class="grid">
+
+        <div class="lg:col-3 col-12">
+
+          <div class="campo">
+
+        <span class="tituloLabel">
+            Fecha de registro
+        </span>
+
+            <span class="valor">
+            @if (solicitud.fecha) {
+              {{ solicitud.fecha | date:'dd/MM/yyyy' }}
+            }
+        </span>
+
+          </div>
+
+        </div>
+
+        <div class="lg:col-3 col-12">
+
+          <div class="campo">
+
+        <span class="tituloLabel">
+            Responsable del registro
+        </span>
+
+            <span class="valor">
+            {{ solicitud.responsable ?? '' }}
+        </span>
+
+          </div>
+
+        </div>
+
+        <div class="lg:col-3 col-12">
+
+          <div class="campo">
+
+        <span class="tituloLabel">
+            Estatus
+        </span>
+
+            @switch (solicitud.estatus) {
+              @case ('Aprobada') {
+                <span class="badge-estatus badge-aprobada">
+                Aprobada
+              </span>
+              }
+              @case ('Pendiente') {
+                <span class="badge-estatus badge-pendiente">
+                Pendiente
+              </span>
+              }
+              @case ('Rechazada') {
+                <span class="badge-estatus badge-rechazada">
+                Rechazada
+              </span>
+              }
+            }        </div>
+
+        </div>
+
+
+        <div class="lg:col-3 col-12">
+
+          <div class="campo">
+
+        <span class="tituloLabel">
+            Fecha de último cambio de estatus
+        </span>
+
+            <span class="valor">
+            @if (solicitud.fechaActualizacion) {
+              {{ solicitud.fechaActualizacion | date:'dd/MM/yyyy' }}
+            }
+        </span>
+
+          </div>
+
+        </div>
+
+
+      </article>
+
+
+    </div>
+  </app-seccion-template>
+
+  <div>
+    <app-tabla-nueva-solicitud [data]="solicitud.ingredientes ?? []" [edicion]="false"></app-tabla-nueva-solicitud>
+  </div>
+
+
+</div>
+

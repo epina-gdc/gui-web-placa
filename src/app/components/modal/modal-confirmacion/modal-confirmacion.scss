@@ -1,0 +1,56 @@
+.modal-confirmacion {
+  display: flex;
+  flex-direction: column;
+}
+
+.contenido-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 140px;
+}
+
+.mensaje {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #44474C;
+}
+
+.acciones {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 1rem;
+
+  padding-bottom: 1rem;
+}
+
+/* Cancelar */
+
+:host ::ng-deep .btn-cancelar {
+
+  background: white !important;
+
+  border: 1px solid #DC2626 !important;
+
+  color: #DC2626 !important;
+
+  min-width: 120px;
+}
+
+/* Aceptar */
+
+:host ::ng-deep .btn-aceptar {
+
+  background: #138A5B !important;
+
+  border: 1px solid #138A5B !important;
+
+  color: white !important;
+
+  min-width: 140px;
+}

@@ -1,0 +1,121 @@
+@layer app-components {
+  :root {
+    --p-datatable-border-color: #f1f3f5;
+  }
+
+  .p-datatable-tbody > tr {
+    height: 35px !important;
+  }
+
+  .p-datatable-thead > tr > th {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #58595C !important;
+    background: #F4F7FC !important;
+    height: 58px !important;
+    border: none !important;
+    padding: 0 1rem !important;
+  }
+
+  .p-datatable-tbody > tr > td {
+    border: none !important;
+    border-bottom: 1px solid #E5E7EB !important;
+    color: #58595C;
+    padding: 10px !important;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: 0;
+    font-family: "Noto Sans", sans-serif;
+  }
+
+  .footer-tabla {
+    width: 100%;
+    background: #F1F4FD;
+    border-top: 1px solid #E5E7EB;
+    min-height: 48px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .td-sin-resultados {
+    font-weight: 300;
+    line-height: 120%;
+    letter-spacing: 0;
+    font-size: 18px;
+    color: #8A8A8A;
+  }
+
+  p-datatable-table {
+    border-collapse: collapse !important;
+    table-layout: fixed !important;
+  }
+
+
+  .p-datatable,
+  .p-datatable-wrapper,
+  .p-datatable-table {
+    width: 100% !important;
+  }
+
+
+  /* =========================================================
+     SORT ICON PRIME
+     ========================================================= */
+  p-sorticon,
+  .p-datatable-sort-icon,
+  .p-datatable-sort-icon svg {
+    display: none !important;
+  }
+
+  /* =========================================================
+     CUSTOM SORT
+     ========================================================= */
+  .p-datatable-sortable-column {
+    position: relative;
+    padding-right: 18px !important;
+  }
+
+  .p-datatable-sortable-column::after {
+    font-family: 'icomoon', sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    content: '\e91b';
+    font-weight: bold;
+
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    opacity: 0.5;
+    transition: color 0.2s, opacity 0.2s;
+  }
+
+  .p-datatable-sortable-column[aria-sort="ascending"]::after {
+    font-family: 'primeicons', sans-serif;
+    content: '\e930';
+    opacity: 1;
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+  .p-datatable-sortable-column[aria-sort="descending"]::after {
+    font-family: 'primeicons', sans-serif;
+    content: '\e933';
+    font-size: 11px;
+    opacity: 1;
+    font-weight: bold;
+  }
+}
