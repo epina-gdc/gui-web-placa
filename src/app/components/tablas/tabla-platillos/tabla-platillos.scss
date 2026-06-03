@@ -2,3 +2,21 @@
 .btn-nuevo-platillo .pi {
   font-size: 16px !important;
 }
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.table-container {
+  overflow: hidden;
+}
+
+:host ::ng-deep .p-datatable-wrapper {
+  overflow-x: auto !important;
+}
+
+:host ::ng-deep .tabla-custom th,
+:host ::ng-deep .tabla-custom td {
+  white-space: nowrap;
+}

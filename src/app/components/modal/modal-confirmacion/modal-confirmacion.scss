@@ -1,6 +1,7 @@
 .modal-confirmacion {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .contenido-modal {
@@ -8,14 +9,27 @@
   justify-content: center;
   align-items: center;
   min-height: 140px;
+  padding: 0 1rem;
 }
 
 .mensaje {
   font-weight: 400;
   font-size: 14px;
-  line-height: 100%;
+  line-height: 1.35;
   letter-spacing: 0;
   color: #44474C;
+  margin: 0;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.contenedor-botones {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+:host ::ng-deep .contenedor-botones .p-button {
+  min-width: 120px;
 }
 
 .acciones {
@@ -53,4 +67,23 @@
   color: white !important;
 
   min-width: 140px;
+}
+
+@media (max-width: 640px) {
+  .contenido-modal {
+    min-height: auto;
+    padding: 1rem 0;
+  }
+
+  .contenedor-botones {
+    align-items: stretch;
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  :host ::ng-deep .contenedor-botones .p-button,
+  :host ::ng-deep .contenedor-botones .p-button button {
+    width: 100% !important;
+  }
 }

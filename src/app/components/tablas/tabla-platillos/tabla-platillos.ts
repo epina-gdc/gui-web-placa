@@ -169,13 +169,17 @@ export class TablaPlatillos {
   eliminarPlatillo(): void {
     const ref = this.dialogService.open(ModalConfirmacion, {
       header: 'Eliminar platillo',
-      width: '800px',
-      height: '300px',
+      width: '90vw',
+      styleClass: 'modal-confirmacion-dialog',
       draggable: false,
       modal: true,
       closable: true,
       showHeader: true,
       dismissableMask: false,
+      breakpoints: {
+        '960px': '75vw',
+        '640px': '90vw',
+      },
       data: {
         mensaje: 'Confirme que desea eliminar este platillo. Esta acción no se puede deshacer',
         textoBoton: 'Sí, confirmar',
