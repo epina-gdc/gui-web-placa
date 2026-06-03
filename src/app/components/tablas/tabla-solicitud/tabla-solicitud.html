@@ -160,25 +160,20 @@
 
             @switch (rowData.estatus) {
               @case ('Aprobada') {
-                <img src="/assets/Images/aprovado.png" alt="Aprobada">
+                <span class="placa-solicitud icono-aprobada" aria-label="Aprobada"></span>
               }
               @case ('Rechazada') {
                 <div class="tooltip-container">
 
-                  <img
-                    src="/assets/Images/rechazado.png"
-                    alt="Rechazar">
+                  <span class="placa-solicitud icono-rechazada" aria-label="Rechazada"></span>
 
                   <div class="tooltip-custom">
-
                     <div class="tooltip-titulo">
                       Motivo de rechazo
                     </div>
-
                     <div class="tooltip-texto">
                       {{ rowData.motivoRechazo }}
                     </div>
-
                   </div>
 
                 </div>
@@ -200,7 +195,7 @@
                     type="button"
                     class="btn-rechazar" (click)="rechazar()">
 
-                    <i class="pi pi-times"></i>
+                    <i class="placa-cross"></i>
 
                     <span>Rechazar</span>
 

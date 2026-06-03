@@ -8,4 +8,17 @@
     --p-radiobutton-icon-checked-hover-color: #08865c;
   }
 
+  .p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon {
+    background-image: url("./../../../assets/Images/toggle.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 13px;
+    height: 13px;
+    display: block;
+  }
+
+  .p-radiobutton-box.p-highlight {
+    background: transparent !important;
+    border-color: #28a745 !important;
+  }
 }
