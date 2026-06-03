@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, computed, inject, input, signal } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
@@ -18,18 +18,16 @@ enum AlertType {
   styleUrls: ['./alerta.scss'],
 })
 export class Alerta implements OnInit, OnDestroy {
+  private readonly router = inject(Router);
+  private readonly alertService = inject(AlertService);
+
   private readonly destroy$ = new Subject<void>();
 
-  @Input() public readonly id: string = 'default-alerta';
-  @Input() public readonly fade: boolean = true;
-  @Input() public autoCloseTime = 6000;
+  public readonly id = input<string>('default-alerta');
+  public readonly fade = input<boolean>(true);
+  public readonly autoCloseTime = input<number>(6000);
 
-  public alerts: Alert[] = [];
-
-  constructor(
-    private readonly router: Router,
-    private readonly alertService: AlertService,
-  ) {}
+  public readonly alerts = signal<Alert[]>([]);
 
   ngOnInit() {
     this.subscribeToAlerts();
@@ -43,24 +41,24 @@ export class Alerta implements OnInit, OnDestroy {
 
   private subscribeToAlerts(): void {
     this.alertService
-      .onAlert(this.id)
+      .onAlert(this.id())
       .pipe(takeUntil(this.destroy$))
       .subscribe((alert) => {
         if (!alert.message) {
-          this.alerts = this.alerts.filter((x) => x.keepAfterRouteChange);
-
-          for (const remainingAlert of this.alerts) {
-            remainingAlert.keepAfterRouteChange = false;
-          }
+          this.alerts.update((currentAlerts) => {
+            const filtered = currentAlerts.filter((x) => x.keepAfterRouteChange);
+            return filtered.map((remainingAlert) => ({
+              ...remainingAlert,
+              keepAfterRouteChange: false,
+            }));
+          });
           return;
         }
 
-        // Añadir alerta al array
-        this.alerts.push(alert);
+        this.alerts.update((currentAlerts) => [...currentAlerts, alert]);
 
-        // Auto cerrar alerta si es requerido
         if (alert.autoClose) {
-          setTimeout(() => this.removeAlert(alert), this.autoCloseTime);
+          setTimeout(() => this.removeAlert(alert), this.autoCloseTime());
         }
       });
   }
@@ -72,36 +70,39 @@ export class Alerta implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
       )
       .subscribe(() => {
-        this.alertService.clear(this.id);
+        this.alertService.clear(this.id());
       });
   }
 
   public removeAlert(alert: Alert): void {
-    if (!this.alerts.includes(alert)) {
+    const alertExists = this.alerts().some((x) => x.message === alert.message);
+    if (!alertExists) {
       return;
     }
 
-    if (this.fade) {
-      const alertToFade = this.alerts.find((x) => x === alert);
-      if (alertToFade) {
-        alertToFade.fade = true;
-      }
+    if (this.fade()) {
+      this.alerts.update((currentAlerts) =>
+        currentAlerts.map((x) => (x.message === alert.message ? { ...x, fade: true } : x)),
+      );
+
       setTimeout(() => {
-        this.alerts = this.alerts.filter((x) => x !== alert);
+        this.alerts.update((currentAlerts) =>
+          currentAlerts.filter((x) => x.message !== alert.message),
+        );
       }, 250);
     } else {
-      this.alerts = this.alerts.filter((x) => x !== alert);
+      this.alerts.update((currentAlerts) =>
+        currentAlerts.filter((x) => x.message !== alert.message),
+      );
     }
   }
 
   public close(alert: Alert): void {
-    this.alerts = this.alerts.filter((x) => x !== alert);
+    this.alerts.update((currentAlerts) => currentAlerts.filter((x) => x.message !== alert.message));
   }
 
   public cssClass(alert: Alert): string {
-    if (!alert) {
-      return '';
-    }
+    if (!alert) return '';
 
     const alertTypeClasses: Record<AlertType, string> = {
       [AlertType.Success]: 'alerta-success',
@@ -111,14 +112,11 @@ export class Alerta implements OnInit, OnDestroy {
     };
 
     const typeClass = alertTypeClasses[alert.type as AlertType] || '';
-
     return `alert ${typeClass}`;
   }
 
   public cssIcon(alert: Alert): string {
-    if (!alert) {
-      return '';
-    }
+    if (!alert) return '';
 
     const alertTypeIcons: Record<AlertType, string> = {
       [AlertType.Success]: 'placa-alerta-check',
