@@ -206,4 +206,5 @@ export class DetalleMinuta {
   guardar(): void {
     this._alertaService.exito('La modificación se guardo con éxito', '');
   }
+
 }
