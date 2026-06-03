@@ -14,6 +14,7 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { PaginatorModule } from 'primeng/paginator';
 import { TableModule } from 'primeng/table';
+import { AlertService } from '@core/services/alert.service';
 
 @Component({
   selector: 'app-tabla-solicitud',
@@ -32,6 +33,8 @@ import { TableModule } from 'primeng/table';
   standalone: true,
 })
 export class TablaSolicitud {
+  protected _alertaService: AlertService = inject(AlertService);
+
   @Input() data: Solicitud[] = [];
   dataOrdenada: Solicitud[] = [];
 
@@ -202,6 +205,10 @@ export class TablaSolicitud {
         textoBoton: 'Aprobar solicitud',
       },
     });
+
+    ref?.onClose?.subscribe(() => {
+      this.cambioEstatus();
+    });
   }
 
   rechazar(): void {
@@ -218,6 +225,14 @@ export class TablaSolicitud {
         textoBoton: 'Rechazar solicitud',
       },
     });
+
+    ref?.onClose?.subscribe(() => {
+      this.cambioEstatus();
+    });
+  }
+
+  cambioEstatus(): void {
+    this._alertaService.exito('El estatus se actualizó correctamente', '');
   }
 
   verDetalles(solicitud: Solicitud): void {

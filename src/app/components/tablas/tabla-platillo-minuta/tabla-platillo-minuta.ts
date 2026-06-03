@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
+import { Component, inject, Input, signal, SimpleChanges, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ColumnDefinition } from '@core/models/columna-tabla';
 import { PlatilloMinuta } from '@core/models/platillo-minuta.interface';
@@ -9,6 +9,7 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { PaginatorModule } from 'primeng/paginator';
 import { TableModule } from 'primeng/table';
+import { AlertService } from '@core/services/alert.service';
 
 @Component({
   selector: 'app-tabla-platillo-minuta',
@@ -26,6 +27,8 @@ import { TableModule } from 'primeng/table';
   styleUrl: './tabla-platillo-minuta.scss',
 })
 export class TablaPlatilloMinuta {
+  protected _alertaService: AlertService = inject(AlertService);
+
   @Input() data: PlatilloMinuta[] = [];
 
   first: WritableSignal<number> = signal(0);
@@ -129,5 +132,9 @@ export class TablaPlatilloMinuta {
 
   goToPage(page: number): void {
     this.first.set((page - 1) * this.rows());
+  }
+
+  eliminarPlatillo(): void {
+    this._alertaService.exito('Platillo eliminado', '');
   }
 }

@@ -8,6 +8,7 @@ import { Platillo } from '@core/models/platillo.interface';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { SelectModule } from 'primeng/select';
+import { AlertService } from '@core/services/alert.service';
 
 @Component({
   selector: 'app-detalle-minuta',
@@ -24,6 +25,8 @@ import { SelectModule } from 'primeng/select';
   styleUrl: './detalle-minuta.scss',
 })
 export class DetalleMinuta {
+  protected _alertaService: AlertService = inject(AlertService);
+
   platilloForm!: FormGroup;
   fb: FormBuilder = inject(FormBuilder);
   platillos: Platillo[] = [];
@@ -199,4 +202,9 @@ export class DetalleMinuta {
     console.log('platillosMinuta:', this.platillosMinuta);
     this.platilloForm.reset();
   }
+
+  guardar(): void {
+    this._alertaService.exito('La modificación se guardo con éxito', '');
+  }
+
 }
