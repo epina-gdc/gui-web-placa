@@ -13,6 +13,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { SelectModule } from 'primeng/select';
 import { SeccionTitulos } from '@components/seccion-titulos/seccion-titulos';
 import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
+import { AlertService } from '@core/services/alert.service';
 
 @Component({
   selector: 'app-nuevo-platillo',
@@ -69,6 +70,8 @@ export class NuevoPlatillo {
   mostrarLista: boolean = false;
   ingredientesPlatillo: IngredientesPlatillo[] = [];
   ingredienteSeleccionado = '';
+
+  protected _alertaService: AlertService = inject(AlertService);
 
   constructor() {
     this.filtroForm = this.fb.group({
@@ -263,5 +266,9 @@ export class NuevoPlatillo {
         porcion: 0.68,
       },
     ];
+  }
+
+  guardar(): void {
+    this._alertaService.exito('El platillo se guardo correctamente', '!Exito!');
   }
 }

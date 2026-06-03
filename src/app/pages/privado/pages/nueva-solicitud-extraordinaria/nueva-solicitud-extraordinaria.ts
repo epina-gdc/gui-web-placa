@@ -9,6 +9,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { SelectModule } from 'primeng/select';
 import { SeccionTitulos } from '@components/seccion-titulos/seccion-titulos';
 import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
+import { AlertService } from '@core/services/alert.service';
 
 @Component({
   selector: 'app-nueva-solicitud-extraordinaria',
@@ -26,6 +27,8 @@ import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
   styleUrl: './nueva-solicitud-extraordinaria.scss',
 })
 export class NuevaSolicitudExtraordinaria {
+  protected _alertaService: AlertService = inject(AlertService);
+
   filtroForm!: FormGroup;
   fb: FormBuilder = inject(FormBuilder);
   presentaciones: Presentacion[] = [
@@ -131,5 +134,9 @@ export class NuevaSolicitudExtraordinaria {
     });
 
     this.filtroForm.reset();
+  }
+
+  guardar(): void {
+    this._alertaService.exito('La solicitud se guardo correctamente', '');
   }
 }
