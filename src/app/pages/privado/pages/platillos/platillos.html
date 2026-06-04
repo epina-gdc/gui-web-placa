@@ -13,7 +13,7 @@
           <!-- Nombre o clave -->
           <div class="lg:col-3 col-12">
 
-            <div class="flex justify-content-between">
+            <!-- <div class="flex justify-content-between">
               <label class="label-input">
                 Nombre o clave
               </label>
@@ -31,7 +31,56 @@
 
               <i class="placa-busqueda icon-search"></i>
 
+            </div> -->
+            <div class="flex justify-content-between">
+              <label class="label-input">
+                Nombre o clave
+              </label>
             </div>
+
+            <div class="ingrediente-search-container">
+
+              <!-- INPUT -->
+
+              <div class="search-input-wrapper">
+                <input
+                  class="w-full"
+                  pInputText
+                  type="text"
+                  formControlName="platilloTexto"
+                  placeholder="Ingresar"
+                  (input)="filtrarPlatillos()"
+                  (focus)="mostrarLista = true" />
+
+                <i class="placa-busqueda icon-search"></i>
+
+              </div>
+
+              <!-- LISTA -->
+
+              @if (mostrarLista && platillosFiltrados.length > 0) {
+
+                <div class="lista-ingredientes">
+
+                  @for (platillo of platillosFiltrados;
+                    track platillo.clave) {
+
+                    <div
+                      class="item-ingrediente"
+                      (click)="seleccionarPlatillo(platillo)">
+
+                      {{ platillo.nombre }}
+
+                    </div>
+
+                  }
+
+                </div>
+
+              }
+
+            </div>
+
 
           </div>
 
