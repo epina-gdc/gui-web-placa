@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Button } from 'primeng/button';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Select } from 'primeng/select';
 import { Motivo } from '@core/models/motivo.interface';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { InputText } from 'primeng/inputtext';
@@ -9,7 +8,7 @@ import { AlertService } from '@core/services/alert.service';
 
 @Component({
   selector: 'app-modal-modificar-minutas',
-  imports: [Button, ReactiveFormsModule, Select, InputText],
+  imports: [Button, ReactiveFormsModule, InputText],
   templateUrl: './modal-modificar-minutas.html',
   styleUrl: './modal-modificar-minutas.scss',
 })

@@ -161,5 +161,4 @@ export class MinutaSintetica {
 
     return this.periodos.find((x) => x.idPeriodo === idPeriodo)?.desPeriodo ?? '';
   }
-
 }

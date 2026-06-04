@@ -8,7 +8,6 @@ import { UserService } from '@core/services/user';
   providedIn: 'root',
 })
 export class AuthService {
-
   private mostrarAlertaSesionInactivaSubject = new Subject<boolean>();
 
   mostrarAlertaSesionInactivaS: Observable<boolean> =

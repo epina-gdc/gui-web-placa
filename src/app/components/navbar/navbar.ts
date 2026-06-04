@@ -12,8 +12,7 @@ import { AuthService } from '@core/services/auth';
 export class Navbar {
   menuVisible = signal<boolean>(false);
 
-  constructor(private _authService: AuthService) {
-  }
+  constructor(private _authService: AuthService) {}
 
   cerrarSesion(): void {
     console.log('[InicioSesion] Solicitando cierre de sesión...');
