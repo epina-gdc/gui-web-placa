@@ -67,7 +67,7 @@ export class MenuInterno {
           styleClass: 'border-sub-label',
         },
       ],
-    },
+    }/* ,
     {
       label: 'Atención médica',
       items: [
@@ -89,7 +89,7 @@ export class MenuInterno {
           command: () => this.onClose.emit(),
         },
       ],
-    },
+    }, */
   ];
 
   constructor(private elementRef: ElementRef) {}
