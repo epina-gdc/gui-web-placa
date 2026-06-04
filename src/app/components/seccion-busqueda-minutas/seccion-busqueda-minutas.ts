@@ -7,7 +7,6 @@ import { ServicioMinuta } from '@core/models/servicio-minuta.interface';
 import { ButtonModule } from 'primeng/button';
 import { DialogService } from 'primeng/dynamicdialog';
 import { TabsModule } from 'primeng/tabs';
-import { ModalRechazo } from '@components/modal/modal-rechazo/modal-rechazo';
 import { ModalModificarMinutas } from '@components/modal/modal-modificar-minutas/modal-modificar-minutas';
 
 @Component({
