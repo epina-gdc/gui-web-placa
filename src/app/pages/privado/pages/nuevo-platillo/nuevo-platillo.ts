@@ -75,7 +75,7 @@ export class NuevoPlatillo {
 
   constructor() {
     this.filtroForm = this.fb.group({
-      nombre: ['', Validators.required],
+      nombre: ['', Validators.required, Validators.maxLength(100)],
       grupo: [null, Validators.required],
       subgrupo: [null, Validators.required],
       estatus: [null, Validators.required],
