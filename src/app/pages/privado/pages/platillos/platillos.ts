@@ -24,7 +24,7 @@ import { SeccionBusqueda } from '@components/seccion-busqueda/seccion-busqueda';
   ],
   templateUrl: './platillos.html',
   styleUrl: './platillos.scss',
-})  
+})
 export class Platillos {
   filtroForm!: FormGroup;
   fb: FormBuilder = inject(FormBuilder);
@@ -47,22 +47,113 @@ export class Platillos {
   ];
 
   platillos: Platillo[] = [];
-  listaPlatillos: Platillo[] = [{ clave: '001001001', nombre: 'Huevo la mexicana' ,grupo: 'Platillo principal', subgrupo: 'Carne', estatus: 'Activo', fechaRegistro: new Date('2023-01-15') },
-      { clave: '001001002', nombre: 'Huevo con jamón' ,grupo: 'Platillo principal', subgrupo: 'Carne', estatus: 'Activo', fechaRegistro: new Date('2023-01-15') },
-      { clave: '001001003', nombre: 'Huevo con chorizo' ,grupo: 'Platillo principal', subgrupo: 'Carne', estatus: 'Activo', fechaRegistro: new Date('2023-01-15') },
-      { clave: '001001004', nombre: 'pechuga empanizada' ,grupo: 'Platillo principal', subgrupo: 'Carne', estatus: 'Activo', fechaRegistro: new Date('2023-01-15') },
-      { clave: '001001005', nombre: 'Huevo con salchicha' ,grupo: 'Platillo principal', subgrupo: 'Carne', estatus: 'Activo', fechaRegistro: new Date('2023-01-15') },
-      { clave: '001001006', nombre: 'Huevo con jamón y queso' ,grupo: 'Platillo principal', subgrupo: 'Carne', estatus: 'Activo', fechaRegistro: new Date('2023-01-15') },
-      { clave: '001001007', nombre: 'Huevo con chorizo y queso' ,grupo: 'Platillo principal', subgrupo: 'Carne', estatus: 'Activo', fechaRegistro: new Date('2023-01-15') },
-      { clave: '001001008', nombre: 'Huevo con tocino y queso' ,grupo: 'Platillo principal', subgrupo: 'Carne', estatus: 'Activo', fechaRegistro: new Date('2023-01-15') },
-      { clave: '001001009', nombre: 'Huevo con salchicha y queso' ,grupo: 'Platillo principal', subgrupo: 'Carne', estatus: 'Activo', fechaRegistro: new Date('2023-01-15') },
-      { clave: '001001010', nombre: 'Huevo con jamón, chorizo y queso' ,grupo: 'Platillo principal', subgrupo: 'Carne', estatus: 'Activo', fechaRegistro: new Date('2023-01-15') },
-      { clave: '001001011', nombre: 'Huevo con jamón, tocino y queso' ,grupo: 'Platillo principal', subgrupo: 'Carne', estatus: 'Activo', fechaRegistro: new Date('2023-01-15') },
-      { clave: '001001012', nombre: 'Huevo con chorizo, tocino y queso' ,grupo: 'Platillo principal', subgrupo: 'Carne', estatus: 'Activo', fechaRegistro: new Date('2023-01-15') },
-      { clave: '001001013', nombre: 'Huevo con jamón, chorizo, tocino y queso' ,grupo: 'Platillo principal', subgrupo: 'Carne', estatus: 'Activo', fechaRegistro: new Date('2023-01-15') },
-    ];
-  
-  
+  listaPlatillos: Platillo[] = [
+    {
+      clave: '001001001',
+      nombre: 'Huevo la mexicana',
+      grupo: 'Platillo principal',
+      subgrupo: 'Carne',
+      estatus: 'Activo',
+      fechaRegistro: new Date('2023-01-15'),
+    },
+    {
+      clave: '001001002',
+      nombre: 'Huevo con jamón',
+      grupo: 'Platillo principal',
+      subgrupo: 'Carne',
+      estatus: 'Activo',
+      fechaRegistro: new Date('2023-01-15'),
+    },
+    {
+      clave: '001001003',
+      nombre: 'Huevo con chorizo',
+      grupo: 'Platillo principal',
+      subgrupo: 'Carne',
+      estatus: 'Activo',
+      fechaRegistro: new Date('2023-01-15'),
+    },
+    {
+      clave: '001001004',
+      nombre: 'pechuga empanizada',
+      grupo: 'Platillo principal',
+      subgrupo: 'Carne',
+      estatus: 'Activo',
+      fechaRegistro: new Date('2023-01-15'),
+    },
+    {
+      clave: '001001005',
+      nombre: 'Huevo con salchicha',
+      grupo: 'Platillo principal',
+      subgrupo: 'Carne',
+      estatus: 'Activo',
+      fechaRegistro: new Date('2023-01-15'),
+    },
+    {
+      clave: '001001006',
+      nombre: 'Huevo con jamón y queso',
+      grupo: 'Platillo principal',
+      subgrupo: 'Carne',
+      estatus: 'Activo',
+      fechaRegistro: new Date('2023-01-15'),
+    },
+    {
+      clave: '001001007',
+      nombre: 'Huevo con chorizo y queso',
+      grupo: 'Platillo principal',
+      subgrupo: 'Carne',
+      estatus: 'Activo',
+      fechaRegistro: new Date('2023-01-15'),
+    },
+    {
+      clave: '001001008',
+      nombre: 'Huevo con tocino y queso',
+      grupo: 'Platillo principal',
+      subgrupo: 'Carne',
+      estatus: 'Activo',
+      fechaRegistro: new Date('2023-01-15'),
+    },
+    {
+      clave: '001001009',
+      nombre: 'Huevo con salchicha y queso',
+      grupo: 'Platillo principal',
+      subgrupo: 'Carne',
+      estatus: 'Activo',
+      fechaRegistro: new Date('2023-01-15'),
+    },
+    {
+      clave: '001001010',
+      nombre: 'Huevo con jamón, chorizo y queso',
+      grupo: 'Platillo principal',
+      subgrupo: 'Carne',
+      estatus: 'Activo',
+      fechaRegistro: new Date('2023-01-15'),
+    },
+    {
+      clave: '001001011',
+      nombre: 'Huevo con jamón, tocino y queso',
+      grupo: 'Platillo principal',
+      subgrupo: 'Carne',
+      estatus: 'Activo',
+      fechaRegistro: new Date('2023-01-15'),
+    },
+    {
+      clave: '001001012',
+      nombre: 'Huevo con chorizo, tocino y queso',
+      grupo: 'Platillo principal',
+      subgrupo: 'Carne',
+      estatus: 'Activo',
+      fechaRegistro: new Date('2023-01-15'),
+    },
+    {
+      clave: '001001013',
+      nombre: 'Huevo con jamón, chorizo, tocino y queso',
+      grupo: 'Platillo principal',
+      subgrupo: 'Carne',
+      estatus: 'Activo',
+      fechaRegistro: new Date('2023-01-15'),
+    },
+  ];
+
   platillosFiltrados: Platillo[] = [];
   mostrarLista: boolean = false;
   platilloSeleccionado = '';
@@ -180,28 +271,28 @@ export class Platillos {
   }
 
   filtrarPlatillos(): void {
-  const texto = this.filtroForm.get('platilloTexto')?.value?.toLowerCase()?.trim();
+    const texto = this.filtroForm.get('platilloTexto')?.value?.toLowerCase()?.trim();
 
-  if (!texto) {
-    this.platillosFiltrados = [...this.listaPlatillos];
-    return;
+    if (!texto) {
+      this.platillosFiltrados = [...this.listaPlatillos];
+      return;
+    }
+
+    this.platillosFiltrados = this.listaPlatillos.filter(
+      (x) =>
+        x.nombre.toLowerCase().includes(texto) || x.clave.toString().toLowerCase().includes(texto),
+    );
   }
-
-  this.platillosFiltrados = this.listaPlatillos.filter((x) =>
-    x.nombre.toLowerCase().includes(texto) ||
-    x.clave.toString().toLowerCase().includes(texto)
-  );
-}
-    /* =========================================================
+  /* =========================================================
        SELECCIONAR
        ========================================================= */
-  
-    seleccionarPlatillo(platillo: Platillo): void {
-      this.filtroForm.patchValue({
-        platillo: platillo,
-        platilloTexto: platillo.nombre,
-      });
-  
-      this.mostrarLista = false;
-    }
+
+  seleccionarPlatillo(platillo: Platillo): void {
+    this.filtroForm.patchValue({
+      platillo: platillo,
+      platilloTexto: platillo.nombre,
+    });
+
+    this.mostrarLista = false;
+  }
 }

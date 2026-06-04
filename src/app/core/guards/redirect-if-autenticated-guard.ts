@@ -1,0 +1,16 @@
+import { inject } from '@angular/core';
+import { CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
+import { Observable, of } from 'rxjs';
+
+export const redirectIfAuthenticatedGuard: CanActivateFn = (route, state) => {
+  return checkAuth(state);
+};
+
+const checkAuth = (state: RouterStateSnapshot): Observable<boolean> => {
+  const router = inject(Router);
+  if (localStorage.getItem('PLACA_TOKEN')) {
+    void router.navigate(['/privado/platillos']);
+    return of(false);
+  }
+  return of(true);
+};
