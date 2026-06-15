@@ -18,13 +18,13 @@
           <div class="field">
             <label for="matricula-login" class="label-input">Matrícula</label>
             <input id="matricula-login" type="text" pInputText formControlName="matricula" pSize="large"
-                   placeholder="Ingresar matrícula" class="w-full" />
+                   placeholder="Ingresar matrícula" class="w-full" [maxlength]="10" />
 
           </div>
           <div class="field">
             <label for="pass-login" class="label-input">Constraseña</label>
             <input id="pass-login" type="password" pInputText formControlName="password" pSize="large"
-                   placeholder="Ingresar contraseña" class="w-full"  />
+                   placeholder="Ingresar contraseña" class="w-full" [maxlength]="15" />
 
           </div>
         </div>
@@ -32,7 +32,7 @@
       <ng-template #footer>
         <section class="flex justify-content-end inicio-sesion-form-footer">
           <p-button type="submit" label="Ingresar" class="inicio-sesion-button" [styleClass]="'w-full'" (click)="iniciarSesion()"
-                    [disabled]="loginForm.invalid"></p-button>
+                    [disabled]="loginForm.invalid || cargando()"></p-button>
         </section>
       </ng-template>
     </p-card>
