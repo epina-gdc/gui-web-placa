@@ -8,10 +8,11 @@ import { NAV_PRIVADO_URL } from '@core/utils/url-global';
 import { AuthService } from '@core/services/auth';
 import { ONLY_NUMBERS, PASSWORD } from '@core/utils/patterns';
 import { finalize } from 'rxjs';
+import { Password } from 'primeng/password';
 
 @Component({
   selector: 'app-inicio-sesion',
-  imports: [Card, Button, ReactiveFormsModule, InputText],
+  imports: [Card, Button, ReactiveFormsModule, InputText, Password],
   templateUrl: './inicio-sesion.html',
   styleUrl: './inicio-sesion.scss',
   host: {

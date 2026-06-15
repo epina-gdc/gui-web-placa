@@ -22,10 +22,17 @@
 
           </div>
           <div class="field">
-            <label for="pass-login" class="label-input">Constraseña</label>
-            <input id="pass-login" type="password" pInputText formControlName="password" pSize="large"
-                   placeholder="Ingresar contraseña" class="w-full" [maxlength]="15" />
-
+            <label for="pass-login" class="label-input">Contraseña</label>
+            <p-password
+              id="pass-login"
+              formControlName="password"
+              placeholder="Ingresar contraseña"
+              [toggleMask]="true"
+              [feedback]="false"
+              [maxLength]="15"
+              class="w-full"
+              inputStyleClass="w-full p-inputtext-lg">
+            </p-password>
           </div>
         </div>
       </form>
