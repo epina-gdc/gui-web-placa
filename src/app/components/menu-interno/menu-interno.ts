@@ -40,6 +40,7 @@ export class MenuInterno {
           icon: 'placa-minuta',
           routerLink: `/${NAV_BASE_URL.privado}/${NAV_PRIVADO_URL.minutaSintetica}`,
           command: () => this.onClose.emit(),
+          styleClass: 'border-sub-label',
         },
       ],
     },
@@ -63,9 +64,10 @@ export class MenuInterno {
           icon: 'placa-solicitud-proveedor',
           routerLink: `/${NAV_BASE_URL.privado}/${NAV_PRIVADO_URL.solicitudExtraordinariaProveedor}`,
           command: () => this.onClose.emit(),
+          styleClass: 'border-sub-label',
         },
       ],
-    },
+    } /* ,
     {
       label: 'Atención médica',
       items: [
@@ -87,7 +89,7 @@ export class MenuInterno {
           command: () => this.onClose.emit(),
         },
       ],
-    },
+    }, */,
   ];
 
   constructor(private elementRef: ElementRef) {}

@@ -120,6 +120,8 @@
   border-radius: 8px !important;
 
   overflow: hidden !important;
+
+  max-width: calc(100vw - 2rem) !important;
 }
 
 /* =========================================================
@@ -186,6 +188,57 @@
   font-size: 14px !important;
 }
 
+.modal-confirmacion-dialog {
+  width: min(800px, calc(100vw - 2rem)) !important;
+  max-width: calc(100vw - 2rem) !important;
+}
+
+.modal-confirmacion-dialog .p-dialog-content {
+  overflow-x: hidden !important;
+}
+
+@media (max-width: 640px) {
+  .p-dialog-mask {
+    position: fixed !important;
+    inset: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    max-width: 100vw !important;
+    padding: 1rem !important;
+    overflow: hidden !important;
+  }
+
+  .p-dialog {
+    margin: 1rem !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: min(100%, calc(100vw - 2rem)) !important;
+    max-width: calc(100vw - 2rem) !important;
+    max-height: calc(100dvh - 2rem) !important;
+    transform: none !important;
+  }
+
+  .modal-confirmacion-dialog {
+    width: calc(100vw - 2rem) !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+
+  .modal-confirmacion-dialog .p-dialog-header {
+    height: auto !important;
+    min-height: 56px !important;
+  }
+
+  .modal-confirmacion-dialog .p-dialog-title {
+    white-space: normal !important;
+  }
+}
+
 label {
   margin-bottom: 0;
 }
@@ -199,4 +252,11 @@ label {
   color: #DF5A68;
   font-size: 20px;
 
+}
+
+
+.border-sub-label {
+  border-bottom: #CECFD6 1px solid !important;
+  margin-left: 5px;
+  margin-right: 5px;
 }

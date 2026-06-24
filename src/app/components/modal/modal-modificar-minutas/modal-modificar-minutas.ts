@@ -1,18 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { Button } from 'primeng/button';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Select } from 'primeng/select';
 import { Motivo } from '@core/models/motivo.interface';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { InputText } from 'primeng/inputtext';
+import { AlertService } from '@core/services/alert.service';
 
 @Component({
   selector: 'app-modal-modificar-minutas',
-  imports: [Button, ReactiveFormsModule, Select, InputText],
+  imports: [Button, ReactiveFormsModule, InputText],
   templateUrl: './modal-modificar-minutas.html',
   styleUrl: './modal-modificar-minutas.scss',
 })
 export class ModalModificarMinutas {
+  protected _alertaService: AlertService = inject(AlertService);
+
   motivos: Motivo[] = [
     { idMotivo: 1, descripcion: 'Ingredientes Incorrectos' },
     { idMotivo: 2, descripcion: 'Falta de Ingredientes' },
@@ -40,9 +42,14 @@ export class ModalModificarMinutas {
 
   aceptar(): void {
     this.ref.close(true);
+    this.guardar();
   }
 
   cancelar(): void {
     this.ref.close(false);
+  }
+
+  guardar(): void {
+    this._alertaService.exito('Raciones modificadas', '');
   }
 }

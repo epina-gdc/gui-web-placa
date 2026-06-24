@@ -44,14 +44,14 @@
               No.
             </th>
 
-            <th style="width:34%">
+            <th style="width:76%">
               Platillo
             </th>
 
             <th style="width:22%">
               Ración
             </th>
-           
+
             <th
               style="width:8%"
               class="text-center">
@@ -83,7 +83,7 @@
               {{ rowData.platillo }}
             </td>
 
-            <td class="col-variedad">
+            <td class="col-variedad" style="padding-right: 10px !important;padding-bottom: 10px !important;padding-top: 10px !important;">
               <input
                     pInputText
                     type="number"
@@ -91,7 +91,7 @@
                     class="w-full">
             </td>
 
-           
+
 
             <td class="col-eliminar text-center">
 
@@ -101,6 +101,7 @@
                 icon="placa-trash"
                 class="p-button-text p-button-danger"
                 size="large"
+                (click)="eliminarPlatillo()"
               >
               </button>
 
